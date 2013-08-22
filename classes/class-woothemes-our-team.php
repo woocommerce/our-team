@@ -368,6 +368,30 @@ class Woothemes_Our_Team {
 		    'section' => 'info'
 		);
 
+		$fields['facebook'] = array(
+		    'name' => __( 'Facebook URL', 'woothemes-our-team' ),
+		    'description' => __( 'Enter this team member\'s Facebook URL (for example: http://facebook.com/woothemes).', 'woothemes-our-team' ),
+		    'type' => 'text',
+		    'default' => '',
+		    'section' => 'info'
+		);
+
+		$fields['twitter'] = array(
+		    'name' => __( 'Twitter URL', 'woothemes-our-team' ),
+		    'description' => __( 'Enter this team member\'s Twitter URL (for example: http://twitter.com/woothemes).', 'woothemes-our-team' ),
+		    'type' => 'text',
+		    'default' => '',
+		    'section' => 'info'
+		);
+
+		$fields['instagram'] = array(
+		    'name' => __( 'Instagram URL', 'woothemes-our-team' ),
+		    'description' => __( 'Enter this team member\'s Instagram URL (for example: http://instagram.com/woothemes).', 'woothemes-our-team' ),
+		    'type' => 'text',
+		    'default' => '',
+		    'section' => 'info'
+		);
+
 		return $fields;
 	} // End get_custom_fields_settings()
 

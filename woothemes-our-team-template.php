@@ -120,12 +120,27 @@ function woothemes_our_team ( $args = '' ) {
 
 					if ( isset( $post->byline ) && '' != $post->byline ) {
 						$author .= '<dt>' . __( 'Role', 'woothemes-our-team' ) . '</dt>';
-						$author .= ' <dd class="byline">' . $post->byline . '</dd><!--/.byline-->' . "\n";
+						$author .= ' <dd class="role">' . $post->byline . '</dd><!--/.excerpt-->' . "\n";
 					}
 
 					if ( true == $args['display_url'] && '' != $post->url ) {
 						$author .= '<dt>' . __( 'URL', 'woothemes-our-team' ) . '</dt>';
 						$author .= '<dd class="url"><a href="' . esc_url( $post->url ) . '">' . $post->url . '</a></dd><!--/.excerpt-->' . "\n";
+					}
+
+					if ( true == $args['facebook'] && '' != $post->facebook ) {
+						$author .= '<dt>' . __( 'Facebook', 'woothemes-our-team' ) . '</dt>';
+						$author .= '<dd class="facebook"><a href="' . esc_url( $post->facebook ) . '">' . $post->facebook . '</a></dd><!--/.excerpt-->' . "\n";
+					}
+
+					if ( true == $args['instagram'] && '' != $post->instagram ) {
+						$author .= '<dt>' . __( 'Instagram', 'woothemes-our-team' ) . '</dt>';
+						$author .= '<dd class="instagram"><a href="' . esc_url( $post->instagram ) . '">' . $post->instagram . '</a></dd><!--/.excerpt-->' . "\n";
+					}
+
+					if ( true == $args['twitter'] && '' != $post->twitter ) {
+						$author .= '<dt>' . __( 'Twitter', 'woothemes-our-team' ) . '</dt>';
+						$author .= '<dd class="twitter"><a href="' . esc_url( $post->twitter ) . '">' . $post->twitter . '</a></dd><!--/.excerpt-->' . "\n";
 					}
 
 					$author .= '</dl>';
@@ -206,6 +221,9 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 		'display_author' => true,
 		'display_avatar' => true,
 		'display_url' => true,
+		'facebook' => true,
+		'twitter' => true,
+		'instagram' => true,
 		'effect' => 'fade', // Options: 'fade', 'none'
 		'pagination' => false,
 		'echo' => true,
