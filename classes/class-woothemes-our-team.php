@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
  * All functionality pertaining to the Our Team feature.
  *
  * @package WordPress
- * @subpackage Woothemes_Our_Team
+ * @subpackage WooThemes_Our_Team
  * @category Plugin
  * @author Matty
  * @since 1.0.0
@@ -428,9 +428,8 @@ class Woothemes_Our_Team {
 		$query_args['suppress_filters'] = false;
 
 		$ids = explode( ',', $args['id'] );
-		$ids = array_map( 'intval', $ids );
-
-		if ( 0 < count( $ids ) ) {
+		if ( 0 < intval( $args['id'] ) && 0 < count( $ids ) ) {
+			$ids = array_map( 'intval', $ids );
 			if ( 1 == count( $ids ) && is_numeric( $ids[0] ) && ( 0 < intval( $ids[0] ) ) ) {
 				$query_args['p'] = intval( $args['id'] );
 			} else {
