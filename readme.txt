@@ -87,6 +87,44 @@ Installing "Our Team by WooThemes" can be done either by searching for "Our Team
 
 "Our Team by WooThemes" is a lean plugin that aims to keep it's purpose as clean and clear as possible. Thus, we don't load any preset CSS styling, to allow full control over the styling within your theme or child theme.
 
+= I don't need the 'Role' field, can I disable that? =
+
+You sure can. In fact you can disable all the default fields individually. To disable the role field add
+
+`add_filter( 'team_member_role', '__return_false' );`
+
+To your themes functions.php file. Replace '_role' with '_url', or '_twitter' for example to disable other fields.
+
+= I need to add another field, can I do it without touching core files? =
+
+Yesiree! To add a new field to the backend add the following to your themes `functions.php` file:
+
+`add_filter( 'member_fields', 'my_new_fields' );
+function my_new_fields( $fields ) {
+	$fields['misc'] = array(
+	    'name' => __( 'Misc Detail', 'woothemes-our-team' ),
+	    'description' => __( 'Some miscellaneous detail', 'woothemes-our-team' ),
+	    'type' => 'text',
+	    'default' => '',
+	    'section' => 'info'
+	);
+	return $fields;
+}`
+
+Then to display the contents of that field on the frontend add the following:
+
+`add_filter( 'member_fields_display', 'my_new_fields_display' );
+function my_new_fields_display( $member_fields ) {
+	global $post;
+	if ( '' != $post->misc ) {
+		$member_fields .= '<dt>' . __( 'Misc', 'woothemes-our-team' ) . '</dt>';
+		$member_fields .= '<dd class="misc">' . $post->misc . '</dd><!--/.misc-->' . "\n";
+	}
+	return $member_fields;
+}`
+
+Done!
+
 = How do I contribute? =
 
 We encourage everyone to contribute their ideas, thoughts and code snippets. This can be done by forking the [repository over at GitHub](http://github.com/woothemes/our-team/).

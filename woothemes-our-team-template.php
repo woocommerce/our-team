@@ -116,32 +116,36 @@ function woothemes_our_team ( $args = '' ) {
 
 					$author .= '</h3><!--/.author-->' . "\n";
 
-					$author .= '<dl>';
+					$author .= '<dl class="author-details">';
 
-					if ( isset( $post->byline ) && '' != $post->byline ) {
-						$author .= '<dt>' . __( 'Role', 'woothemes-our-team' ) . '</dt>';
-						$author .= ' <dd class="role">' . $post->byline . '</dd><!--/.excerpt-->' . "\n";
+					$member_fields = '';
+
+					if ( isset( $post->byline ) && '' != $post->byline && apply_filters( 'team_member_role', true ) ) {
+						$member_fields .= '<dt>' . __( 'Role', 'woothemes-our-team' ) . '</dt>';
+						$member_fields .= ' <dd class="role">' . $post->byline . '</dd><!--/.excerpt-->' . "\n";
 					}
 
-					if ( true == $args['display_url'] && '' != $post->url ) {
-						$author .= '<dt>' . __( 'URL', 'woothemes-our-team' ) . '</dt>';
-						$author .= '<dd class="url"><a href="' . esc_url( $post->url ) . '">' . $post->url . '</a></dd><!--/.excerpt-->' . "\n";
+					if ( true == $args['display_url'] && '' != $post->url && apply_filters( 'team_member_url', true ) ) {
+						$member_fields .= '<dt>' . __( 'URL', 'woothemes-our-team' ) . '</dt>';
+						$member_fields .= '<dd class="url"><a href="' . esc_url( $post->url ) . '">' . $post->url . '</a></dd><!--/.excerpt-->' . "\n";
 					}
 
-					if ( true == $args['facebook'] && '' != $post->facebook ) {
-						$author .= '<dt>' . __( 'Facebook', 'woothemes-our-team' ) . '</dt>';
-						$author .= '<dd class="facebook"><a href="' . esc_url( $post->facebook ) . '">' . $post->facebook . '</a></dd><!--/.excerpt-->' . "\n";
+					if ( true == $args['facebook'] && '' != $post->facebook && apply_filters( 'team_member_facebook', true ) ) {
+						$member_fields .= '<dt>' . __( 'Facebook', 'woothemes-our-team' ) . '</dt>';
+						$member_fields .= '<dd class="facebook"><a href="' . esc_url( $post->facebook ) . '">' . $post->facebook . '</a></dd><!--/.excerpt-->' . "\n";
 					}
 
-					if ( true == $args['instagram'] && '' != $post->instagram ) {
-						$author .= '<dt>' . __( 'Instagram', 'woothemes-our-team' ) . '</dt>';
-						$author .= '<dd class="instagram"><a href="' . esc_url( $post->instagram ) . '">' . $post->instagram . '</a></dd><!--/.excerpt-->' . "\n";
+					if ( true == $args['instagram'] && '' != $post->instagram && apply_filters( 'team_member_instagram', true ) ) {
+						$member_fields .= '<dt>' . __( 'Instagram', 'woothemes-our-team' ) . '</dt>';
+						$member_fields .= '<dd class="instagram"><a href="' . esc_url( $post->instagram ) . '">' . $post->instagram . '</a></dd><!--/.excerpt-->' . "\n";
 					}
 
-					if ( true == $args['twitter'] && '' != $post->twitter ) {
-						$author .= '<dt>' . __( 'Twitter', 'woothemes-our-team' ) . '</dt>';
-						$author .= '<dd class="twitter"><a href="' . esc_url( $post->twitter ) . '">' . $post->twitter . '</a></dd><!--/.excerpt-->' . "\n";
+					if ( true == $args['twitter'] && '' != $post->twitter && apply_filters( 'team_member_twitter', true ) ) {
+						$member_fields .= '<dt>' . __( 'Twitter', 'woothemes-our-team' ) . '</dt>';
+						$member_fields .= '<dd class="twitter"><a href="' . esc_url( $post->twitter ) . '">' . $post->twitter . '</a></dd><!--/.excerpt-->' . "\n";
 					}
+
+					$author .= apply_filters( 'member_fields_display', $member_fields );
 
 					$author .= '</dl>';
 

@@ -352,47 +352,57 @@ class Woothemes_Our_Team {
 		    'section' => 'info'
 		);
 
-		$fields['byline'] = array(
-		    'name' => __( 'Byline', 'woothemes-our-team' ),
-		    'description' => __( 'Enter a byline for the team member (for example: "Director of Production").', 'woothemes-our-team' ),
-		    'type' => 'text',
-		    'default' => '',
-		    'section' => 'info'
-		);
+		if ( apply_filters( 'team_member_role', true ) ) {
+			$fields['byline'] = array(
+			    'name' => __( 'Role', 'woothemes-our-team' ),
+			    'description' => __( 'Enter a byline for the team member (for example: "Director of Production").', 'woothemes-our-team' ),
+			    'type' => 'text',
+			    'default' => '',
+			    'section' => 'info'
+			);
+		}
 
-		$fields['url'] = array(
-		    'name' => __( 'URL', 'woothemes-our-team' ),
-		    'description' => __( 'Enter this team member\'s URL (for example: http://woothemes.com/).', 'woothemes-our-team' ),
-		    'type' => 'url',
-		    'default' => '',
-		    'section' => 'info'
-		);
+		if ( apply_filters( 'team_member_url', true ) ) {
+			$fields['url'] = array(
+			    'name' => __( 'URL', 'woothemes-our-team' ),
+			    'description' => __( 'Enter this team member\'s URL (for example: http://woothemes.com/).', 'woothemes-our-team' ),
+			    'type' => 'url',
+			    'default' => '',
+			    'section' => 'info'
+			);
+		}
 
-		$fields['facebook'] = array(
-		    'name' => __( 'Facebook URL', 'woothemes-our-team' ),
-		    'description' => __( 'Enter this team member\'s Facebook URL (for example: http://facebook.com/woothemes).', 'woothemes-our-team' ),
-		    'type' => 'text',
-		    'default' => '',
-		    'section' => 'info'
-		);
+		if ( apply_filters( 'team_member_facebook', true ) ) {
+			$fields['facebook'] = array(
+			    'name' => __( 'Facebook URL', 'woothemes-our-team' ),
+			    'description' => __( 'Enter this team member\'s Facebook URL (for example: http://facebook.com/woothemes).', 'woothemes-our-team' ),
+			    'type' => 'text',
+			    'default' => '',
+			    'section' => 'info'
+			);
+		}
 
-		$fields['twitter'] = array(
-		    'name' => __( 'Twitter URL', 'woothemes-our-team' ),
-		    'description' => __( 'Enter this team member\'s Twitter URL (for example: http://twitter.com/woothemes).', 'woothemes-our-team' ),
-		    'type' => 'text',
-		    'default' => '',
-		    'section' => 'info'
-		);
+		if ( apply_filters( 'team_member_twitter', true ) ) {
+			$fields['twitter'] = array(
+			    'name' => __( 'Twitter URL', 'woothemes-our-team' ),
+			    'description' => __( 'Enter this team member\'s Twitter URL (for example: http://twitter.com/woothemes).', 'woothemes-our-team' ),
+			    'type' => 'text',
+			    'default' => '',
+			    'section' => 'info'
+			);
+		}
 
-		$fields['instagram'] = array(
-		    'name' => __( 'Instagram URL', 'woothemes-our-team' ),
-		    'description' => __( 'Enter this team member\'s Instagram URL (for example: http://instagram.com/woothemes).', 'woothemes-our-team' ),
-		    'type' => 'text',
-		    'default' => '',
-		    'section' => 'info'
-		);
+		if ( apply_filters( 'team_member_instagram', true ) ) {
+			$fields['instagram'] = array(
+			    'name' => __( 'Instagram URL', 'woothemes-our-team' ),
+			    'description' => __( 'Enter this team member\'s Instagram URL (for example: http://instagram.com/woothemes).', 'woothemes-our-team' ),
+			    'type' => 'text',
+			    'default' => '',
+			    'section' => 'info'
+			);
+		}
 
-		return $fields;
+		return apply_filters( 'member_fields', $fields );
 	} // End get_custom_fields_settings()
 
 	/**
