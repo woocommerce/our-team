@@ -43,7 +43,7 @@ function woothemes_our_team ( $args = '' ) {
 		'effect' => 'fade', // Options: 'fade', 'none'
 		'pagination' => false,
 		'echo' => true,
-		'size' => 50,
+		'size' => 250,
 		'title' => '',
 		'before' => '<div class="widget widget_woothemes_our_team">',
 		'after' => '</div>',
@@ -85,7 +85,7 @@ function woothemes_our_team ( $args = '' ) {
 			$html .= '<div class="team-member-list">' . "\n";
 
 			// Begin templating logic.
-			$tpl = '<div id="quote-%%ID%%" class="%%CLASS%%"><blockquote class="team-member-text">%%TEXT%%</blockquote>%%AVATAR%% %%AUTHOR%%<div class="fix"></div></div>';
+			$tpl = '%%AVATAR%% %%AUTHOR%% <div id="quote-%%ID%%" class="%%CLASS%%"><div class="team-member-text">%%TEXT%%</div><div class="fix"></div></div>';
 			$tpl = apply_filters( 'woothemes_our_team_item_template', $tpl, $args );
 
 			$count = 0;
@@ -108,21 +108,27 @@ function woothemes_our_team ( $args = '' ) {
 
 				// If we need to display the author, get the data.
 				if ( ( get_the_title( $post ) != '' ) && true == $args['display_author'] ) {
-					$author .= '<cite class="author">';
+					$author .= '<h3 class="author">';
 
 					$author_name = get_the_title( $post );
 
 					$author .= $author_name;
 
+					$author .= '</h3><!--/.author-->' . "\n";
+
+					$author .= '<dl>';
+
 					if ( isset( $post->byline ) && '' != $post->byline ) {
-						$author .= ' <span class="excerpt">' . $post->byline . '</span><!--/.excerpt-->' . "\n";
+						$author .= '<dt>' . __( 'Role', 'woothemes-our-team' ) . '</dt>';
+						$author .= ' <dd class="byline">' . $post->byline . '</dd><!--/.byline-->' . "\n";
 					}
 
 					if ( true == $args['display_url'] && '' != $post->url ) {
-						$author .= ' <span class="url"><a href="' . esc_url( $post->url ) . '">' . $post->url . '</a></span><!--/.excerpt-->' . "\n";
+						$author .= '<dt>' . __( 'URL', 'woothemes-our-team' ) . '</dt>';
+						$author .= '<dd class="url"><a href="' . esc_url( $post->url ) . '">' . $post->url . '</a></dd><!--/.excerpt-->' . "\n";
 					}
 
-					$author .= '</cite><!--/.author-->' . "\n";
+					$author .= '</dl>';
 
 					// Templating engine replacement.
 					$template = str_replace( '%%AUTHOR%%', $author, $template );
@@ -135,14 +141,14 @@ function woothemes_our_team ( $args = '' ) {
 				$template = str_replace( '%%CLASS%%', esc_attr( $css_class ), $template );
 
 				if ( isset( $post->image ) && ( '' != $post->image ) && true == $args['display_avatar'] ) {
-					$template = str_replace( '%%AVATAR%%', '<a href="' . esc_url( $post->url ) . '" class="avatar-link">' . $post->image . '</a>', $template );
+					$template = str_replace( '%%AVATAR%%', '<figure><a href="' . esc_url( $post->url ) . '" class="avatar-link">' . $post->image . '</a></figure>', $template );
 				} else {
 					$template = str_replace( '%%AVATAR%%', '', $template );
 				}
 
 				// Remove any remaining %%AVATAR%% template tags.
 				$template = str_replace( '%%AVATAR%%', '', $template );
-				$content = apply_filters( 'woothemes_our_team_content', get_the_content(), $post );
+				$content = apply_filters( 'woothemes_our_team_content', wpautop( get_the_content() ), $post );
 				$template = str_replace( '%%TEXT%%', $content, $template );
 
 				// Assign for output.
@@ -155,7 +161,7 @@ function woothemes_our_team ( $args = '' ) {
 
 			wp_reset_postdata();
 
-			$html .= '</div><!--/.testimonials-list-->' . "\n";
+			$html .= '</div><!--/.team-member-list-->' . "\n";
 
 			if ( $args['pagination'] == true && count( $query ) > 1 && $args['effect'] != 'none' ) {
 				$html .= '<div class="pagination">' . "\n";
@@ -164,7 +170,7 @@ function woothemes_our_team ( $args = '' ) {
 		        $html .= '</div><!--/.pagination-->' . "\n";
 			}
 				$html .= '<div class="fix"></div>' . "\n";
-			$html .= '</div><!--/.testimonials-->' . "\n";
+			$html .= '</div><!--/.team-members-->' . "\n";
 			$html .= $args['after'] . "\n";
 		}
 
@@ -203,7 +209,7 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 		'effect' => 'fade', // Options: 'fade', 'none'
 		'pagination' => false,
 		'echo' => true,
-		'size' => 50,
+		'size' => 250,
 		'category' => 0
 	);
 
