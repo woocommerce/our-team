@@ -85,14 +85,14 @@ function woothemes_our_team ( $args = '' ) {
 			$html .= '<div class="team-member-list">' . "\n";
 
 			// Begin templating logic.
-			$tpl = '%%AVATAR%% %%TITLE%% <div id="team-member-%%ID%%" class="%%CLASS%%"><div class="team-member-text">%%TEXT%%</div> %%AUTHOR%%<div class="fix"></div></div>';
+			$tpl = '<div itemscope itemtype="http://schema.org/Person">%%AVATAR%% %%TITLE%% <div id="team-member-%%ID%%" class="%%CLASS%%"><div class="team-member-text" itemprop="description">%%TEXT%%</div> %%AUTHOR%%<div class="fix"></div></div></div>';
 			$tpl = apply_filters( 'woothemes_our_team_item_template', $tpl, $args );
 
 			$count = 0;
 			foreach ( $query as $post ) { $count++;
 				$template = $tpl;
 
-				$css_class = 'quote';
+				$css_class = 'team-member-description';
 				if ( ( is_numeric( $args['per_row'] ) && ( 0 == ( $count - 1 ) % $args['per_row'] ) ) || 1 == $count ) { $css_class .= ' first'; }
 				if ( ( is_numeric( $args['per_row'] ) && ( 0 == $count % $args['per_row'] ) ) || count( $query ) == $count ) { $css_class .= ' last'; }
 
@@ -108,7 +108,7 @@ function woothemes_our_team ( $args = '' ) {
 
 				// If we need to display the title, get the data
 				if ( ( get_the_title( $post ) != '' ) && true == $args['display_title'] ) {
-					$title .= '<h3 class="member">';
+					$title .= '<h3 itemprop="name" class="member">';
 
 					if ( true == $args['display_url'] && '' != $post->url && apply_filters( 'team_member_url', true ) ) {
 						$title .= '<a href="' . esc_url( $post->url ) . '">' . "\n";
@@ -127,7 +127,7 @@ function woothemes_our_team ( $args = '' ) {
 					$member_role = '';
 
 					if ( isset( $post->byline ) && '' != $post->byline && apply_filters( 'team_member_role', true ) ) {
-						$member_role .= ' <p class="role">' . $post->byline . '</p><!--/.excerpt-->' . "\n";
+						$member_role .= ' <p class="role" itemprop="jobTitle">' . $post->byline . '</p><!--/.excerpt-->' . "\n";
 					}
 
 					$title .= apply_filters( 'member_fields_display', $member_role );
