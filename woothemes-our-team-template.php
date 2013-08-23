@@ -155,7 +155,7 @@ function woothemes_our_team ( $args = '' ) {
 				$template = str_replace( '%%CLASS%%', esc_attr( $css_class ), $template );
 
 				if ( isset( $post->image ) && ( '' != $post->image ) && true == $args['display_avatar'] ) {
-					$template = str_replace( '%%AVATAR%%', '<figure><a href="' . esc_url( $post->url ) . '" class="avatar-link">' . $post->image . '</a></figure>', $template );
+					$template = str_replace( '%%AVATAR%%', '<figure>' . $post->image . '</figure>', $template );
 				} else {
 					$template = str_replace( '%%AVATAR%%', '', $template );
 				}
