@@ -85,7 +85,7 @@ function woothemes_our_team ( $args = '' ) {
 			$html .= '<div class="team-member-list">' . "\n";
 
 			// Begin templating logic.
-			$tpl = '%%AVATAR%% %%AUTHOR%% <div id="quote-%%ID%%" class="%%CLASS%%"><div class="team-member-text">%%TEXT%%</div><div class="fix"></div></div>';
+			$tpl = '%%AVATAR%% %%TITLE%% <div id="team-member-%%ID%%" class="%%CLASS%%"><div class="team-member-text">%%TEXT%%</div> %%AUTHOR%%<div class="fix"></div></div>';
 			$tpl = apply_filters( 'woothemes_our_team_item_template', $tpl, $args );
 
 			$count = 0;
@@ -103,18 +103,28 @@ function woothemes_our_team ( $args = '' ) {
 
 				setup_postdata( $post );
 
+				$title = '';
+				$title_name = '';
+
+				// If we need to display the title, get the data
+				if ( ( get_the_title( $post ) != '' ) && true == $args['display_title'] ) {
+					$title .= '<h3 class="member">';
+
+					$title_name = get_the_title( $post );
+
+					$title .= $title_name;
+
+					$title .= '</h3><!--/.member-->' . "\n";
+
+					// Templating engine replacement.
+					$template = str_replace( '%%TITLE%%', $title, $template );
+				}
+
 				$author = '';
 				$author_text = '';
 
 				// If we need to display the author, get the data.
-				if ( ( get_the_title( $post ) != '' ) && true == $args['display_author'] ) {
-					$author .= '<h3 class="author">';
-
-					$author_name = get_the_title( $post );
-
-					$author .= $author_name;
-
-					$author .= '</h3><!--/.author-->' . "\n";
+				if ( true == $args['display_author'] ) {
 
 					$author .= '<ul class="author-details">';
 
@@ -217,6 +227,7 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 		'orderby' => 'menu_order',
 		'order' => 'DESC',
 		'id' => 0,
+		'display_title' => true,
 		'display_author' => true,
 		'display_avatar' => true,
 		'display_url' => true,
@@ -241,7 +252,7 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 	if ( isset( $args['category'] ) && is_numeric( $args['category'] ) ) $args['category'] = intval( $args['category'] );
 
 	// Fix booleans.
-	foreach ( array( 'display_author', 'display_url', 'pagination', 'display_avatar' ) as $k => $v ) {
+	foreach ( array( 'display_title', 'display_author', 'display_url', 'pagination', 'display_avatar' ) as $k => $v ) {
 		if ( isset( $args[$v] ) && ( 'true' == $args[$v] ) ) {
 			$args[$v] = true;
 		} else {
