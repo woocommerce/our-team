@@ -372,30 +372,10 @@ class Woothemes_Our_Team {
 			);
 		}
 
-		if ( apply_filters( 'team_member_facebook', true ) ) {
-			$fields['facebook'] = array(
-			    'name' => __( 'Facebook Username', 'woothemes-our-team' ),
-			    'description' => __( 'Enter this team member\'s Facebook username (for example: woothemes).', 'woothemes-our-team' ),
-			    'type' => 'text',
-			    'default' => '',
-			    'section' => 'info'
-			);
-		}
-
 		if ( apply_filters( 'team_member_twitter', true ) ) {
 			$fields['twitter'] = array(
 			    'name' => __( 'Twitter Username', 'woothemes-our-team' ),
 			    'description' => __( 'Enter this team member\'s Twitter username without the @ (for example: woothemes).', 'woothemes-our-team' ),
-			    'type' => 'text',
-			    'default' => '',
-			    'section' => 'info'
-			);
-		}
-
-		if ( apply_filters( 'team_member_instagram', true ) ) {
-			$fields['instagram'] = array(
-			    'name' => __( 'Instagram Username', 'woothemes-our-team' ),
-			    'description' => __( 'Enter this team member\'s Instagram username (for example: woothemes).', 'woothemes-our-team' ),
 			    'type' => 'text',
 			    'default' => '',
 			    'section' => 'info'
