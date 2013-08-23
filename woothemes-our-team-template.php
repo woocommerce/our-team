@@ -110,9 +110,17 @@ function woothemes_our_team ( $args = '' ) {
 				if ( ( get_the_title( $post ) != '' ) && true == $args['display_title'] ) {
 					$title .= '<h3 class="member">';
 
+					if ( true == $args['display_url'] && '' != $post->url && apply_filters( 'team_member_url', true ) ) {
+						$title .= '<a href="' . esc_url( $post->url ) . '">' . "\n";
+					}
+
 					$title_name = get_the_title( $post );
 
 					$title .= $title_name;
+
+					if ( true == $args['display_url'] && '' != $post->url && apply_filters( 'team_member_url', true ) ) {
+						$title .= '</a>' . "\n";
+					}
 
 					$title .= '</h3><!--/.member-->' . "\n";
 
@@ -137,10 +145,6 @@ function woothemes_our_team ( $args = '' ) {
 					$author .= '<ul class="author-details">';
 
 					$member_fields = '';
-
-					if ( true == $args['display_url'] && '' != $post->url && apply_filters( 'team_member_url', true ) ) {
-						$member_fields .= '<li class="url"><a href="' . esc_url( $post->url ) . '">' . __( 'Website', 'woothemes-our-team' ) . '</a></li><!--/.excerpt-->' . "\n";
-					}
 
 					if ( true == $args['twitter'] && '' != $post->twitter && apply_filters( 'team_member_twitter', true ) ) {
 						$member_fields .= '<li><a href="//twitter.com/' . esc_html( $post->twitter ) . '" class="twitter-follow-button" data-show-count="false">Follow @' . esc_html( $post->twitter ) . '</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document, "script", "twitter-wjs");</script></li>'  . "\n";
