@@ -116,38 +116,33 @@ function woothemes_our_team ( $args = '' ) {
 
 					$author .= '</h3><!--/.author-->' . "\n";
 
-					$author .= '<dl class="author-details">';
+					$author .= '<ul class="author-details">';
 
 					$member_fields = '';
 
 					if ( isset( $post->byline ) && '' != $post->byline && apply_filters( 'team_member_role', true ) ) {
-						$member_fields .= '<dt>' . __( 'Role', 'woothemes-our-team' ) . '</dt>';
-						$member_fields .= ' <dd class="role">' . $post->byline . '</dd><!--/.excerpt-->' . "\n";
+						$member_fields .= ' <li class="role">' . $post->byline . '</li><!--/.excerpt-->' . "\n";
 					}
 
 					if ( true == $args['display_url'] && '' != $post->url && apply_filters( 'team_member_url', true ) ) {
-						$member_fields .= '<dt>' . __( 'URL', 'woothemes-our-team' ) . '</dt>';
-						$member_fields .= '<dd class="url"><a href="' . esc_url( $post->url ) . '">' . $post->url . '</a></dd><!--/.excerpt-->' . "\n";
+						$member_fields .= '<li class="url"><a href="' . esc_url( $post->url ) . '">' . __( 'Website', 'woothemes-our-team' ) . '</a></li><!--/.excerpt-->' . "\n";
 					}
 
 					if ( true == $args['facebook'] && '' != $post->facebook && apply_filters( 'team_member_facebook', true ) ) {
-						$member_fields .= '<dt>' . __( 'Facebook', 'woothemes-our-team' ) . '</dt>';
-						$member_fields .= '<dd class="facebook"><a href="' . esc_url( $post->facebook ) . '">' . $post->facebook . '</a></dd><!--/.excerpt-->' . "\n";
+						$member_fields .= '<li class="facebook"><a href="http://facebook.com/' . esc_html( $post->facebook ) . '">' . __( 'Facebook', 'woothemes-our-team' ) . '</a></li><!--/.excerpt-->' . "\n";
 					}
 
 					if ( true == $args['instagram'] && '' != $post->instagram && apply_filters( 'team_member_instagram', true ) ) {
-						$member_fields .= '<dt>' . __( 'Instagram', 'woothemes-our-team' ) . '</dt>';
-						$member_fields .= '<dd class="instagram"><a href="' . esc_url( $post->instagram ) . '">' . $post->instagram . '</a></dd><!--/.excerpt-->' . "\n";
+						$member_fields .= '<li class="instagram"><a href="http://instagram.com/' . esc_html( $post->instagram ) . '">' . __( 'Instagram', 'woothemes-our-team' ) . '</a></li><!--/.excerpt-->' . "\n";
 					}
 
 					if ( true == $args['twitter'] && '' != $post->twitter && apply_filters( 'team_member_twitter', true ) ) {
-						$member_fields .= '<dt>' . __( 'Twitter', 'woothemes-our-team' ) . '</dt>';
-						$member_fields .= '<dd class="twitter"><a href="' . esc_url( $post->twitter ) . '">' . $post->twitter . '</a></dd><!--/.excerpt-->' . "\n";
+						$member_fields .= '<li class="twitter"><a href="http://twitter.com/' . esc_html( $post->twitter ) . '">' . __( 'Twitter', 'woothemes-our-team' ) . '</a></li><!--/.excerpt-->' . "\n";
 					}
 
 					$author .= apply_filters( 'member_fields_display', $member_fields );
 
-					$author .= '</dl>';
+					$author .= '</ul>';
 
 					// Templating engine replacement.
 					$template = str_replace( '%%AUTHOR%%', $author, $template );

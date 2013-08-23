@@ -117,8 +117,7 @@ Then to display the contents of that field on the frontend add the following:
 function my_new_fields_display( $member_fields ) {
 	global $post;
 	if ( '' != $post->misc ) {
-		$member_fields .= '<dt>' . __( 'Misc', 'woothemes-our-team' ) . '</dt>';
-		$member_fields .= '<dd class="misc">' . $post->misc . '</dd><!--/.misc-->' . "\n";
+		$member_fields .= '<li class="misc">' . $post->misc . '</li><!--/.misc-->' . "\n";
 	}
 	return $member_fields;
 }`
