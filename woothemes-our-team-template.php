@@ -143,15 +143,15 @@ function woothemes_our_team ( $args = '' ) {
 					}
 
 					if ( true == $args['facebook'] && '' != $post->facebook && apply_filters( 'team_member_facebook', true ) ) {
-						$member_fields .= '<li class="facebook"><a href="http://facebook.com/' . esc_html( $post->facebook ) . '">' . __( 'Facebook', 'woothemes-our-team' ) . '</a></li><!--/.excerpt-->' . "\n";
+						$member_fields .= '<li class="facebook"><a href="//facebook.com/' . esc_html( $post->facebook ) . '">' . __( 'Facebook', 'woothemes-our-team' ) . '</a></li><!--/.excerpt-->' . "\n";
 					}
 
 					if ( true == $args['instagram'] && '' != $post->instagram && apply_filters( 'team_member_instagram', true ) ) {
-						$member_fields .= '<li class="instagram"><a href="http://instagram.com/' . esc_html( $post->instagram ) . '">' . __( 'Instagram', 'woothemes-our-team' ) . '</a></li><!--/.excerpt-->' . "\n";
+						$member_fields .= '<li class="instagram"><a href="//instagram.com/' . esc_html( $post->instagram ) . '">' . __( 'Instagram', 'woothemes-our-team' ) . '</a></li><!--/.excerpt-->' . "\n";
 					}
 
 					if ( true == $args['twitter'] && '' != $post->twitter && apply_filters( 'team_member_twitter', true ) ) {
-						$member_fields .= '<li><a href="https://twitter.com/' . esc_html( $post->twitter ) . '" class="twitter-follow-button" data-show-count="false">Follow @' . esc_html( $post->twitter ) . '</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document, "script", "twitter-wjs");</script></li>'  . "\n";
+						$member_fields .= '<li><a href="//twitter.com/' . esc_html( $post->twitter ) . '" class="twitter-follow-button" data-show-count="false">Follow @' . esc_html( $post->twitter ) . '</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document, "script", "twitter-wjs");</script></li>'  . "\n";
 					}
 
 					$author .= apply_filters( 'member_fields_display', $member_fields );
