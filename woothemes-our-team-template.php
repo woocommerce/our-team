@@ -116,6 +116,14 @@ function woothemes_our_team ( $args = '' ) {
 
 					$title .= '</h3><!--/.member-->' . "\n";
 
+					$member_role = '';
+
+					if ( isset( $post->byline ) && '' != $post->byline && apply_filters( 'team_member_role', true ) ) {
+						$member_role .= ' <p class="role">' . $post->byline . '</p><!--/.excerpt-->' . "\n";
+					}
+
+					$title .= apply_filters( 'member_fields_display', $member_role );
+
 					// Templating engine replacement.
 					$template = str_replace( '%%TITLE%%', $title, $template );
 				}
@@ -129,10 +137,6 @@ function woothemes_our_team ( $args = '' ) {
 					$author .= '<ul class="author-details">';
 
 					$member_fields = '';
-
-					if ( isset( $post->byline ) && '' != $post->byline && apply_filters( 'team_member_role', true ) ) {
-						$member_fields .= ' <li class="role">' . $post->byline . '</li><!--/.excerpt-->' . "\n";
-					}
 
 					if ( true == $args['display_url'] && '' != $post->url && apply_filters( 'team_member_url', true ) ) {
 						$member_fields .= '<li class="url"><a href="' . esc_url( $post->url ) . '">' . __( 'Website', 'woothemes-our-team' ) . '</a></li><!--/.excerpt-->' . "\n";
