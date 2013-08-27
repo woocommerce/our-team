@@ -69,14 +69,14 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 		/* Before widget (defined by themes). */
 		$args = array();
 
-		$args['before'] = $before_widget;
-		$args['after'] = $after_widget;
+		$args['before'] 			= $before_widget;
+		$args['after'] 				= $after_widget;
 
 		/* Display the widget title if one was input (before and after defined by themes). */
 		if ( $title ) {
-			$args['before_title'] = $before_title;
-			$args['title'] = $title;
-			$args['after_title'] = $after_title;
+			$args['before_title'] 	= $before_title;
+			$args['title'] 			= $title;
+			$args['after_title'] 	= $after_title;
 		}
 
 		/* Widget content. */
@@ -117,23 +117,23 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 		$instance = $old_instance;
 
 		/* Strip tags for title and name to remove HTML (important for text inputs). */
-		$instance['title'] = strip_tags( $new_instance['title'] );
+		$instance['title'] 					= strip_tags( $new_instance['title'] );
 
 		/* Make sure the integer values are definitely integers. */
-		$instance['limit'] = intval( $new_instance['limit'] );
-		$instance['specific_id'] = intval( $new_instance['specific_id'] );
-		$instance['size'] = intval( $new_instance['size'] );
-		$instance['category'] = intval( $new_instance['category'] );
+		$instance['limit'] 					= intval( $new_instance['limit'] );
+		$instance['specific_id'] 			= intval( $new_instance['specific_id'] );
+		$instance['size'] 					= intval( $new_instance['size'] );
+		$instance['category'] 				= intval( $new_instance['category'] );
 
 		/* The select box is returning a text value, so we escape it. */
-		$instance['orderby'] = esc_attr( $new_instance['orderby'] );
-		$instance['order'] = esc_attr( $new_instance['order'] );
+		$instance['orderby'] 				= esc_attr( $new_instance['orderby'] );
+		$instance['order'] 					= esc_attr( $new_instance['order'] );
 
 		/* The checkbox is returning a Boolean (true/false), so we check for that. */
-		$instance['display_author'] = (bool) esc_attr( $new_instance['display_author'] );
-		$instance['display_avatar'] = (bool) esc_attr( $new_instance['display_avatar'] );
-		$instance['display_url'] = (bool) esc_attr( $new_instance['display_url'] );
-		$instance['display_additional'] = (bool) esc_attr( $new_instance['display_additional'] );
+		$instance['display_author'] 		= (bool) esc_attr( $new_instance['display_author'] );
+		$instance['display_avatar'] 		= (bool) esc_attr( $new_instance['display_avatar'] );
+		$instance['display_url'] 			= (bool) esc_attr( $new_instance['display_url'] );
+		$instance['display_additional'] 	= (bool) esc_attr( $new_instance['display_additional'] );
 
 		return $instance;
 	} // End update()
@@ -150,19 +150,19 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 		/* Set up some default widget settings. */
 		/* Make sure all keys are added here, even with empty string values. */
 		$defaults = array(
-			'title' => '',
-			'limit' => 5,
-			'orderby' => 'menu_order',
-			'order' => 'DESC',
-			'specific_id' => '',
-			'display_author' => true,
-			'display_avatar' => true,
-			'display_url' => true,
-			'display_additional' => true,
-			'effect' => 'fade', // Options: 'fade', 'none'
-			'pagination' => false,
-			'size' => 50,
-			'category' => 0
+			'title' 				=> '',
+			'limit' 				=> 5,
+			'orderby' 				=> 'menu_order',
+			'order' 				=> 'DESC',
+			'specific_id' 			=> '',
+			'display_author' 		=> true,
+			'display_avatar' 		=> true,
+			'display_url' 			=> true,
+			'display_additional' 	=> true,
+			'effect' 				=> 'fade', // Options: 'fade', 'none'
+			'pagination' 			=> false,
+			'size' 					=> 50,
+			'category' 				=> 0
 		);
 
 		$instance = wp_parse_args( (array) $instance, $defaults );
@@ -244,12 +244,12 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 	 */
 	protected function get_orderby_options () {
 		return array(
-					'none' => __( 'No Order', 'woothemes-our-team' ),
-					'ID' => __( 'Entry ID', 'woothemes-our-team' ),
-					'title' => __( 'Title', 'woothemes-our-team' ),
-					'date' => __( 'Date Added', 'woothemes-our-team' ),
-					'menu_order' => __( 'Specified Order Setting', 'woothemes-our-team' ),
-					'rand' => __( 'Random Order', 'woothemes-our-team' )
+					'none' 			=> __( 'No Order', 'woothemes-our-team' ),
+					'ID' 			=> __( 'Entry ID', 'woothemes-our-team' ),
+					'title' 		=> __( 'Title', 'woothemes-our-team' ),
+					'date' 			=> __( 'Date Added', 'woothemes-our-team' ),
+					'menu_order' 	=> __( 'Specified Order Setting', 'woothemes-our-team' ),
+					'rand' 			=> __( 'Random Order', 'woothemes-our-team' )
 					);
 	} // End get_orderby_options()
 
@@ -260,8 +260,8 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 	 */
 	protected function get_order_options () {
 		return array(
-					'ASC' => __( 'Ascending', 'woothemes-our-team' ),
-					'DESC' => __( 'Descending', 'woothemes-our-team' )
+					'ASC' 			=> __( 'Ascending', 'woothemes-our-team' ),
+					'DESC' 			=> __( 'Descending', 'woothemes-our-team' )
 					);
 	} // End get_order_options()
 } // End Class

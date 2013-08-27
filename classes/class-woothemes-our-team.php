@@ -73,19 +73,19 @@ class Woothemes_Our_Team {
 	 */
 	public function register_post_type () {
 		$labels = array(
-			'name' => _x( 'Team Members', 'post type general name', 'woothemes-our-team' ),
-			'singular_name' => _x( 'Team Member', 'post type singular name', 'woothemes-our-team' ),
-			'add_new' => _x( 'Add New', 'team member', 'woothemes-our-team' ),
-			'add_new_item' => sprintf( __( 'Add New %s', 'woothemes-our-team' ), __( 'Team Member', 'woothemes-our-team' ) ),
-			'edit_item' => sprintf( __( 'Edit %s', 'woothemes-our-team' ), __( 'Team Member', 'woothemes-our-team' ) ),
-			'new_item' => sprintf( __( 'New %s', 'woothemes-our-team' ), __( 'Team Member', 'woothemes-our-team' ) ),
-			'all_items' => sprintf( __( 'All %s', 'woothemes-our-team' ), __( 'Team Members', 'woothemes-our-team' ) ),
-			'view_item' => sprintf( __( 'View %s', 'woothemes-our-team' ), __( 'Team Member', 'woothemes-our-team' ) ),
-			'search_items' => sprintf( __( 'Search %a', 'woothemes-our-team' ), __( 'Team Members', 'woothemes-our-team' ) ),
-			'not_found' =>  sprintf( __( 'No %s Found', 'woothemes-our-team' ), __( 'Team Members', 'woothemes-our-team' ) ),
-			'not_found_in_trash' => sprintf( __( 'No %s Found In Trash', 'woothemes-our-team' ), __( 'Team Members', 'woothemes-our-team' ) ),
-			'parent_item_colon' => '',
-			'menu_name' => __( 'Team Members', 'woothemes-our-team' )
+			'name' 					=> _x( 'Team Members', 'post type general name', 'woothemes-our-team' ),
+			'singular_name' 		=> _x( 'Team Member', 'post type singular name', 'woothemes-our-team' ),
+			'add_new' 				=> _x( 'Add New', 'team member', 'woothemes-our-team' ),
+			'add_new_item' 			=> sprintf( __( 'Add New %s', 'woothemes-our-team' ), __( 'Team Member', 'woothemes-our-team' ) ),
+			'edit_item' 			=> sprintf( __( 'Edit %s', 'woothemes-our-team' ), __( 'Team Member', 'woothemes-our-team' ) ),
+			'new_item' 				=> sprintf( __( 'New %s', 'woothemes-our-team' ), __( 'Team Member', 'woothemes-our-team' ) ),
+			'all_items' 			=> sprintf( __( 'All %s', 'woothemes-our-team' ), __( 'Team Members', 'woothemes-our-team' ) ),
+			'view_item' 			=> sprintf( __( 'View %s', 'woothemes-our-team' ), __( 'Team Member', 'woothemes-our-team' ) ),
+			'search_items' 			=> sprintf( __( 'Search %a', 'woothemes-our-team' ), __( 'Team Members', 'woothemes-our-team' ) ),
+			'not_found' 			=>  sprintf( __( 'No %s Found', 'woothemes-our-team' ), __( 'Team Members', 'woothemes-our-team' ) ),
+			'not_found_in_trash' 	=> sprintf( __( 'No %s Found In Trash', 'woothemes-our-team' ), __( 'Team Members', 'woothemes-our-team' ) ),
+			'parent_item_colon' 	=> '',
+			'menu_name' 			=> __( 'Team Members', 'woothemes-our-team' )
 
 		);
 
@@ -93,19 +93,28 @@ class Woothemes_Our_Team {
 		$archive_slug = apply_filters( 'woothemes_our_team_archive_slug', _x( 'team-memers', 'post archive url slug', 'woothemes-our-team' ) );
 
 		$args = array(
-			'labels' => $labels,
-			'public' => true,
-			'publicly_queryable' => true,
-			'show_ui' => true,
-			'show_in_menu' => true,
-			'query_var' => true,
-			'rewrite' => array( 'slug' => $single_slug, 'with_front' => false ),
-			'capability_type' => 'post',
-			'has_archive' => $archive_slug,
-			'hierarchical' => false,
-			'supports' => array( 'title', 'author' ,'editor', 'thumbnail', 'page-attributes' ),
-			'menu_position' => 5,
-			'menu_icon' => ''
+			'labels' 				=> $labels,
+			'public' 				=> true,
+			'publicly_queryable' 	=> true,
+			'show_ui'			 	=> true,
+			'show_in_menu' 			=> true,
+			'query_var' 			=> true,
+			'rewrite' 				=> array(
+										'slug' 			=> $single_slug,
+										'with_front' 	=> false
+										),
+			'capability_type' 		=> 'post',
+			'has_archive' 			=> $archive_slug,
+			'hierarchical' 			=> false,
+			'supports' 				=> array(
+										'title',
+										'author',
+										'editor',
+										'thumbnail',
+										'page-attributes'
+										),
+			'menu_position' 		=> 5,
+			'menu_icon' 			=> ''
 		);
 		register_post_type( $this->token, $args );
 	} // End register_post_type()
@@ -160,9 +169,8 @@ class Woothemes_Our_Team {
 	 * @return void
 	 */
 	public function register_custom_column_headings ( $defaults ) {
-		$new_columns = array( 'image' => __( 'Image', 'woothemes-our-team' ) );
-
-		$last_item = '';
+		$new_columns 	= array( 'image' => __( 'Image', 'woothemes-our-team' ) );
+		$last_item 		= '';
 
 		if ( isset( $defaults['date'] ) ) { unset( $defaults['date'] ); }
 
@@ -345,40 +353,40 @@ class Woothemes_Our_Team {
 		$fields = array();
 
 		$fields['gravatar_email'] = array(
-		    'name' => __( 'Gravatar E-mail Address', 'woothemes-our-team' ),
-		    'description' => sprintf( __( 'Enter in an e-mail address, to use a %sGravatar%s, instead of using the "Featured Image".', 'woothemes-our-team' ), '<a href="' . esc_url( 'http://gravatar.com/' ) . '" target="_blank">', '</a>' ),
-		    'type' => 'text',
-		    'default' => '',
-		    'section' => 'info'
+		    'name' 				=> __( 'Gravatar E-mail Address', 'woothemes-our-team' ),
+		    'description' 		=> sprintf( __( 'Enter in an e-mail address, to use a %sGravatar%s, instead of using the "Featured Image".', 'woothemes-our-team' ), '<a href="' . esc_url( 'http://gravatar.com/' ) . '" target="_blank">', '</a>' ),
+		    'type' 				=> 'text',
+		    'default' 			=> '',
+		    'section' 			=> 'info'
 		);
 
 		if ( apply_filters( 'team_member_role', true ) ) {
 			$fields['byline'] = array(
-			    'name' => __( 'Role', 'woothemes-our-team' ),
-			    'description' => __( 'Enter a byline for the team member (for example: "Director of Production").', 'woothemes-our-team' ),
-			    'type' => 'text',
-			    'default' => '',
-			    'section' => 'info'
+			    'name' 			=> __( 'Role', 'woothemes-our-team' ),
+			    'description' 	=> __( 'Enter a byline for the team member (for example: "Director of Production").', 'woothemes-our-team' ),
+			    'type' 			=> 'text',
+			    'default' 		=> '',
+			    'section' 		=> 'info'
 			);
 		}
 
 		if ( apply_filters( 'team_member_url', true ) ) {
 			$fields['url'] = array(
-			    'name' => __( 'URL', 'woothemes-our-team' ),
-			    'description' => __( 'Enter this team member\'s URL (for example: http://woothemes.com/).', 'woothemes-our-team' ),
-			    'type' => 'url',
-			    'default' => '',
-			    'section' => 'info'
+			    'name' 			=> __( 'URL', 'woothemes-our-team' ),
+			    'description' 	=> __( 'Enter this team member\'s URL (for example: http://woothemes.com/).', 'woothemes-our-team' ),
+			    'type' 			=> 'url',
+			    'default' 		=> '',
+			    'section' 		=> 'info'
 			);
 		}
 
 		if ( apply_filters( 'team_member_twitter', true ) ) {
 			$fields['twitter'] = array(
-			    'name' => __( 'Twitter Username', 'woothemes-our-team' ),
-			    'description' => __( 'Enter this team member\'s Twitter username without the @ (for example: woothemes).', 'woothemes-our-team' ),
-			    'type' => 'text',
-			    'default' => '',
-			    'section' => 'info'
+			    'name' 			=> __( 'Twitter Username', 'woothemes-our-team' ),
+			    'description' 	=> __( 'Enter this team member\'s Twitter username without the @ (for example: woothemes).', 'woothemes-our-team' ),
+			    'type' 			=> 'text',
+			    'default' 		=> '',
+			    'section' 		=> 'info'
 			);
 		}
 
@@ -421,11 +429,11 @@ class Woothemes_Our_Team {
 	 */
 	public function get_our_team ( $args = '' ) {
 		$defaults = array(
-			'limit' => 5,
-			'orderby' => 'menu_order',
-			'order' => 'DESC',
-			'id' => 0,
-			'category' => 0
+			'limit' 		=> 5,
+			'orderby' 		=> 'menu_order',
+			'order' 		=> 'DESC',
+			'id' 			=> 0,
+			'category' 		=> 0
 		);
 
 		$args = wp_parse_args( $args, $defaults );
@@ -434,12 +442,12 @@ class Woothemes_Our_Team {
 		$args = apply_filters( 'woothemes_get_our_team_args', $args );
 
 		// The Query Arguments.
-		$query_args = array();
-		$query_args['post_type'] = 'team-member';
-		$query_args['numberposts'] = $args['limit'];
-		$query_args['orderby'] = $args['orderby'];
-		$query_args['order'] = $args['order'];
-		$query_args['suppress_filters'] = false;
+		$query_args 						= array();
+		$query_args['post_type'] 			= 'team-member';
+		$query_args['numberposts'] 			= $args['limit'];
+		$query_args['orderby'] 				= $args['orderby'];
+		$query_args['order'] 				= $args['order'];
+		$query_args['suppress_filters'] 	= false;
 
 		$ids = explode( ',', $args['id'] );
 		if ( 0 < intval( $args['id'] ) && 0 < count( $ids ) ) {

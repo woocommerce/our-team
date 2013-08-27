@@ -32,26 +32,26 @@ function woothemes_our_team ( $args = '' ) {
 	global $post;
 
 	$defaults = array(
-		'limit' => 5,
-		'per_row' => null,
-		'orderby' => 'menu_order',
-		'order' => 'DESC',
-		'id' => 0,
-		'display_author' => true,
-		'display_additional' => true,
-		'display_avatar' => true,
-		'display_url' => true,
-		'twitter' => true,
-		'effect' => 'fade', // Options: 'fade', 'none'
-		'pagination' => false,
-		'echo' => true,
-		'size' => 250,
-		'title' => '',
-		'before' => '<div class="widget widget_woothemes_our_team">',
-		'after' => '</div>',
-		'before_title' => '<h2>',
-		'after_title' => '</h2>',
-		'category' => 0
+		'limit' 				=> 5,
+		'per_row' 				=> null,
+		'orderby' 				=> 'menu_order',
+		'order' 				=> 'DESC',
+		'id' 					=> 0,
+		'display_author' 		=> true,
+		'display_additional' 	=> true,
+		'display_avatar' 		=> true,
+		'display_url' 			=> true,
+		'twitter' 				=> true,
+		'effect' 				=> 'fade', // Options: 'fade', 'none'
+		'pagination' 			=> false,
+		'echo' 					=> true,
+		'size' 					=> 250,
+		'title' 				=> '',
+		'before' 				=> '<div class="widget widget_woothemes_our_team">',
+		'after' 				=> '</div>',
+		'before_title' 			=> '<h2>',
+		'after_title' 			=> '</h2>',
+		'category' 				=> 0
 	);
 
 	$args = wp_parse_args( $args, $defaults );
@@ -105,7 +105,7 @@ function woothemes_our_team ( $args = '' ) {
 
 				setup_postdata( $post );
 
-				$title = '';
+				$title 		= '';
 				$title_name = '';
 
 				// If we need to display the title, get the data
@@ -137,10 +137,10 @@ function woothemes_our_team ( $args = '' ) {
 				}
 
 				// Templating engine replacement.
-				$template = str_replace( '%%TITLE%%', $title, $template );
+				$template 		= str_replace( '%%TITLE%%', $title, $template );
 
-				$author = '';
-				$author_text = '';
+				$author 		= '';
+				$author_text 	= '';
 
 				// If we need to display the author, get the data.
 				if ( true == $args['display_additional'] ) {
@@ -174,9 +174,9 @@ function woothemes_our_team ( $args = '' ) {
 				}
 
 				// Remove any remaining %%AVATAR%% template tags.
-				$template = str_replace( '%%AVATAR%%', '', $template );
-				$content = apply_filters( 'woothemes_our_team_content', wpautop( get_the_content() ), $post );
-				$template = str_replace( '%%TEXT%%', $content, $template );
+				$template 	= str_replace( '%%AVATAR%%', '', $template );
+				$content 	= apply_filters( 'woothemes_our_team_content', wpautop( get_the_content() ), $post );
+				$template 	= str_replace( '%%TEXT%%', $content, $template );
 
 				// Assign for output.
 				$html .= $template;
@@ -225,21 +225,21 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 	$args = (array)$atts;
 
 	$defaults = array(
-		'limit' => 5,
-		'per_row' => null,
-		'orderby' => 'menu_order',
-		'order' => 'DESC',
-		'id' => 0,
-		'display_author' => true,
-		'display_additional' => true,
-		'display_avatar' => true,
-		'display_url' => true,
-		'twitter' => true,
-		'effect' => 'fade', // Options: 'fade', 'none'
-		'pagination' => false,
-		'echo' => true,
-		'size' => 250,
-		'category' => 0
+		'limit' 				=> 5,
+		'per_row' 				=> null,
+		'orderby' 				=> 'menu_order',
+		'order' 				=> 'DESC',
+		'id' 					=> 0,
+		'display_author' 		=> true,
+		'display_additional' 	=> true,
+		'display_avatar' 		=> true,
+		'display_url' 			=> true,
+		'twitter' 				=> true,
+		'effect' 				=> 'fade', // Options: 'fade', 'none'
+		'pagination' 			=> false,
+		'echo' 					=> true,
+		'size' 					=> 250,
+		'category' 				=> 0
 	);
 
 	$args = shortcode_atts( $defaults, $atts );

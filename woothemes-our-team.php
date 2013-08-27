@@ -20,4 +20,3 @@ require_once( 'classes/class-woothemes-widget-our-team.php' );
 global $woothemes_our_team;
 $woothemes_our_team = new Woothemes_Our_Team( __FILE__ );
 $woothemes_our_team->version = '1.0.0';
-?>
