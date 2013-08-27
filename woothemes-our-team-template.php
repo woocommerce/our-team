@@ -84,8 +84,6 @@ function woothemes_our_team ( $args = '' ) {
 			}
 			$html .= '<div class="team-members component' . esc_attr( $class ) . '">' . "\n";
 
-			$html .= '<div class="team-member-list">' . "\n";
-
 			// Begin templating logic.
 			$tpl = '<div itemscope itemtype="http://schema.org/Person" class="%%CLASS%%">%%AVATAR%% %%TITLE%% <div id="team-member-%%ID%%"  class="team-member-text" itemprop="description">%%TEXT%% %%AUTHOR%%<div class="fix"></div></div></div>';
 			$tpl = apply_filters( 'woothemes_our_team_item_template', $tpl, $args );
@@ -187,8 +185,6 @@ function woothemes_our_team ( $args = '' ) {
 			}
 
 			wp_reset_postdata();
-
-			$html .= '</div><!--/.team-member-list-->' . "\n";
 
 			if ( $args['pagination'] == true && count( $query ) > 1 && $args['effect'] != 'none' ) {
 				$html .= '<div class="pagination">' . "\n";
