@@ -93,6 +93,7 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 		if ( isset( $instance['display_author'] ) && ( 1 == $instance['display_author'] ) ) { $args['display_author'] = true; } else { $args['display_author'] = false; }
 		if ( isset( $instance['display_avatar'] ) && ( 1 == $instance['display_avatar'] ) ) { $args['display_avatar'] = true; } else { $args['display_avatar'] = false; }
 		if ( isset( $instance['display_url'] ) && ( 1 == $instance['display_url'] ) ) { $args['display_url'] = true; } else { $args['display_url'] = false; }
+		if ( isset( $instance['display_additional'] ) && ( 1 == $instance['display_additional'] ) ) { $args['display_additional'] = true; } else { $args['display_additional'] = false; }
 
 		// Select boxes.
 		if ( isset( $instance['orderby'] ) && in_array( $instance['orderby'], array_keys( $this->get_orderby_options() ) ) ) { $args['orderby'] = $instance['orderby']; }
@@ -132,6 +133,7 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 		$instance['display_author'] = (bool) esc_attr( $new_instance['display_author'] );
 		$instance['display_avatar'] = (bool) esc_attr( $new_instance['display_avatar'] );
 		$instance['display_url'] = (bool) esc_attr( $new_instance['display_url'] );
+		$instance['display_additional'] = (bool) esc_attr( $new_instance['display_additional'] );
 
 		return $instance;
 	} // End update()
@@ -156,6 +158,7 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 			'display_author' => true,
 			'display_avatar' => true,
 			'display_url' => true,
+			'display_additional' => true,
 			'effect' => 'fade', // Options: 'fade', 'none'
 			'pagination' => false,
 			'size' => 50,
@@ -200,7 +203,7 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 		<!-- Widget Display Author: Checkbox Input -->
        	<p>
         	<input id="<?php echo $this->get_field_id( 'display_author' ); ?>" name="<?php echo $this->get_field_name( 'display_author' ); ?>" type="checkbox"<?php checked( $instance['display_author'], 1 ); ?> />
-        	<label for="<?php echo $this->get_field_id( 'display_author' ); ?>"><?php _e( 'Display Author', 'woothemes-our-team' ); ?></label>
+        	<label for="<?php echo $this->get_field_id( 'display_author' ); ?>"><?php _e( 'Display Name', 'woothemes-our-team' ); ?></label>
 	   	</p>
 		<!-- Widget Display Avatar: Checkbox Input -->
        	<p>
@@ -211,6 +214,11 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
        	<p>
         	<input id="<?php echo $this->get_field_id( 'display_url' ); ?>" name="<?php echo $this->get_field_name( 'display_url' ); ?>" type="checkbox"<?php checked( $instance['display_url'], 1 ); ?> />
         	<label for="<?php echo $this->get_field_id( 'display_url' ); ?>"><?php _e( 'Display URL', 'woothemes-our-team' ); ?></label>
+	   	</p>
+	   	<!-- Widget Display Additional: Checkbox Input -->
+       	<p>
+        	<input id="<?php echo $this->get_field_id( 'display_additional' ); ?>" name="<?php echo $this->get_field_name( 'display_additional' ); ?>" type="checkbox"<?php checked( $instance['display_additional'], 1 ); ?> />
+        	<label for="<?php echo $this->get_field_id( 'display_additional' ); ?>"><?php _e( 'Display Additional Info', 'woothemes-our-team' ); ?></label>
 	   	</p>
 	   	<!-- Widget Category: Select Input -->
 		<p>

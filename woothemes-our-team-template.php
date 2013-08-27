@@ -38,8 +38,10 @@ function woothemes_our_team ( $args = '' ) {
 		'order' => 'DESC',
 		'id' => 0,
 		'display_author' => true,
+		'display_additional' => true,
 		'display_avatar' => true,
 		'display_url' => true,
+		'twitter' => true,
 		'effect' => 'fade', // Options: 'fade', 'none'
 		'pagination' => false,
 		'echo' => true,
@@ -107,7 +109,7 @@ function woothemes_our_team ( $args = '' ) {
 				$title_name = '';
 
 				// If we need to display the title, get the data
-				if ( ( get_the_title( $post ) != '' ) && true == $args['display_title'] ) {
+				if ( ( get_the_title( $post ) != '' ) && true == $args['display_author'] ) {
 					$title .= '<h3 itemprop="name" class="member">';
 
 					if ( true == $args['display_url'] && '' != $post->url && apply_filters( 'team_member_url', true ) ) {
@@ -132,15 +134,16 @@ function woothemes_our_team ( $args = '' ) {
 
 					$title .= apply_filters( 'member_fields_display', $member_role );
 
-					// Templating engine replacement.
-					$template = str_replace( '%%TITLE%%', $title, $template );
 				}
+
+				// Templating engine replacement.
+				$template = str_replace( '%%TITLE%%', $title, $template );
 
 				$author = '';
 				$author_text = '';
 
 				// If we need to display the author, get the data.
-				if ( true == $args['display_author'] ) {
+				if ( true == $args['display_additional'] ) {
 
 					$author .= '<ul class="author-details">';
 
@@ -227,8 +230,8 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 		'orderby' => 'menu_order',
 		'order' => 'DESC',
 		'id' => 0,
-		'display_title' => true,
 		'display_author' => true,
+		'display_additional' => true,
 		'display_avatar' => true,
 		'display_url' => true,
 		'twitter' => true,
@@ -250,7 +253,7 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 	if ( isset( $args['category'] ) && is_numeric( $args['category'] ) ) $args['category'] = intval( $args['category'] );
 
 	// Fix booleans.
-	foreach ( array( 'display_title', 'display_author', 'display_url', 'pagination', 'display_avatar' ) as $k => $v ) {
+	foreach ( array( 'display_author', 'display_additional', 'display_url', 'pagination', 'display_avatar' ) as $k => $v ) {
 		if ( isset( $args[$v] ) && ( 'true' == $args[$v] ) ) {
 			$args[$v] = true;
 		} else {
