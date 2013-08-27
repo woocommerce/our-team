@@ -85,7 +85,7 @@ function woothemes_our_team ( $args = '' ) {
 			$html .= '<div class="team-members component' . esc_attr( $class ) . '">' . "\n";
 
 			// Begin templating logic.
-			$tpl = '<div itemscope itemtype="http://schema.org/Person" class="%%CLASS%%">%%AVATAR%% %%TITLE%% <div id="team-member-%%ID%%"  class="team-member-text" itemprop="description">%%TEXT%% %%AUTHOR%%<div class="fix"></div></div></div>';
+			$tpl = '<div itemscope itemtype="http://schema.org/Person" class="%%CLASS%%">%%AVATAR%% %%TITLE%% <div id="team-member-%%ID%%"  class="team-member-text" itemprop="description">%%TEXT%% %%AUTHOR%%</div></div>';
 			$tpl = apply_filters( 'woothemes_our_team_item_template', $tpl, $args );
 
 			$count = 0;
@@ -94,7 +94,7 @@ function woothemes_our_team ( $args = '' ) {
 
 				$css_class = 'team-member';
 				if ( ( is_numeric( $args['per_row'] ) && ( 0 == ( $count - 1 ) % $args['per_row'] ) ) || 1 == $count ) { $css_class .= ' first'; }
-				if ( ( is_numeric( $args['per_row'] ) && ( 0 == $count % $args['per_row'] ) ) || count( $query ) == $count ) { $css_class .= ' last'; }
+				if ( ( is_numeric( $args['per_row'] ) && ( 0 == $count % $args['per_row'] ) ) ) { $css_class .= ' last'; }
 
 				// Add a CSS class if no image is available.
 				if ( isset( $post->image ) && ( '' == $post->image ) ) {
@@ -178,10 +178,6 @@ function woothemes_our_team ( $args = '' ) {
 
 				// Assign for output.
 				$html .= $template;
-
-				if( is_numeric( $args['per_row'] ) && ( 0 == $count % $args['per_row'] ) ) {
-					$html .= '<div class="fix"></div>' . "\n";
-				}
 			}
 
 			wp_reset_postdata();
@@ -192,7 +188,6 @@ function woothemes_our_team ( $args = '' ) {
 		        $html .= '<a href="#" class="btn-next">' . apply_filters( 'woothemes_our_team_next_btn', __( 'Next', 'woothemes-our-team' ) . ' &rarr;' ) . '</a>' . "\n";
 		        $html .= '</div><!--/.pagination-->' . "\n";
 			}
-				$html .= '<div class="fix"></div>' . "\n";
 			$html .= '</div><!--/.team-members-->' . "\n";
 			$html .= $args['after'] . "\n";
 		}
