@@ -85,14 +85,14 @@ function woothemes_our_team ( $args = '' ) {
 			$html .= '<div class="team-member-list">' . "\n";
 
 			// Begin templating logic.
-			$tpl = '<div itemscope itemtype="http://schema.org/Person">%%AVATAR%% %%TITLE%% <div id="team-member-%%ID%%" class="%%CLASS%%"><div class="team-member-text" itemprop="description">%%TEXT%%</div> %%AUTHOR%%<div class="fix"></div></div></div>';
+			$tpl = '<div itemscope itemtype="http://schema.org/Person" class="%%CLASS%%">%%AVATAR%% %%TITLE%% <div id="team-member-%%ID%%"  class="team-member-text" itemprop="description">%%TEXT%% %%AUTHOR%%<div class="fix"></div></div></div>';
 			$tpl = apply_filters( 'woothemes_our_team_item_template', $tpl, $args );
 
 			$count = 0;
 			foreach ( $query as $post ) { $count++;
 				$template = $tpl;
 
-				$css_class = 'team-member-description';
+				$css_class = '';
 				if ( ( is_numeric( $args['per_row'] ) && ( 0 == ( $count - 1 ) % $args['per_row'] ) ) || 1 == $count ) { $css_class .= ' first'; }
 				if ( ( is_numeric( $args['per_row'] ) && ( 0 == $count % $args['per_row'] ) ) || count( $query ) == $count ) { $css_class .= ' last'; }
 
