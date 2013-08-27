@@ -92,7 +92,7 @@ function woothemes_our_team ( $args = '' ) {
 			foreach ( $query as $post ) { $count++;
 				$template = $tpl;
 
-				$css_class = '';
+				$css_class = 'team-member';
 				if ( ( is_numeric( $args['per_row'] ) && ( 0 == ( $count - 1 ) % $args['per_row'] ) ) || 1 == $count ) { $css_class .= ' first'; }
 				if ( ( is_numeric( $args['per_row'] ) && ( 0 == $count % $args['per_row'] ) ) || count( $query ) == $count ) { $css_class .= ' last'; }
 
