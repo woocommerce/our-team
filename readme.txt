@@ -8,7 +8,7 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Show off what your customers are saying about your business and how great they say you are, using our shortcode, widget or template tag.
+Display team memer profiles with descriptions and links to social media using our shortcode, widget or template tag.
 
 == Description ==
 
@@ -89,7 +89,7 @@ Installing "Our Team by WooThemes" can be done either by searching for "Our Team
 
 = I don't need the 'Role' field, can I disable that? =
 
-You sure can. In fact you can disable all the default fields individually. To disable the role field add
+You sure can. In fact you can disable all the default fields individually. To disable the role field add:
 
 `add_filter( 'team_member_role', '__return_false' );`
 
