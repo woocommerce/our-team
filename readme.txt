@@ -141,6 +141,8 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 
 = 1.0.1 =
 * Added role & twitter args to shortcode.
+* Added role option to widget.
+* Display 12 team members by default (previously 5).
 * Typos and other minor fixes.
 
 = 1.0.0 =

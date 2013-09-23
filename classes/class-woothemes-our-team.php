@@ -429,7 +429,7 @@ class Woothemes_Our_Team {
 	 */
 	public function get_our_team ( $args = '' ) {
 		$defaults = array(
-			'limit' 		=> 5,
+			'limit' 		=> 12,
 			'orderby' 		=> 'menu_order',
 			'order' 		=> 'DESC',
 			'id' 			=> 0,

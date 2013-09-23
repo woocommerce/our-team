@@ -32,7 +32,7 @@ function woothemes_our_team ( $args = '' ) {
 	global $post;
 
 	$defaults = array(
-		'limit' 				=> 5,
+		'limit' 				=> 12,
 		'per_row' 				=> null,
 		'orderby' 				=> 'menu_order',
 		'order' 				=> 'DESC',
@@ -217,7 +217,7 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 	$args = (array)$atts;
 
 	$defaults = array(
-		'limit' 				=> 5,
+		'limit' 				=> 12,
 		'per_row' 				=> null,
 		'orderby' 				=> 'menu_order',
 		'order' 				=> 'DESC',

@@ -94,6 +94,7 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 		if ( isset( $instance['display_avatar'] ) && ( 1 == $instance['display_avatar'] ) ) { $args['display_avatar'] = true; } else { $args['display_avatar'] = false; }
 		if ( isset( $instance['display_url'] ) && ( 1 == $instance['display_url'] ) ) { $args['display_url'] = true; } else { $args['display_url'] = false; }
 		if ( isset( $instance['display_additional'] ) && ( 1 == $instance['display_additional'] ) ) { $args['display_additional'] = true; } else { $args['display_additional'] = false; }
+		if ( isset( $instance['display_role'] ) && ( 1 == $instance['display_role'] ) ) { $args['display_role'] = true; } else { $args['display_role'] = false; }
 
 		// Select boxes.
 		if ( isset( $instance['orderby'] ) && in_array( $instance['orderby'], array_keys( $this->get_orderby_options() ) ) ) { $args['orderby'] = $instance['orderby']; }
@@ -134,6 +135,7 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 		$instance['display_avatar'] 		= (bool) esc_attr( $new_instance['display_avatar'] );
 		$instance['display_url'] 			= (bool) esc_attr( $new_instance['display_url'] );
 		$instance['display_additional'] 	= (bool) esc_attr( $new_instance['display_additional'] );
+		$instance['display_role'] 			= (bool) esc_attr( $new_instance['display_role'] );
 
 		return $instance;
 	} // End update()
@@ -151,7 +153,7 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 		/* Make sure all keys are added here, even with empty string values. */
 		$defaults = array(
 			'title' 				=> '',
-			'limit' 				=> 5,
+			'limit' 				=> 12,
 			'orderby' 				=> 'menu_order',
 			'order' 				=> 'DESC',
 			'specific_id' 			=> '',
@@ -159,6 +161,7 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 			'display_avatar' 		=> true,
 			'display_url' 			=> true,
 			'display_additional' 	=> true,
+			'display_role'	 		=> true,
 			'effect' 				=> 'fade', // Options: 'fade', 'none'
 			'pagination' 			=> false,
 			'size' 					=> 50,
@@ -204,6 +207,11 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
        	<p>
         	<input id="<?php echo $this->get_field_id( 'display_author' ); ?>" name="<?php echo $this->get_field_name( 'display_author' ); ?>" type="checkbox"<?php checked( $instance['display_author'], 1 ); ?> />
         	<label for="<?php echo $this->get_field_id( 'display_author' ); ?>"><?php _e( 'Display Name', 'woothemes-our-team' ); ?></label>
+	   	</p>
+	   	<!-- Widget Display Role: Checkbox Input -->
+       	<p>
+        	<input id="<?php echo $this->get_field_id( 'display_role' ); ?>" name="<?php echo $this->get_field_name( 'display_role' ); ?>" type="checkbox"<?php checked( $instance['display_role'], 1 ); ?> />
+        	<label for="<?php echo $this->get_field_id( 'display_role' ); ?>"><?php _e( 'Display Role', 'woothemes-our-team' ); ?></label>
 	   	</p>
 		<!-- Widget Display Avatar: Checkbox Input -->
        	<p>
