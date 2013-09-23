@@ -4,7 +4,7 @@ Donate link: http://woothemes.com/
 Tags: teams, team members, profiles, widget, shortcode, template-tag
 Requires at least: 3.4.2
 Tested up to: 3.6.0
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,6 +138,10 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 * Initial release. Woo!
 
 == Changelog ==
+
+= 1.0.1 =
+* Added role & twitter args to shortcode.
+* Typos and other minor fixes.
 
 = 1.0.0 =
 * Initial release. Woo!
