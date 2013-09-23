@@ -41,7 +41,7 @@ function woothemes_our_team ( $args = '' ) {
 		'display_additional' 	=> true,
 		'display_avatar' 		=> true,
 		'display_url' 			=> true,
-		'twitter' 				=> true,
+		'display_twitter' 		=> true,
 		'effect' 				=> 'fade', // Options: 'fade', 'none'
 		'pagination' 			=> false,
 		'echo' 					=> true,
@@ -147,7 +147,7 @@ function woothemes_our_team ( $args = '' ) {
 
 					$member_fields = '';
 
-					if ( true == $args['twitter'] && '' != $post->twitter && apply_filters( 'team_member_twitter', true ) ) {
+					if ( true == $args['display_twitter'] && '' != $post->twitter && apply_filters( 'team_member_twitter', true ) ) {
 						$member_fields .= '<li itemprop="contactPoint"><a href="//twitter.com/' . esc_html( $post->twitter ) . '" class="twitter-follow-button" data-show-count="false">Follow @' . esc_html( $post->twitter ) . '</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document, "script", "twitter-wjs");</script></li>'  . "\n";
 					}
 
@@ -225,7 +225,7 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 		'display_additional' 	=> true,
 		'display_avatar' 		=> true,
 		'display_url' 			=> true,
-		'twitter' 				=> true,
+		'display_twitter' 		=> true,
 		'effect' 				=> 'fade', // Options: 'fade', 'none'
 		'pagination' 			=> false,
 		'echo' 					=> true,
@@ -244,7 +244,7 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 	if ( isset( $args['category'] ) && is_numeric( $args['category'] ) ) $args['category'] = intval( $args['category'] );
 
 	// Fix booleans.
-	foreach ( array( 'display_author', 'display_additional', 'display_url', 'pagination', 'display_avatar' ) as $k => $v ) {
+	foreach ( array( 'display_author', 'display_additional', 'display_url', 'display_twitter', 'pagination', 'display_avatar' ) as $k => $v ) {
 		if ( isset( $args[$v] ) && ( 'true' == $args[$v] ) ) {
 			$args[$v] = true;
 		} else {
