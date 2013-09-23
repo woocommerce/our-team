@@ -23,7 +23,7 @@ add_action( 'woothemes_our_team', 'woothemes_our_team' );
 
 if ( ! function_exists( 'woothemes_our_team' ) ) {
 /**
- * Display or return HTML-formatted testimonials.
+ * Display or return HTML-formatted team members.
  * @param  string/array $args  Arguments.
  * @since  1.0.0
  * @return string

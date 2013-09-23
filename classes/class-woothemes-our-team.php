@@ -66,7 +66,7 @@ class Woothemes_Our_Team {
 	 *
 	 * @access public
 	 * @param string $token
-	 * @param string 'Testimonial'
+	 * @param string 'Team Member'
 	 * @param string 'Our Team'
 	 * @param array $supports
 	 * @return void
@@ -120,7 +120,7 @@ class Woothemes_Our_Team {
 	} // End register_post_type()
 
 	/**
-	 * Register the "testimonial-category" taxonomy.
+	 * Register the "our-team-category" taxonomy.
 	 * @access public
 	 * @since  1.3.0
 	 * @return void
@@ -205,11 +205,11 @@ class Woothemes_Our_Team {
 	    1 => sprintf( __( 'Team Member updated. %sView team member%s', 'woothemes-our-team' ), '<a href="' . esc_url( get_permalink( $post_ID ) ) . '">', '</a>' ),
 	    2 => __( 'Custom field updated.', 'woothemes-our-team' ),
 	    3 => __( 'Custom field deleted.', 'woothemes-our-team' ),
-	    4 => __( 'Testimonial updated.', 'woothemes-our-team' ),
+	    4 => __( 'Team Member updated.', 'woothemes-our-team' ),
 	    /* translators: %s: date and time of the revision */
 	    5 => isset($_GET['revision']) ? sprintf( __( 'Team Member restored to revision from %s', 'woothemes-our-team' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
 	    6 => sprintf( __( 'Team Member published. %sView team member%s', 'woothemes-our-team' ), '<a href="' . esc_url( get_permalink( $post_ID ) ) . '">', '</a>' ),
-	    7 => __('Testimonial saved.'),
+	    7 => __('Team Member saved.'),
 	    8 => sprintf( __( 'Team Member submitted. %sPreview team member%s', 'woothemes-our-team' ), '<a target="_blank" href="' . esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) . '">', '</a>' ),
 	    9 => sprintf( __( 'Team Member scheduled for: %1$s. %2$sPreview team member%3$s', 'woothemes-our-team' ),
 	      // translators: Publish box date format, see http://php.net/date
@@ -422,7 +422,7 @@ class Woothemes_Our_Team {
 	} // End get_image()
 
 	/**
-	 * Get testimonials.
+	 * Get team members.
 	 * @param  string/array $args Arguments to be passed to the query.
 	 * @since  1.0.0
 	 * @return array/boolean      Array if true, boolean if false.
