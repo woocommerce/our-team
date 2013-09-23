@@ -42,6 +42,7 @@ function woothemes_our_team ( $args = '' ) {
 		'display_avatar' 		=> true,
 		'display_url' 			=> true,
 		'display_twitter' 		=> true,
+		'display_role'	 		=> true,
 		'effect' 				=> 'fade', // Options: 'fade', 'none'
 		'pagination' 			=> false,
 		'echo' 					=> true,
@@ -126,7 +127,7 @@ function woothemes_our_team ( $args = '' ) {
 
 					$member_role = '';
 
-					if ( isset( $post->byline ) && '' != $post->byline && apply_filters( 'team_member_role', true ) ) {
+					if ( true == $args['display_role'] && isset( $post->byline ) && '' != $post->byline && apply_filters( 'team_member_role', true ) ) {
 						$member_role .= ' <p class="role" itemprop="jobTitle">' . $post->byline . '</p><!--/.excerpt-->' . "\n";
 					}
 
@@ -226,6 +227,7 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 		'display_avatar' 		=> true,
 		'display_url' 			=> true,
 		'display_twitter' 		=> true,
+		'display_role'	 		=> true,
 		'effect' 				=> 'fade', // Options: 'fade', 'none'
 		'pagination' 			=> false,
 		'echo' 					=> true,
@@ -244,7 +246,7 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 	if ( isset( $args['category'] ) && is_numeric( $args['category'] ) ) $args['category'] = intval( $args['category'] );
 
 	// Fix booleans.
-	foreach ( array( 'display_author', 'display_additional', 'display_url', 'display_twitter', 'pagination', 'display_avatar' ) as $k => $v ) {
+	foreach ( array( 'display_author', 'display_additional', 'display_url', 'display_twitter', 'display_role', 'pagination', 'display_avatar' ) as $k => $v ) {
 		if ( isset( $args[$v] ) && ( 'true' == $args[$v] ) ) {
 			$args[$v] = true;
 		} else {
