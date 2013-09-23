@@ -8,7 +8,7 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Display team memer profiles with descriptions and links to social media using our shortcode, widget or template tag.
+Display team member profiles with descriptions and links to social media using our shortcode, widget or template tag.
 
 == Description ==
 
