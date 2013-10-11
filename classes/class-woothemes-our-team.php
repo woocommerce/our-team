@@ -90,7 +90,7 @@ class Woothemes_Our_Team {
 		);
 
 		$single_slug = apply_filters( 'woothemes_our_team_single_slug', _x( 'team-member', 'single post url slug', 'woothemes-our-team' ) );
-		$archive_slug = apply_filters( 'woothemes_our_team_archive_slug', _x( 'team-memers', 'post archive url slug', 'woothemes-our-team' ) );
+		$archive_slug = apply_filters( 'woothemes_our_team_archive_slug', _x( 'team-members', 'post archive url slug', 'woothemes-our-team' ) );
 
 		$args = array(
 			'labels' 				=> $labels,
