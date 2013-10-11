@@ -141,6 +141,9 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 
 == Changelog ==
 
+= 1.0.2 =
+* Fixed typo in the team members archive slug. Kudos digitales.
+
 = 1.0.1 =
 * Added role & twitter args to shortcode.
 * Added role option to widget.
