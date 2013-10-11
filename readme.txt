@@ -4,7 +4,7 @@ Donate link: http://woothemes.com/
 Tags: teams, team members, profiles, widget, shortcode, template-tag
 Requires at least: 3.4.2
 Tested up to: 3.6.0
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -131,6 +131,8 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 == Screenshots ==
 
 1. The team member profile management screen within the WordPress admin.
+
+2. The team members displayed on the front-end with a little CSS to arrange in to columns.
 
 == Upgrade Notice =
 
