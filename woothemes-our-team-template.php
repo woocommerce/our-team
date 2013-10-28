@@ -232,7 +232,10 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 		'pagination' 			=> false,
 		'echo' 					=> true,
 		'size' 					=> 250,
-		'category' 				=> 0
+		'category' 				=> 0,
+		'title'					=> '',
+		'before_title' 			=> '<h2>',
+		'after_title' 			=> '</h2>'
 	);
 
 	$args = shortcode_atts( $defaults, $atts );
