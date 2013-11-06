@@ -81,8 +81,7 @@ function woothemes_our_team ( $args = '' ) {
 
 			$html .= $args['before'] . "\n";
 			if ( '' != $args['title'] ) {
-				$html .= $args['before_title'] . esc_html( $args['title'] ) . $args['after_title'] . "\n";
-			}
+				$html .= html_entity_decode( $args['before_title'] ) . esc_html( $args['title'] ) . html_entity_decode( $args['after_title'] ) . "\n";			}
 			$html .= '<div class="team-members component' . esc_attr( $class ) . '">' . "\n";
 
 			// Begin templating logic.
@@ -232,7 +231,10 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 		'pagination' 			=> false,
 		'echo' 					=> true,
 		'size' 					=> 250,
-		'category' 				=> 0
+		'category' 				=> 0,
+		'title'					=> '',
+		'before_title' 			=> '<h2>',
+		'after_title' 			=> '</h2>'
 	);
 
 	$args = shortcode_atts( $defaults, $atts );
