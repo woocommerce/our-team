@@ -110,7 +110,7 @@ function woothemes_our_team ( $args = '' ) {
 				if ( ( get_the_title( $post ) != '' ) && true == $args['display_author'] ) {
 					$title .= '<h3 itemprop="name" class="member">';
 
-					if ( true == $args['display_url'] && '' != $post->url && apply_filters( 'team_member_url', true ) ) {
+					if ( true == $args['display_url'] && '' != $post->url && apply_filters( 'woothemes_our_team_member_url', true ) ) {
 						$title .= '<a href="' . esc_url( $post->url ) . '">' . "\n";
 					}
 
@@ -118,7 +118,7 @@ function woothemes_our_team ( $args = '' ) {
 
 					$title .= $title_name;
 
-					if ( true == $args['display_url'] && '' != $post->url && apply_filters( 'team_member_url', true ) ) {
+					if ( true == $args['display_url'] && '' != $post->url && apply_filters( 'woothemes_our_team_member_url', true ) ) {
 						$title .= '</a>' . "\n";
 					}
 
@@ -126,11 +126,11 @@ function woothemes_our_team ( $args = '' ) {
 
 					$member_role = '';
 
-					if ( true == $args['display_role'] && isset( $post->byline ) && '' != $post->byline && apply_filters( 'team_member_role', true ) ) {
+					if ( true == $args['display_role'] && isset( $post->byline ) && '' != $post->byline && apply_filters( 'woothemes_our_team_member_role', true ) ) {
 						$member_role .= ' <p class="role" itemprop="jobTitle">' . $post->byline . '</p><!--/.excerpt-->' . "\n";
 					}
 
-					$title .= apply_filters( 'member_fields_display', $member_role );
+					$title .= apply_filters( 'woothemes_our_team_member_fields_display', $member_role );
 
 				}
 
@@ -147,11 +147,11 @@ function woothemes_our_team ( $args = '' ) {
 
 					$member_fields = '';
 
-					if ( true == $args['display_twitter'] && '' != $post->twitter && apply_filters( 'team_member_twitter', true ) ) {
+					if ( true == $args['display_twitter'] && '' != $post->twitter && apply_filters( 'woothemes_our_team_member_twitter', true ) ) {
 						$member_fields .= '<li itemprop="contactPoint"><a href="//twitter.com/' . esc_html( $post->twitter ) . '" class="twitter-follow-button" data-show-count="false">Follow @' . esc_html( $post->twitter ) . '</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document, "script", "twitter-wjs");</script></li>'  . "\n";
 					}
 
-					$author .= apply_filters( 'member_fields_display', $member_fields );
+					$author .= apply_filters( 'woothemes_our_member_fields_display', $member_fields );
 
 					$author .= '</ul>';
 

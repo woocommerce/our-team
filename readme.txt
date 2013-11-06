@@ -91,7 +91,7 @@ Installing "Our Team by WooThemes" can be done either by searching for "Our Team
 
 You sure can. In fact you can disable all the default fields individually. To disable the role field add:
 
-`add_filter( 'team_member_role', '__return_false' );`
+`add_filter( 'woothemes_our_team_member_role', '__return_false' );`
 
 To your themes functions.php file. Replace '_role' with '_url', or '_twitter' for example to disable other fields.
 
@@ -99,7 +99,7 @@ To your themes functions.php file. Replace '_role' with '_url', or '_twitter' fo
 
 Yesiree! To add a new field to the backend add the following to your themes `functions.php` file:
 
-`add_filter( 'member_fields', 'my_new_fields' );
+`add_filter( 'woothemes_our_member_fields', 'my_new_fields' );
 function my_new_fields( $fields ) {
 	$fields['misc'] = array(
 	    'name' => __( 'Misc Detail', 'woothemes-our-team' ),
@@ -113,7 +113,7 @@ function my_new_fields( $fields ) {
 
 Then to display the contents of that field on the frontend add the following:
 
-`add_filter( 'member_fields_display', 'my_new_fields_display' );
+`add_filter( 'woothemes_our_member_fields_display', 'my_new_fields_display' );
 function my_new_fields_display( $member_fields ) {
 	global $post;
 	if ( '' != $post->misc ) {
@@ -146,6 +146,9 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 
 == Upgrade Notice =
 
+= 1.0.2 =
+* Some filters have been prepended with woothemes_our_. If you're customising Our Team with filters please check these customisations before updating.
+
 = 1.0.0 =
 * Initial release. Woo!
 
@@ -154,6 +157,7 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 = 1.0.2 =
 * Fixed typo in the team members archive slug. Kudos digitales.
 * Team member css class is now filterable allowing custom unique clases.
+* Prepended all filters woothemes_our_team_
 
 = 1.0.1 =
 * Added role & twitter args to shortcode.
