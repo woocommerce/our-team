@@ -124,6 +124,16 @@ function my_new_fields_display( $member_fields ) {
 
 Done!
 
+= How can I add custom CSS classes to each team member? =
+
+Using the `woothemes_our_team_member_class` filter. Use the following snippet to add 'new-class' to each team member. Obviously you can add logic here to add unique classes per user.
+
+`add_filter( 'woothemes_our_team_member_class', 'new_team_member_class' );
+function new_team_member_class( $css_class ) {
+	$css_class .= ' new-class';
+	return $css_class;
+}`
+
 = How do I contribute? =
 
 We encourage everyone to contribute their ideas, thoughts and code snippets. This can be done by forking the [repository over at GitHub](http://github.com/woothemes/our-team/).
@@ -143,6 +153,7 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 
 = 1.0.2 =
 * Fixed typo in the team members archive slug. Kudos digitales.
+* Team member css class is now filterable allowing custom unique clases.
 
 = 1.0.1 =
 * Added role & twitter args to shortcode.
