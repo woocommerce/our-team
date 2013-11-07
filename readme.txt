@@ -156,6 +156,7 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 
 = 1.0.2 =
 * Fixed typo in the team members archive slug. Kudos digitales.
+* title, before_title and after_title params are now passed to shortcode.
 * Team member css class is now filterable allowing custom unique clases.
 * Prepended all filters woothemes_our_team_
 
