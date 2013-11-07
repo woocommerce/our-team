@@ -90,7 +90,7 @@ class Woothemes_Our_Team {
 		);
 
 		$single_slug = apply_filters( 'woothemes_our_team_single_slug', _x( 'team-member', 'single post url slug', 'woothemes-our-team' ) );
-		$archive_slug = apply_filters( 'woothemes_our_team_archive_slug', _x( 'team-memers', 'post archive url slug', 'woothemes-our-team' ) );
+		$archive_slug = apply_filters( 'woothemes_our_team_archive_slug', _x( 'team-members', 'post archive url slug', 'woothemes-our-team' ) );
 
 		$args = array(
 			'labels' 				=> $labels,
@@ -360,7 +360,7 @@ class Woothemes_Our_Team {
 		    'section' 			=> 'info'
 		);
 
-		if ( apply_filters( 'team_member_role', true ) ) {
+		if ( apply_filters( 'woothemes_our_team_member_role', true ) ) {
 			$fields['byline'] = array(
 			    'name' 			=> __( 'Role', 'woothemes-our-team' ),
 			    'description' 	=> __( 'Enter a byline for the team member (for example: "Director of Production").', 'woothemes-our-team' ),
@@ -370,7 +370,7 @@ class Woothemes_Our_Team {
 			);
 		}
 
-		if ( apply_filters( 'team_member_url', true ) ) {
+		if ( apply_filters( 'woothemes_our_team_member_url', true ) ) {
 			$fields['url'] = array(
 			    'name' 			=> __( 'URL', 'woothemes-our-team' ),
 			    'description' 	=> __( 'Enter this team member\'s URL (for example: http://woothemes.com/).', 'woothemes-our-team' ),
@@ -380,7 +380,7 @@ class Woothemes_Our_Team {
 			);
 		}
 
-		if ( apply_filters( 'team_member_twitter', true ) ) {
+		if ( apply_filters( 'woothemes_our_team_member_twitter', true ) ) {
 			$fields['twitter'] = array(
 			    'name' 			=> __( 'Twitter Username', 'woothemes-our-team' ),
 			    'description' 	=> __( 'Enter this team member\'s Twitter username without the @ (for example: woothemes).', 'woothemes-our-team' ),
@@ -390,7 +390,7 @@ class Woothemes_Our_Team {
 			);
 		}
 
-		return apply_filters( 'member_fields', $fields );
+		return apply_filters( 'woothemes_our_team_member_fields', $fields );
 	} // End get_custom_fields_settings()
 
 	/**

@@ -81,8 +81,7 @@ function woothemes_our_team ( $args = '' ) {
 
 			$html .= $args['before'] . "\n";
 			if ( '' != $args['title'] ) {
-				$html .= $args['before_title'] . esc_html( $args['title'] ) . $args['after_title'] . "\n";
-			}
+				$html .= html_entity_decode( $args['before_title'] ) . esc_html( $args['title'] ) . html_entity_decode( $args['after_title'] ) . "\n";			}
 			$html .= '<div class="team-members component' . esc_attr( $class ) . '">' . "\n";
 
 			// Begin templating logic.
@@ -93,7 +92,7 @@ function woothemes_our_team ( $args = '' ) {
 			foreach ( $query as $post ) { $count++;
 				$template = $tpl;
 
-				$css_class = 'team-member';
+				$css_class = apply_filters( 'woothemes_our_team_member_class', $css_class = 'team-member' );
 				if ( ( is_numeric( $args['per_row'] ) && ( 0 == ( $count - 1 ) % $args['per_row'] ) ) || 1 == $count ) { $css_class .= ' first'; }
 				if ( ( is_numeric( $args['per_row'] ) && ( 0 == $count % $args['per_row'] ) ) ) { $css_class .= ' last'; }
 
@@ -111,7 +110,7 @@ function woothemes_our_team ( $args = '' ) {
 				if ( ( get_the_title( $post ) != '' ) && true == $args['display_author'] ) {
 					$title .= '<h3 itemprop="name" class="member">';
 
-					if ( true == $args['display_url'] && '' != $post->url && apply_filters( 'team_member_url', true ) ) {
+					if ( true == $args['display_url'] && '' != $post->url && apply_filters( 'woothemes_our_team_member_url', true ) ) {
 						$title .= '<a href="' . esc_url( $post->url ) . '">' . "\n";
 					}
 
@@ -119,7 +118,7 @@ function woothemes_our_team ( $args = '' ) {
 
 					$title .= $title_name;
 
-					if ( true == $args['display_url'] && '' != $post->url && apply_filters( 'team_member_url', true ) ) {
+					if ( true == $args['display_url'] && '' != $post->url && apply_filters( 'woothemes_our_team_member_url', true ) ) {
 						$title .= '</a>' . "\n";
 					}
 
@@ -127,11 +126,11 @@ function woothemes_our_team ( $args = '' ) {
 
 					$member_role = '';
 
-					if ( true == $args['display_role'] && isset( $post->byline ) && '' != $post->byline && apply_filters( 'team_member_role', true ) ) {
+					if ( true == $args['display_role'] && isset( $post->byline ) && '' != $post->byline && apply_filters( 'woothemes_our_team_member_role', true ) ) {
 						$member_role .= ' <p class="role" itemprop="jobTitle">' . $post->byline . '</p><!--/.excerpt-->' . "\n";
 					}
 
-					$title .= apply_filters( 'member_fields_display', $member_role );
+					$title .= apply_filters( 'woothemes_our_team_member_fields_display', $member_role );
 
 				}
 
@@ -148,11 +147,11 @@ function woothemes_our_team ( $args = '' ) {
 
 					$member_fields = '';
 
-					if ( true == $args['display_twitter'] && '' != $post->twitter && apply_filters( 'team_member_twitter', true ) ) {
+					if ( true == $args['display_twitter'] && '' != $post->twitter && apply_filters( 'woothemes_our_team_member_twitter', true ) ) {
 						$member_fields .= '<li itemprop="contactPoint"><a href="//twitter.com/' . esc_html( $post->twitter ) . '" class="twitter-follow-button" data-show-count="false">Follow @' . esc_html( $post->twitter ) . '</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document, "script", "twitter-wjs");</script></li>'  . "\n";
 					}
 
-					$author .= apply_filters( 'member_fields_display', $member_fields );
+					$author .= apply_filters( 'woothemes_our_member_fields_display', $member_fields );
 
 					$author .= '</ul>';
 
@@ -232,7 +231,10 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 		'pagination' 			=> false,
 		'echo' 					=> true,
 		'size' 					=> 250,
-		'category' 				=> 0
+		'category' 				=> 0,
+		'title'					=> '',
+		'before_title' 			=> '<h2>',
+		'after_title' 			=> '</h2>'
 	);
 
 	$args = shortcode_atts( $defaults, $atts );
