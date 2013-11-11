@@ -50,12 +50,18 @@ class Woothemes_Our_Team {
 			add_action( 'save_post', array( $this, 'meta_box_save' ) );
 			add_filter( 'enter_title_here', array( $this, 'enter_title_here' ) );
 			add_action( 'admin_print_styles', array( $this, 'enqueue_admin_styles' ), 10 );
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ), 10 );
 			add_filter( 'post_updated_messages', array( $this, 'updated_messages' ) );
 
 			if ( $pagenow == 'edit.php' && isset( $_GET['post_type'] ) && esc_attr( $_GET['post_type'] ) == $this->token ) {
 				add_filter( 'manage_edit-' . $this->token . '_columns', array( $this, 'register_custom_column_headings' ), 10, 1 );
 				add_action( 'manage_posts_custom_column', array( $this, 'register_custom_columns' ), 10, 2 );
 			}
+
+			// Get users ajax callback
+			add_action( 'wp_ajax_get_users', array( $this, 'get_users_callback' ) );
+			add_action( 'admin_footer',  array( $this, 'get_users_javascript' ) );
+
 		}
 
 		add_action( 'after_setup_theme', array( $this, 'ensure_post_thumbnails_support' ) );
@@ -257,7 +263,16 @@ class Woothemes_Our_Team {
 					$data = $fields['_' . $k][0];
 				}
 
-				$html .= '<tr valign="top"><th scope="row"><label for="' . esc_attr( $k ) . '">' . $v['name'] . '</label></th><td><input name="' . esc_attr( $k ) . '" type="text" id="' . esc_attr( $k ) . '" class="regular-text" value="' . esc_attr( $data ) . '" />' . "\n";
+				switch ( $v['type'] ) {
+					case 'hidden':
+						$field = '<input name="' . esc_attr( $k ) . '" type="hidden" id="' . esc_attr( $k ) . '" value="' . esc_attr( $data ) . '" />';
+						break;
+					default:
+						$field = '<input name="' . esc_attr( $k ) . '" type="text" id="' . esc_attr( $k ) . '" class="regular-text" value="' . esc_attr( $data ) . '" />';
+						break;
+				}
+
+				$html .= '<tr valign="top"><th scope="row"><label for="' . esc_attr( $k ) . '">' . $v['name'] . '</label></th><td>' . $field . "\n";
 				$html .= '<p class="description">' . $v['description'] . '</p>' . "\n";
 				$html .= '</td><tr/>' . "\n";
 			}
@@ -340,8 +355,22 @@ class Woothemes_Our_Team {
 	 * @return   void
 	 */
 	public function enqueue_admin_styles () {
-		wp_register_style( 'woothemes-our-team-admin', $this->assets_url . '/css/admin.css', array(), '1.0.1' );
+		wp_register_style( 'woothemes-our-team-admin', $this->assets_url . 'css/admin.css', array(), '1.0.1' );
+		wp_register_style( 'woothemes-our-team-select2', $this->assets_url . 'css/select2.css', array(), '1.0.1' );
 		wp_enqueue_style( 'woothemes-our-team-admin' );
+		wp_enqueue_style( 'woothemes-our-team-select2' );
+	} // End enqueue_admin_styles()
+
+	/**
+	 * Enqueue post type admin JavaScript.
+	 *
+	 * @access public
+	 * @since   1.0.0
+	 * @return   void
+	 */
+	public function enqueue_admin_scripts () {
+		wp_register_script( 'woothemes-our-team-select2', $this->assets_url . 'js/select2.min.js', array( 'jquery' ) );
+		wp_enqueue_script( 'woothemes-our-team-select2' );
 	} // End enqueue_admin_styles()
 
 	/**
@@ -390,8 +419,58 @@ class Woothemes_Our_Team {
 			);
 		}
 
+		if ( apply_filters( 'woothemes_our_team_member_username', true ) ) {
+			$fields['username'] = array(
+			    'name' 			=> __( 'WordPress Username', 'woothemes-our-team' ),
+			    'description' 	=> __( 'Map this team member to a user on this site.', 'woothemes-our-team' ),
+			    'type' 			=> 'hidden',
+			    'default' 		=> '',
+			    'section' 		=> 'info'
+			);
+		}
+
 		return apply_filters( 'woothemes_our_team_member_fields', $fields );
 	} // End get_custom_fields_settings()
+
+	/**
+	 * Ajax callback to search for users.
+	 * @param  string $query Search Query.
+	 * @since  1.1.0
+	 * @return json       	Search Results.
+	 */
+	public function get_users_callback() {
+
+		check_ajax_referer( 'our_team_ajax_get_users', 'security' );
+
+		$term = urldecode( stripslashes( strip_tags( $_GET['term'] ) ) );
+
+		if ( !empty( $term ) ) {
+
+			header( 'Content-Type: application/json; charset=utf-8' );
+
+			$users_query = new WP_User_Query( array(
+				'fields'			=> 'all',
+				'orderby'			=> 'display_name',
+				'search'			=> '*' . $term . '*',
+				'search_columns'	=> array( 'ID', 'user_login', 'user_email', 'user_nicename' )
+			) );
+
+			$users = $users_query->get_results();
+			$found_users = array();
+
+			if ( $users ) {
+				foreach ( $users as $user ) {
+					$found_users[] = array( 'id' => $user->ID, 'display_name' => $user->display_name );
+				}
+			}
+
+			echo json_encode( $found_users );
+
+		}
+
+		die();
+
+	}
 
 	/**
 	 * Get the image for the given ID. If no featured image, check for Gravatar e-mail.
@@ -584,4 +663,67 @@ class Woothemes_Our_Team {
 	public function ensure_post_thumbnails_support () {
 		if ( ! current_theme_supports( 'post-thumbnails' ) ) { add_theme_support( 'post-thumbnails' ); }
 	} // End ensure_post_thumbnails_support()
+
+	/**
+	 * Output admin javascript
+	 * @since  1.1.0
+	 * @return  void
+	 */
+	public function get_users_javascript() {
+
+		global $pagenow, $post_type;
+
+		if ( ( $pagenow == 'post.php' || $pagenow == 'post-new.php' ) && isset( $post_type ) && esc_attr( $post_type ) == $this->token ) {
+
+			$ajax_nonce = wp_create_nonce( 'our_team_ajax_get_users' );
+
+	?>
+			<script type="text/javascript" >
+
+				jQuery("#username").select2({
+				    placeholder: "<?php _e('Search for users', 'woothemes-our-team'); ?>",
+				    minimumInputLength: 1,
+				    ajax: {
+				        url: ajaxurl,
+				        dataType: 'json',
+				        data: function (term) {
+				            return {
+				            	action: 'get_users',
+				                term: term, // search term
+				                security: '<?php echo $ajax_nonce; ?>'
+				            };
+				        },
+				        results: function (data) {
+				            return {results: data};
+				        }
+				    },
+				    initSelection: function(element, callback) {
+				    	var id = jQuery(element).val();
+				    	if ( id !== "" ) {
+							jQuery.ajax( ajaxurl, {
+							data: {
+								action: 'get_users',
+								term: id,
+								security: '<?php echo $ajax_nonce; ?>'
+							},
+							dataType: "json"
+							}).done(function( data ) { callback( data[0] ); });		    		
+				    	}
+				    },
+				    formatResult: function (user) {
+				    	var markup = '';
+					    markup += "<div>" + user.display_name + "</div>";
+					    return markup;
+				    },
+				    formatSelection: function (user) {
+				    	return user.display_name;
+				    },
+				    escapeMarkup: function (m) { return m; }
+				});
+
+			</script>
+	<?php
+		}
+	} //End get_users_javascript
+
 } // End Class
