@@ -419,8 +419,8 @@ class Woothemes_Our_Team {
 			);
 		}
 
-		if ( apply_filters( 'woothemes_our_team_member_username', true ) ) {
-			$fields['username'] = array(
+		if ( apply_filters( 'woothemes_our_team_member_user_id', true ) ) {
+			$fields['user_id'] = array(
 			    'name' 			=> __( 'WordPress Username', 'woothemes-our-team' ),
 			    'description' 	=> __( 'Map this team member to a user on this site.', 'woothemes-our-team' ),
 			    'type' 			=> 'hidden',
@@ -680,8 +680,8 @@ class Woothemes_Our_Team {
 	?>
 			<script type="text/javascript" >
 
-				jQuery("#username").select2({
-				    placeholder: "<?php _e('Search for users', 'woothemes-our-team'); ?>",
+				jQuery("#user_id").select2({
+				    placeholder: "<?php _e('Please enter one or more characters', 'woothemes-our-team'); ?>",
 				    minimumInputLength: 1,
 				    ajax: {
 				        url: ajaxurl,
