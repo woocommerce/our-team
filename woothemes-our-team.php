@@ -4,7 +4,7 @@
  * Plugin URI: http://woothemes.com/
  * Description: Hi, I'm your team profile management plugin for WordPress. Show off what your team members using our shortcode, widget or template tag.
  * Author: WooThemes
- * Version: 1.0.2
+ * Version: 1.1.0
  * Author URI: http://woothemes.com/
  *
  * @package WordPress

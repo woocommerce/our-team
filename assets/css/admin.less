@@ -1,21 +1,6 @@
 // Team members icon
-#menu-posts-team-member {
-	.wp-menu-image {
-		background: none;
-		background-image: url(../images/team-members-icon.png);
-		background-position: 7px -132px !important;
-		background-repeat: no-repeat;
-	}
-}
-
-#menu-posts-team-member.wp-menu-open, #menu-posts-team-member:hover {
-	.wp-menu-image {
-		background-position: 7px -164px !important;
-	}
-}
-
-#icon-edit.icon32-posts-team-member {
-	background: transparent url(../images/team-members-icon.png) no-repeat 0 0;
+#adminmenu .menu-icon-team-member div.wp-menu-image:before {
+	content: '\f307';
 }
 
 // Autocomplete
@@ -48,23 +33,5 @@
 				}
 			}
 		}
-	}
-}
-
-// Retina
-@media only screen and (-webkit-min-device-pixel-ratio: 2),
-only screen and (   min--moz-device-pixel-ratio: 2),
-only screen and (     -o-min-device-pixel-ratio: 2/1),
-only screen and (        min-device-pixel-ratio: 2),
-{
-	#menu-posts-team-member {
-		.wp-menu-image {
-			background-image: url(../images/team-members-icon@x2.png);
-			background-size: 32px 187px;
-		}
-	}
-	#icon-edit.icon32-posts-team-member {
-		background-image: url(../images/team-members-icon@x2.png);
-		background-size: 32px 187px;
 	}
 }
