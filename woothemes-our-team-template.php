@@ -194,7 +194,15 @@ function woothemes_our_team ( $args = '' ) {
 				// Remove any remaining %%AVATAR%% template tags.
 				$template 	= str_replace( '%%AVATAR%%', '', $template );
 				$content 	= apply_filters( 'woothemes_our_team_content', wpautop( get_the_content() ), $post );
-				$template 	= str_replace( '%%TEXT%%', $content, $template );
+
+				// Display bio if Team Member is mapped to a user on this site.
+				if ( apply_filters( 'woothemes_our_team_display_bio', true ) && 0 != $user ) {
+					if ( '' != get_the_author_meta( 'description', $user ) ) {
+						$content = wpautop( get_the_author_meta( 'description', $user ) );
+					}
+				}
+
+				$template = str_replace( '%%TEXT%%', $content, $template );
 
 				// Assign for output.
 				$html .= $template;
