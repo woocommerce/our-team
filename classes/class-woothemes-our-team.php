@@ -266,15 +266,17 @@ class Woothemes_Our_Team {
 				switch ( $v['type'] ) {
 					case 'hidden':
 						$field = '<input name="' . esc_attr( $k ) . '" type="hidden" id="' . esc_attr( $k ) . '" value="' . esc_attr( $data ) . '" />';
+						$html .= '<tr valign="top">' . $field . "\n";
+						$html .= '<tr/>' . "\n";
 						break;
 					default:
 						$field = '<input name="' . esc_attr( $k ) . '" type="text" id="' . esc_attr( $k ) . '" class="regular-text" value="' . esc_attr( $data ) . '" />';
+						$html .= '<tr valign="top"><th scope="row"><label for="' . esc_attr( $k ) . '">' . $v['name'] . '</label></th><td>' . $field . "\n";
+						$html .= '<p class="description">' . $v['description'] . '</p>' . "\n";
+						$html .= '</td><tr/>' . "\n";						
 						break;
 				}
 
-				$html .= '<tr valign="top"><th scope="row"><label for="' . esc_attr( $k ) . '">' . $v['name'] . '</label></th><td>' . $field . "\n";
-				$html .= '<p class="description">' . $v['description'] . '</p>' . "\n";
-				$html .= '</td><tr/>' . "\n";
 			}
 
 			$html .= '</tbody>' . "\n";
@@ -356,9 +358,7 @@ class Woothemes_Our_Team {
 	 */
 	public function enqueue_admin_styles () {
 		wp_register_style( 'woothemes-our-team-admin', $this->assets_url . 'css/admin.css', array(), '1.0.1' );
-		wp_register_style( 'woothemes-our-team-select2', $this->assets_url . 'css/select2.css', array(), '1.0.1' );
 		wp_enqueue_style( 'woothemes-our-team-admin' );
-		wp_enqueue_style( 'woothemes-our-team-select2' );
 	} // End enqueue_admin_styles()
 
 	/**
@@ -369,8 +369,7 @@ class Woothemes_Our_Team {
 	 * @return   void
 	 */
 	public function enqueue_admin_scripts () {
-		wp_register_script( 'woothemes-our-team-select2', $this->assets_url . 'js/select2.min.js', array( 'jquery' ) );
-		wp_enqueue_script( 'woothemes-our-team-select2' );
+		wp_enqueue_script('jquery-ui-autocomplete', null, array('jquery'), null, false);
 	} // End enqueue_admin_styles()
 
 	/**
@@ -419,10 +418,20 @@ class Woothemes_Our_Team {
 			);
 		}
 
+		if ( apply_filters( 'woothemes_our_team_member_user_search', true ) ) {
+			$fields['user_search'] = array(
+			    'name' 			=> __( 'WordPress Username', 'woothemes-our-team' ),
+			    'description' 	=> __( 'Map this team member to a user on this site.', 'woothemes-our-team' ),
+			    'type' 			=> 'text',
+			    'default' 		=> '',
+			    'section' 		=> 'info'
+			);
+		}
+
 		if ( apply_filters( 'woothemes_our_team_member_user_id', true ) ) {
 			$fields['user_id'] = array(
 			    'name' 			=> __( 'WordPress Username', 'woothemes-our-team' ),
-			    'description' 	=> __( 'Map this team member to a user on this site.', 'woothemes-our-team' ),
+			    'description' 	=> __( 'Holds the id of the selected user.', 'woothemes-our-team' ),
 			    'type' 			=> 'hidden',
 			    'default' 		=> '',
 			    'section' 		=> 'info'
@@ -679,48 +688,35 @@ class Woothemes_Our_Team {
 
 	?>
 			<script type="text/javascript" >
-
-				jQuery("#user_id").select2({
-				    placeholder: "<?php _e('Please enter one or more characters', 'woothemes-our-team'); ?>",
-				    minimumInputLength: 1,
-				    ajax: {
-				        url: ajaxurl,
-				        dataType: 'json',
-				        data: function (term) {
-				            return {
-				            	action: 'get_users',
-				                term: term, // search term
-				                security: '<?php echo $ajax_nonce; ?>'
-				            };
-				        },
-				        results: function (data) {
-				            return {results: data};
-				        }
-				    },
-				    initSelection: function(element, callback) {
-				    	var id = jQuery(element).val();
-				    	if ( id !== "" ) {
-							jQuery.ajax( ajaxurl, {
-							data: {
-								action: 'get_users',
-								term: id,
-								security: '<?php echo $ajax_nonce; ?>'
-							},
-							dataType: "json"
-							}).done(function( data ) { callback( data[0] ); });		    		
-				    	}
-				    },
-				    formatResult: function (user) {
-				    	var markup = '';
-					    markup += "<div>" + user.display_name + "</div>";
-					    return markup;
-				    },
-				    formatSelection: function (user) {
-				    	return user.display_name;
-				    },
-				    escapeMarkup: function (m) { return m; }
+				jQuery(function() {
+					jQuery( "#user_search" ).autocomplete({
+						minLength: 1,
+						source: function ( request, response ) {
+							jQuery.ajax({
+								url: ajaxurl,
+								dataType: 'json',
+								data: {
+									action: 'get_users',
+									security: '<?php echo $ajax_nonce; ?>',
+									term: request.term
+								},
+								success: function( data ) {
+									response( jQuery.map( data, function( item ) {
+										return {
+											label: item.display_name,
+											value: item.id
+										}
+									}));
+								}
+							});
+						},
+						select: function ( event, ui ) {
+							event.preventDefault();
+							jQuery("#user_search").val( ui.item.label );
+							jQuery("#user_id").val( ui.item.value );
+						}
+					});
 				});
-
 			</script>
 	<?php
 		}
