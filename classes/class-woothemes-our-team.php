@@ -433,7 +433,7 @@ class Woothemes_Our_Team {
 			    'name' 			=> __( 'WordPress Username', 'woothemes-our-team' ),
 			    'description' 	=> __( 'Holds the id of the selected user.', 'woothemes-our-team' ),
 			    'type' 			=> 'hidden',
-			    'default' 		=> '',
+			    'default' 		=> 0,
 			    'section' 		=> 'info'
 			);
 		}

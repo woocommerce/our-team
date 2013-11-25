@@ -148,8 +148,23 @@ function woothemes_our_team ( $args = '' ) {
 
 					$member_fields = '';
 
-					if ( true == $args['display_author_archive'] && '' != $post->user_id && apply_filters( 'woothemes_our_team_member_user_id', true ) ) {
-						$member_fields .= '<li class="our-team-author-archive" itemprop="url"><a href="' . get_author_posts_url( $post->user_id ) . '">' . sprintf( __( 'Read posts by %1$s', 'woothemes' ), get_the_title() ) . '</a></li>' . "\n";
+					if ( true == $args['display_author_archive'] && apply_filters( 'woothemes_our_team_member_user_id', true ) ) {
+
+						$user = $post->user_id;
+
+						// User didn't select an item from the autocomplete list
+						// Let's try to get the user from the search query
+						if ( 0 == $post->user_id && '' != $post->user_search ) {
+							$user = get_user_by( 'slug', $post->user_search );
+							if ( $user ) {
+								$user = $user->ID;
+							}
+						}
+
+						if ( 0 != $user ) {
+							$member_fields .= '<li class="our-team-author-archive" itemprop="url"><a href="' . get_author_posts_url( $post->user_id ) . '">' . sprintf( __( 'Read posts by %1$s', 'woothemes' ), get_the_title() ) . '</a></li>' . "\n";
+						}
+
 					}
 
 					if ( true == $args['display_twitter'] && '' != $post->twitter && apply_filters( 'woothemes_our_team_member_twitter', true ) ) {
