@@ -32,27 +32,28 @@ function woothemes_our_team ( $args = '' ) {
 	global $post;
 
 	$defaults = array(
-		'limit' 				=> 12,
-		'per_row' 				=> null,
-		'orderby' 				=> 'menu_order',
-		'order' 				=> 'DESC',
-		'id' 					=> 0,
-		'display_author' 		=> true,
-		'display_additional' 	=> true,
-		'display_avatar' 		=> true,
-		'display_url' 			=> true,
-		'display_twitter' 		=> true,
-		'display_role'	 		=> true,
-		'effect' 				=> 'fade', // Options: 'fade', 'none'
-		'pagination' 			=> false,
-		'echo' 					=> true,
-		'size' 					=> 250,
-		'title' 				=> '',
-		'before' 				=> '<div class="widget widget_woothemes_our_team">',
-		'after' 				=> '</div>',
-		'before_title' 			=> '<h2>',
-		'after_title' 			=> '</h2>',
-		'category' 				=> 0
+		'limit' 					=> 12,
+		'per_row' 					=> null,
+		'orderby' 					=> 'menu_order',
+		'order' 					=> 'DESC',
+		'id' 						=> 0,
+		'display_author' 			=> true,
+		'display_additional' 		=> true,
+		'display_avatar' 			=> true,
+		'display_url' 				=> true,
+		'display_twitter' 			=> true,
+		'display_author_archive'	=> true,
+		'display_role'	 			=> true,
+		'effect' 					=> 'fade', // Options: 'fade', 'none'
+		'pagination' 				=> false,
+		'echo' 						=> true,
+		'size' 						=> 250,
+		'title' 					=> '',
+		'before' 					=> '<div class="widget widget_woothemes_our_team">',
+		'after' 					=> '</div>',
+		'before_title' 				=> '<h2>',
+		'after_title' 				=> '</h2>',
+		'category' 					=> 0
 	);
 
 	$args = wp_parse_args( $args, $defaults );
@@ -147,8 +148,27 @@ function woothemes_our_team ( $args = '' ) {
 
 					$member_fields = '';
 
+					if ( true == $args['display_author_archive'] && apply_filters( 'woothemes_our_team_member_user_id', true ) ) {
+
+						$user = $post->user_id;
+
+						// User didn't select an item from the autocomplete list
+						// Let's try to get the user from the search query
+						if ( 0 == $post->user_id && '' != $post->user_search ) {
+							$user = get_user_by( 'slug', $post->user_search );
+							if ( $user ) {
+								$user = $user->ID;
+							}
+						}
+
+						if ( 0 != $user ) {
+							$member_fields .= '<li class="our-team-author-archive" itemprop="url"><a href="' . get_author_posts_url( $post->user_id ) . '">' . sprintf( __( 'Read posts by %1$s', 'woothemes' ), get_the_title() ) . '</a></li>' . "\n";
+						}
+
+					}
+
 					if ( true == $args['display_twitter'] && '' != $post->twitter && apply_filters( 'woothemes_our_team_member_twitter', true ) ) {
-						$member_fields .= '<li itemprop="contactPoint"><a href="//twitter.com/' . esc_html( $post->twitter ) . '" class="twitter-follow-button" data-show-count="false">Follow @' . esc_html( $post->twitter ) . '</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document, "script", "twitter-wjs");</script></li>'  . "\n";
+						$member_fields .= '<li class="our-team-twitter" itemprop="contactPoint"><a href="//twitter.com/' . esc_html( $post->twitter ) . '" class="twitter-follow-button" data-show-count="false">Follow @' . esc_html( $post->twitter ) . '</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document, "script", "twitter-wjs");</script></li>'  . "\n";
 					}
 
 					$author .= apply_filters( 'woothemes_our_member_fields_display', $member_fields );
@@ -174,7 +194,15 @@ function woothemes_our_team ( $args = '' ) {
 				// Remove any remaining %%AVATAR%% template tags.
 				$template 	= str_replace( '%%AVATAR%%', '', $template );
 				$content 	= apply_filters( 'woothemes_our_team_content', wpautop( get_the_content() ), $post );
-				$template 	= str_replace( '%%TEXT%%', $content, $template );
+
+				// Display bio if Team Member is mapped to a user on this site.
+				if ( apply_filters( 'woothemes_our_team_display_bio', true ) && 0 != $user ) {
+					if ( '' != get_the_author_meta( 'description', $user ) ) {
+						$content = wpautop( get_the_author_meta( 'description', $user ) );
+					}
+				}
+
+				$template = str_replace( '%%TEXT%%', $content, $template );
 
 				// Assign for output.
 				$html .= $template;
@@ -216,25 +244,26 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 	$args = (array)$atts;
 
 	$defaults = array(
-		'limit' 				=> 12,
-		'per_row' 				=> null,
-		'orderby' 				=> 'menu_order',
-		'order' 				=> 'DESC',
-		'id' 					=> 0,
-		'display_author' 		=> true,
-		'display_additional' 	=> true,
-		'display_avatar' 		=> true,
-		'display_url' 			=> true,
-		'display_twitter' 		=> true,
-		'display_role'	 		=> true,
-		'effect' 				=> 'fade', // Options: 'fade', 'none'
-		'pagination' 			=> false,
-		'echo' 					=> true,
-		'size' 					=> 250,
-		'category' 				=> 0,
-		'title'					=> '',
-		'before_title' 			=> '<h2>',
-		'after_title' 			=> '</h2>'
+		'limit' 					=> 12,
+		'per_row' 					=> null,
+		'orderby' 					=> 'menu_order',
+		'order' 					=> 'DESC',
+		'id' 						=> 0,
+		'display_author' 			=> true,
+		'display_additional' 		=> true,
+		'display_avatar' 			=> true,
+		'display_url' 				=> true,
+		'display_author_archive'	=> true,
+		'display_twitter' 			=> true,
+		'display_role'	 			=> true,
+		'effect' 					=> 'fade', // Options: 'fade', 'none'
+		'pagination' 				=> false,
+		'echo' 						=> true,
+		'size' 						=> 250,
+		'category' 					=> 0,
+		'title'						=> '',
+		'before_title' 				=> '<h2>',
+		'after_title' 				=> '</h2>'
 	);
 
 	$args = shortcode_atts( $defaults, $atts );
@@ -248,7 +277,7 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 	if ( isset( $args['category'] ) && is_numeric( $args['category'] ) ) $args['category'] = intval( $args['category'] );
 
 	// Fix booleans.
-	foreach ( array( 'display_author', 'display_additional', 'display_url', 'display_twitter', 'display_role', 'pagination', 'display_avatar' ) as $k => $v ) {
+	foreach ( array( 'display_author', 'display_additional', 'display_url', 'display_author_archive', 'display_twitter', 'display_role', 'pagination', 'display_avatar' ) as $k => $v ) {
 		if ( isset( $args[$v] ) && ( 'true' == $args[$v] ) ) {
 			$args[$v] = true;
 		} else {

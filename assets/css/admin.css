@@ -1,23 +1,28 @@
-#menu-posts-team-member .wp-menu-image {
+#adminmenu .menu-icon-team-member div.wp-menu-image:before {
+  content: '\f307';
+}
+.post-type-team-member .ui-autocomplete {
+  font-family: inherit;
+  font-size: 1em;
+  background: #fafafa;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+  -webkit-transform: translateY(-1px);
+  transform: translateY(-1px);
+}
+.post-type-team-member .ui-autocomplete li a {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: 0;
   background: none;
-  background-image: url(../images/team-members-icon.png);
-  background-position: 7px -132px !important;
-  background-repeat: no-repeat;
 }
-#menu-posts-team-member.wp-menu-open .wp-menu-image,
-#menu-posts-team-member:hover .wp-menu-image {
-  background-position: 7px -164px !important;
+.post-type-team-member .ui-autocomplete li a:hover {
+  border: 0;
+  background: #f6f6f6;
 }
-#icon-edit.icon32-posts-team-member {
-  background: transparent url(../images/team-members-icon.png) no-repeat 0 0;
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2) {
-  #menu-posts-team-member .wp-menu-image {
-    background-image: url(../images/team-members-icon@x2.png);
-    background-size: 32px 187px;
-  }
-  #icon-edit.icon32-posts-team-member {
-    background-image: url(../images/team-members-icon@x2.png);
-    background-size: 32px 187px;
-  }
+.post-type-team-member .ui-autocomplete li:last-child a {
+  -webkit-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
 }

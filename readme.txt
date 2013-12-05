@@ -2,9 +2,9 @@
 Contributors: woothemes, mattyza, jameskoster
 Donate link: http://woothemes.com/
 Tags: teams, team members, profiles, widget, shortcode, template-tag
-Requires at least: 3.4.2
-Tested up to: 3.6.1
-Stable tag: 1.0.2
+Requires at least: 3.8
+Tested up to: 3.8
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Display team member profiles with descriptions and links to social media using o
 
 == Description ==
 
-"Our Team by WooThemes" is a clean and easy-to-use team profile management system for WordPress. Load in your team members and display their profiles via a shortcode, widget or template tag on your website.
+"Our Team by WooThemes" is a clean and easy-to-use team profile management system for WordPress. Load in your team members and display their profiles via a shortcode, widget or template tag on your website. Assign team members to a user, allowing team members to manage their own description via the bio on the profile page as well as display a link to their author archive.
 
 Looking for a helping hand? [View plugin documentation](http://wordpress.org/plugins/our-team-by-woothemes/other_notes/).
 
@@ -134,6 +134,13 @@ function new_team_member_class( $css_class ) {
 	return $css_class;
 }`
 
+= What does assigning a team member to a user do? =
+
+If you assign a team member to a user in your WordPress install a couple of things happen:
+
+1. A link to the team members post archive is output beneath their description. This can be disabled using the `woothemes_our_team_args` filter if you want.
+2. That user now has control of what is displayed as their description. If they add some information to their bio from their profile page, that will display instead of any content you added to the team member content. If their bio is empty the standard description will appear as normal.
+
 = How do I contribute? =
 
 We encourage everyone to contribute their ideas, thoughts and code snippets. This can be done by forking the [repository over at GitHub](http://github.com/woothemes/our-team/).
@@ -153,6 +160,10 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 * Initial release. Woo!
 
 == Changelog ==
+
+= 1.1.0 =
+* New - Team members can be assigned to a WordPress user pulling a link to their posts into the team page and replacing their description with the bio according to their profile.
+* 3.8 UI compatibility.
 
 = 1.0.2 =
 * Fixed typo in the team members archive slug. Kudos digitales.
