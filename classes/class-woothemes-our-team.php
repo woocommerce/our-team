@@ -523,6 +523,8 @@ class Woothemes_Our_Team {
 			'order' 		=> 'DESC',
 			'id' 			=> 0,
 			'category' 		=> 0,
+			'meta_key'		=> null,
+			'meta_value'	=> null
 		);
 
 		$args = wp_parse_args( $args, $defaults );
@@ -573,6 +575,17 @@ class Woothemes_Our_Team {
 		// If the category slug is specified.
 		if ( ! is_numeric( $args['category'] ) && is_string( $args['category'] ) ) {
 			$tax_field_type = 'slug';
+		}
+
+		// If a meta query is specified
+		if ( is_string( $args['meta_key'] ) ) {
+			$query_args['meta_key'] = esc_html( $args['meta_key'] );
+			echo 'key';
+		}
+
+		if ( is_string( $args['meta_value'] ) ) {
+			$query_args['meta_value'] = esc_html( $args['meta_value'] );
+			echo 'value';
 		}
 
 		// Setup the taxonomy query.
