@@ -517,11 +517,12 @@ class Woothemes_Our_Team {
 	 */
 	public function get_our_team ( $args = '' ) {
 		$defaults = array(
+			'query_id'		=> 'our_team',
 			'limit' 		=> 12,
 			'orderby' 		=> 'menu_order',
 			'order' 		=> 'DESC',
 			'id' 			=> 0,
-			'category' 		=> 0
+			'category' 		=> 0,
 		);
 
 		$args = wp_parse_args( $args, $defaults );
@@ -531,6 +532,7 @@ class Woothemes_Our_Team {
 
 		// The Query Arguments.
 		$query_args 						= array();
+		$query_args['query_id']				= $args['query_id'];
 		$query_args['post_type'] 			= 'team-member';
 		$query_args['numberposts'] 			= $args['limit'];
 		$query_args['orderby'] 				= $args['orderby'];
