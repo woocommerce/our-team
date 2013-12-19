@@ -580,12 +580,10 @@ class Woothemes_Our_Team {
 		// If a meta query is specified
 		if ( is_string( $args['meta_key'] ) ) {
 			$query_args['meta_key'] = esc_html( $args['meta_key'] );
-			echo 'key';
 		}
 
 		if ( is_string( $args['meta_value'] ) ) {
 			$query_args['meta_value'] = esc_html( $args['meta_value'] );
-			echo 'value';
 		}
 
 		// Setup the taxonomy query.
