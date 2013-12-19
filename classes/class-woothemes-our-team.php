@@ -517,11 +517,14 @@ class Woothemes_Our_Team {
 	 */
 	public function get_our_team ( $args = '' ) {
 		$defaults = array(
+			'query_id'		=> 'our_team',
 			'limit' 		=> 12,
 			'orderby' 		=> 'menu_order',
 			'order' 		=> 'DESC',
 			'id' 			=> 0,
-			'category' 		=> 0
+			'category' 		=> 0,
+			'meta_key'		=> null,
+			'meta_value'	=> null
 		);
 
 		$args = wp_parse_args( $args, $defaults );
@@ -531,6 +534,7 @@ class Woothemes_Our_Team {
 
 		// The Query Arguments.
 		$query_args 						= array();
+		$query_args['query_id']				= $args['query_id'];
 		$query_args['post_type'] 			= 'team-member';
 		$query_args['numberposts'] 			= $args['limit'];
 		$query_args['orderby'] 				= $args['orderby'];
@@ -571,6 +575,15 @@ class Woothemes_Our_Team {
 		// If the category slug is specified.
 		if ( ! is_numeric( $args['category'] ) && is_string( $args['category'] ) ) {
 			$tax_field_type = 'slug';
+		}
+
+		// If a meta query is specified
+		if ( is_string( $args['meta_key'] ) ) {
+			$query_args['meta_key'] = esc_html( $args['meta_key'] );
+		}
+
+		if ( is_string( $args['meta_value'] ) ) {
+			$query_args['meta_value'] = esc_html( $args['meta_value'] );
 		}
 
 		// Setup the taxonomy query.
