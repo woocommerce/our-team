@@ -4,7 +4,7 @@ Donate link: http://woothemes.com/
 Tags: teams, team members, profiles, widget, shortcode, template-tag
 Requires at least: 3.8
 Tested up to: 3.8
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -153,6 +153,10 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 
 == Upgrade Notice =
 
+= 1.1.1 =
+* Filter 'woothemes_our_member_fields' has been renamed to 'woothemes_our_team_member_fields'.
+* Textdomain changed from 'woothemes-our-team' to 'our-team-by-woothemes'.
+
 = 1.0.2 =
 * Some filters have been prepended with woothemes_our_. If you're customising Our Team with filters please check these customisations before updating.
 
@@ -160,6 +164,11 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 * Initial release. Woo!
 
 == Changelog ==
+
+= 1.1.1 =
+* New - Team members can be sorted by meta. Kudos @helgatheviking
+* Tweak - Renamed woothemes_our_member_fields filter to woothemes_our_team_member_fields. Kudos @tlehtimaki
+* Localization - Changed textdomain to match plugin slug. Kudos @cfoellmann.
 
 = 1.1.0 =
 * New - Team members can be assigned to a WordPress user pulling a link to their posts into the team page and replacing their description with the bio according to their profile.
