@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Our Team v1.0.0\n"
+"Project-Id-Version: Our Team v1.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-09-23 09:27:55+0000\n"
+"PO-Revision-Date: 2013-12-05 15:57:55+0000\n"
 "Last-Translator: Matty <matt@woothemes.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,27 +20,27 @@ msgstr ""
 "X-Textdomain-Support: yes"
 
 #: classes/class-woothemes-our-team-taxonomy.php:103
-#: classes/class-woothemes-our-team.php:79
+#: classes/class-woothemes-our-team.php:85
 #, php-format
 #@ woothemes-our-team
 msgid "Add New %s"
 msgstr ""
 
 #: classes/class-woothemes-our-team-taxonomy.php:101
-#: classes/class-woothemes-our-team.php:80
+#: classes/class-woothemes-our-team.php:86
 #, php-format
 #@ woothemes-our-team
 msgid "Edit %s"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:81
+#: classes/class-woothemes-our-team.php:87
 #, php-format
 #@ woothemes-our-team
 msgid "New %s"
 msgstr ""
 
 #: classes/class-woothemes-our-team-taxonomy.php:98
-#: classes/class-woothemes-our-team.php:82
+#: classes/class-woothemes-our-team.php:88
 #, php-format
 #@ woothemes-our-team
 msgid "All %s"
@@ -51,152 +51,152 @@ msgstr ""
 msgid "Our Team"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:83
+#: classes/class-woothemes-our-team.php:89
 #, php-format
 #@ woothemes-our-team
 msgid "View %s"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:84
+#: classes/class-woothemes-our-team.php:90
 #, php-format
 #@ woothemes-our-team
 msgid "Search %a"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:85
+#: classes/class-woothemes-our-team.php:91
 #, php-format
 #@ woothemes-our-team
 msgid "No %s Found"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:86
+#: classes/class-woothemes-our-team.php:92
 #, php-format
 #@ woothemes-our-team
 msgid "No %s Found In Trash"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:172
+#: classes/class-woothemes-our-team.php:178
 #@ woothemes-our-team
 msgid "Image"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:206
+#: classes/class-woothemes-our-team.php:212
 #@ woothemes-our-team
 msgid "Custom field updated."
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:207
+#: classes/class-woothemes-our-team.php:213
 #@ woothemes-our-team
 msgid "Custom field deleted."
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:216
+#: classes/class-woothemes-our-team.php:222
 #@ default
 msgid "M j, Y @ G:i"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:356
+#: classes/class-woothemes-our-team.php:384
 #@ woothemes-our-team
 msgid "Gravatar E-mail Address"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:357
+#: classes/class-woothemes-our-team.php:385
 #, php-format
 #@ woothemes-our-team
 msgid "Enter in an e-mail address, to use a %sGravatar%s, instead of using the \"Featured Image\"."
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:375
+#: classes/class-woothemes-our-team.php:403
 #@ woothemes-our-team
 msgid "URL"
 msgstr ""
 
-#: classes/class-woothemes-widget-our-team.php:172
+#: classes/class-woothemes-widget-our-team.php:175
 #@ woothemes-our-team
 msgid "Title (optional):"
 msgstr ""
 
-#: classes/class-woothemes-widget-our-team.php:177
+#: classes/class-woothemes-widget-our-team.php:180
 #@ woothemes-our-team
 msgid "Limit:"
 msgstr ""
 
-#: classes/class-woothemes-widget-our-team.php:182
+#: classes/class-woothemes-widget-our-team.php:185
 #@ woothemes-our-team
 msgid "Image Size (in pixels):"
 msgstr ""
 
-#: classes/class-woothemes-widget-our-team.php:187
+#: classes/class-woothemes-widget-our-team.php:190
 #@ woothemes-our-team
 msgid "Order By:"
 msgstr ""
 
-#: classes/class-woothemes-widget-our-team.php:196
+#: classes/class-woothemes-widget-our-team.php:199
 #@ woothemes-our-team
 msgid "Order Direction:"
 msgstr ""
 
-#: classes/class-woothemes-widget-our-team.php:216
+#: classes/class-woothemes-widget-our-team.php:224
 #@ woothemes-our-team
 msgid "Display URL"
 msgstr ""
 
-#: classes/class-woothemes-widget-our-team.php:233
+#: classes/class-woothemes-widget-our-team.php:241
 #@ woothemes-our-team
 msgid "Specific ID (optional):"
 msgstr ""
 
-#: classes/class-woothemes-widget-our-team.php:247
+#: classes/class-woothemes-widget-our-team.php:255
 #@ woothemes-our-team
 msgid "No Order"
 msgstr ""
 
-#: classes/class-woothemes-widget-our-team.php:248
+#: classes/class-woothemes-widget-our-team.php:256
 #@ woothemes-our-team
 msgid "Entry ID"
 msgstr ""
 
-#: classes/class-woothemes-widget-our-team.php:249
+#: classes/class-woothemes-widget-our-team.php:257
 #@ woothemes-our-team
 msgid "Title"
 msgstr ""
 
-#: classes/class-woothemes-widget-our-team.php:250
+#: classes/class-woothemes-widget-our-team.php:258
 #@ woothemes-our-team
 msgid "Date Added"
 msgstr ""
 
-#: classes/class-woothemes-widget-our-team.php:251
+#: classes/class-woothemes-widget-our-team.php:259
 #@ woothemes-our-team
 msgid "Specified Order Setting"
 msgstr ""
 
-#: classes/class-woothemes-widget-our-team.php:263
+#: classes/class-woothemes-widget-our-team.php:271
 #@ woothemes-our-team
 msgid "Ascending"
 msgstr ""
 
-#: classes/class-woothemes-widget-our-team.php:264
+#: classes/class-woothemes-widget-our-team.php:272
 #@ woothemes-our-team
 msgid "Descending"
 msgstr ""
 
-#: woothemes-our-team-template.php:188
+#: woothemes-our-team-template.php:215
 #@ woothemes-our-team
 msgid "Previous"
 msgstr ""
 
-#: woothemes-our-team-template.php:189
+#: woothemes-our-team-template.php:216
 #@ woothemes-our-team
 msgid "Next"
 msgstr ""
 
-#: classes/class-woothemes-widget-our-team.php:211
+#: classes/class-woothemes-widget-our-team.php:219
 #@ woothemes-our-team
 msgid "Display Avatar"
 msgstr ""
 
-#: classes/class-woothemes-widget-our-team.php:252
+#: classes/class-woothemes-widget-our-team.php:260
 #@ woothemes-our-team
 msgid "Random Order"
 msgstr ""
@@ -261,141 +261,135 @@ msgstr ""
 msgid "%s"
 msgstr ""
 
-#: classes/class-woothemes-widget-our-team.php:225
+#: classes/class-woothemes-widget-our-team.php:233
 #@ woothemes-our-team
 msgid "Category:"
 msgstr ""
 
-#: classes/class-woothemes-widget-our-team.php:227
+#: classes/class-woothemes-widget-our-team.php:235
 #@ woothemes-our-team
 msgid "All"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:76
+#: classes/class-woothemes-our-team.php:82
 #@ woothemes-our-team
 msgctxt "post type general name"
 msgid "Team Members"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:77
+#: classes/class-woothemes-our-team.php:83
 #@ woothemes-our-team
 msgctxt "post type singular name"
 msgid "Team Member"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:78
+#: classes/class-woothemes-our-team.php:84
 #@ woothemes-our-team
 msgctxt "team member"
 msgid "Add New"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:79
-#: classes/class-woothemes-our-team.php:80
-#: classes/class-woothemes-our-team.php:81
-#: classes/class-woothemes-our-team.php:83
+#: classes/class-woothemes-our-team.php:85
+#: classes/class-woothemes-our-team.php:86
+#: classes/class-woothemes-our-team.php:87
+#: classes/class-woothemes-our-team.php:89
 #@ woothemes-our-team
 msgid "Team Member"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:82
-#: classes/class-woothemes-our-team.php:84
-#: classes/class-woothemes-our-team.php:85
-#: classes/class-woothemes-our-team.php:86
 #: classes/class-woothemes-our-team.php:88
+#: classes/class-woothemes-our-team.php:90
+#: classes/class-woothemes-our-team.php:91
+#: classes/class-woothemes-our-team.php:92
+#: classes/class-woothemes-our-team.php:94
 #@ woothemes-our-team
 msgid "Team Members"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:92
+#: classes/class-woothemes-our-team.php:98
 #@ woothemes-our-team
 msgctxt "single post url slug"
 msgid "team-member"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:93
-#@ woothemes-our-team
-msgctxt "post archive url slug"
-msgid "team-memers"
-msgstr ""
-
-#: classes/class-woothemes-our-team.php:205
+#: classes/class-woothemes-our-team.php:211
 #, php-format
 #@ woothemes-our-team
 msgid "Team Member updated. %sView team member%s"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:208
+#: classes/class-woothemes-our-team.php:214
 #@ woothemes-our-team
 msgid "Team Member updated."
 msgstr ""
 
 #. translators: %s: date and time of the revision 
-#: classes/class-woothemes-our-team.php:210
+#: classes/class-woothemes-our-team.php:216
 #, php-format
 #@ woothemes-our-team
 msgid "Team Member restored to revision from %s"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:211
+#: classes/class-woothemes-our-team.php:217
 #, php-format
 #@ woothemes-our-team
 msgid "Team Member published. %sView team member%s"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:212
+#: classes/class-woothemes-our-team.php:218
 #@ default
 msgid "Team Member saved."
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:213
+#: classes/class-woothemes-our-team.php:219
 #, php-format
 #@ woothemes-our-team
 msgid "Team Member submitted. %sPreview team member%s"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:214
+#: classes/class-woothemes-our-team.php:220
 #, php-format
 #@ woothemes-our-team
 msgid "Team Member scheduled for: %1$s. %2$sPreview team member%3$s"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:217
+#: classes/class-woothemes-our-team.php:223
 #, php-format
 #@ woothemes-our-team
 msgid "Team Member draft updated. %sPreview team member%s"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:231
+#: classes/class-woothemes-our-team.php:237
 #@ woothemes-our-team
 msgid "Team Member Details"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:330
+#: classes/class-woothemes-our-team.php:347
 #@ woothemes-our-team
 msgid "Enter the team member's name here"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:365
+#: classes/class-woothemes-our-team.php:393
 #@ woothemes-our-team
 msgid "Role"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:366
+#: classes/class-woothemes-our-team.php:394
 #@ woothemes-our-team
 msgid "Enter a byline for the team member (for example: \"Director of Production\")."
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:376
+#: classes/class-woothemes-our-team.php:404
 #@ woothemes-our-team
 msgid "Enter this team member's URL (for example: http://woothemes.com/)."
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:385
+#: classes/class-woothemes-our-team.php:413
 #@ woothemes-our-team
 msgid "Twitter Username"
 msgstr ""
 
-#: classes/class-woothemes-our-team.php:386
+#: classes/class-woothemes-our-team.php:414
 #@ woothemes-our-team
 msgid "Enter this team member's Twitter username without the @ (for example: woothemes)."
 msgstr ""
@@ -405,18 +399,51 @@ msgstr ""
 msgid "Team members listed on your site."
 msgstr ""
 
-#: classes/class-woothemes-widget-our-team.php:206
+#: classes/class-woothemes-widget-our-team.php:209
 #@ woothemes-our-team
 msgid "Display Name"
 msgstr ""
 
-#: classes/class-woothemes-widget-our-team.php:221
+#: classes/class-woothemes-widget-our-team.php:229
 #@ woothemes-our-team
 msgid "Display Additional Info"
 msgstr ""
 
-#: classes/class-woothemes-widget-our-team.php:236
+#: classes/class-woothemes-widget-our-team.php:244
 #@ woothemes-our-team
 msgid "Display a specific team member, rather than a list."
+msgstr ""
+
+#: classes/class-woothemes-our-team.php:99
+#@ woothemes-our-team
+msgctxt "post archive url slug"
+msgid "team-members"
+msgstr ""
+
+#: classes/class-woothemes-our-team.php:423
+#: classes/class-woothemes-our-team.php:433
+#@ woothemes-our-team
+msgid "WordPress Username"
+msgstr ""
+
+#: classes/class-woothemes-our-team.php:424
+#@ woothemes-our-team
+msgid "Map this team member to a user on this site."
+msgstr ""
+
+#: classes/class-woothemes-our-team.php:434
+#@ woothemes-our-team
+msgid "Holds the id of the selected user."
+msgstr ""
+
+#: classes/class-woothemes-widget-our-team.php:214
+#@ woothemes-our-team
+msgid "Display Role"
+msgstr ""
+
+#: woothemes-our-team-template.php:165
+#, php-format
+#@ woothemes
+msgid "Read posts by %1$s"
 msgstr ""
 

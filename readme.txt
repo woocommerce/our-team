@@ -99,7 +99,7 @@ To your themes functions.php file. Replace '_role' with '_url', or '_twitter' fo
 
 Yesiree! To add a new field to the backend add the following to your themes `functions.php` file:
 
-`add_filter( 'woothemes_our_member_fields', 'my_new_fields' );
+`add_filter( 'woothemes_our_team_member_fields', 'my_new_fields' );
 function my_new_fields( $fields ) {
 	$fields['misc'] = array(
 	    'name' => __( 'Misc Detail', 'woothemes-our-team' ),
