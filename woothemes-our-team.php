@@ -6,6 +6,8 @@
  * Author: WooThemes
  * Version: 1.1.0
  * Author URI: http://woothemes.com/
+ * Text Domain: our-team-by-woothemes
+ * Domain Path: /languages
  *
  * @package WordPress
  * @subpackage Woothemes_Our_Team

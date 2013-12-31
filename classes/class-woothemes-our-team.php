@@ -79,24 +79,24 @@ class Woothemes_Our_Team {
 	 */
 	public function register_post_type () {
 		$labels = array(
-			'name' 					=> _x( 'Team Members', 'post type general name', 'woothemes-our-team' ),
-			'singular_name' 		=> _x( 'Team Member', 'post type singular name', 'woothemes-our-team' ),
-			'add_new' 				=> _x( 'Add New', 'team member', 'woothemes-our-team' ),
-			'add_new_item' 			=> sprintf( __( 'Add New %s', 'woothemes-our-team' ), __( 'Team Member', 'woothemes-our-team' ) ),
-			'edit_item' 			=> sprintf( __( 'Edit %s', 'woothemes-our-team' ), __( 'Team Member', 'woothemes-our-team' ) ),
-			'new_item' 				=> sprintf( __( 'New %s', 'woothemes-our-team' ), __( 'Team Member', 'woothemes-our-team' ) ),
-			'all_items' 			=> sprintf( __( 'All %s', 'woothemes-our-team' ), __( 'Team Members', 'woothemes-our-team' ) ),
-			'view_item' 			=> sprintf( __( 'View %s', 'woothemes-our-team' ), __( 'Team Member', 'woothemes-our-team' ) ),
-			'search_items' 			=> sprintf( __( 'Search %a', 'woothemes-our-team' ), __( 'Team Members', 'woothemes-our-team' ) ),
-			'not_found' 			=>  sprintf( __( 'No %s Found', 'woothemes-our-team' ), __( 'Team Members', 'woothemes-our-team' ) ),
-			'not_found_in_trash' 	=> sprintf( __( 'No %s Found In Trash', 'woothemes-our-team' ), __( 'Team Members', 'woothemes-our-team' ) ),
+			'name' 					=> _x( 'Team Members', 'post type general name', 'our-team-by-woothemes' ),
+			'singular_name' 		=> _x( 'Team Member', 'post type singular name', 'our-team-by-woothemes' ),
+			'add_new' 				=> _x( 'Add New', 'team member', 'our-team-by-woothemes' ),
+			'add_new_item' 			=> sprintf( __( 'Add New %s', 'our-team-by-woothemes' ), __( 'Team Member', 'our-team-by-woothemes' ) ),
+			'edit_item' 			=> sprintf( __( 'Edit %s', 'our-team-by-woothemes' ), __( 'Team Member', 'our-team-by-woothemes' ) ),
+			'new_item' 				=> sprintf( __( 'New %s', 'our-team-by-woothemes' ), __( 'Team Member', 'our-team-by-woothemes' ) ),
+			'all_items' 			=> sprintf( __( 'All %s', 'our-team-by-woothemes' ), __( 'Team Members', 'our-team-by-woothemes' ) ),
+			'view_item' 			=> sprintf( __( 'View %s', 'our-team-by-woothemes' ), __( 'Team Member', 'our-team-by-woothemes' ) ),
+			'search_items' 			=> sprintf( __( 'Search %a', 'our-team-by-woothemes' ), __( 'Team Members', 'our-team-by-woothemes' ) ),
+			'not_found' 			=>  sprintf( __( 'No %s Found', 'our-team-by-woothemes' ), __( 'Team Members', 'our-team-by-woothemes' ) ),
+			'not_found_in_trash' 	=> sprintf( __( 'No %s Found In Trash', 'our-team-by-woothemes' ), __( 'Team Members', 'our-team-by-woothemes' ) ),
 			'parent_item_colon' 	=> '',
-			'menu_name' 			=> __( 'Team Members', 'woothemes-our-team' )
+			'menu_name' 			=> __( 'Team Members', 'our-team-by-woothemes' )
 
 		);
 
-		$single_slug = apply_filters( 'woothemes_our_team_single_slug', _x( 'team-member', 'single post url slug', 'woothemes-our-team' ) );
-		$archive_slug = apply_filters( 'woothemes_our_team_archive_slug', _x( 'team-members', 'post archive url slug', 'woothemes-our-team' ) );
+		$single_slug = apply_filters( 'woothemes_our_team_single_slug', _x( 'team-member', 'single post url slug', 'our-team-by-woothemes' ) );
+		$archive_slug = apply_filters( 'woothemes_our_team_archive_slug', _x( 'team-members', 'post archive url slug', 'our-team-by-woothemes' ) );
 
 		$args = array(
 			'labels' 				=> $labels,
@@ -175,7 +175,7 @@ class Woothemes_Our_Team {
 	 * @return void
 	 */
 	public function register_custom_column_headings ( $defaults ) {
-		$new_columns 	= array( 'image' => __( 'Image', 'woothemes-our-team' ) );
+		$new_columns 	= array( 'image' => __( 'Image', 'our-team-by-woothemes' ) );
 		$last_item 		= '';
 
 		if ( isset( $defaults['date'] ) ) { unset( $defaults['date'] ); }
@@ -208,19 +208,19 @@ class Woothemes_Our_Team {
 
 	  $messages[$this->token] = array(
 	    0 => '', // Unused. Messages start at index 1.
-	    1 => sprintf( __( 'Team Member updated. %sView team member%s', 'woothemes-our-team' ), '<a href="' . esc_url( get_permalink( $post_ID ) ) . '">', '</a>' ),
-	    2 => __( 'Custom field updated.', 'woothemes-our-team' ),
-	    3 => __( 'Custom field deleted.', 'woothemes-our-team' ),
-	    4 => __( 'Team Member updated.', 'woothemes-our-team' ),
+	    1 => sprintf( __( 'Team Member updated. %sView team member%s', 'our-team-by-woothemes' ), '<a href="' . esc_url( get_permalink( $post_ID ) ) . '">', '</a>' ),
+	    2 => __( 'Custom field updated.', 'our-team-by-woothemes' ),
+	    3 => __( 'Custom field deleted.', 'our-team-by-woothemes' ),
+	    4 => __( 'Team Member updated.', 'our-team-by-woothemes' ),
 	    /* translators: %s: date and time of the revision */
-	    5 => isset($_GET['revision']) ? sprintf( __( 'Team Member restored to revision from %s', 'woothemes-our-team' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
-	    6 => sprintf( __( 'Team Member published. %sView team member%s', 'woothemes-our-team' ), '<a href="' . esc_url( get_permalink( $post_ID ) ) . '">', '</a>' ),
+	    5 => isset($_GET['revision']) ? sprintf( __( 'Team Member restored to revision from %s', 'our-team-by-woothemes' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+	    6 => sprintf( __( 'Team Member published. %sView team member%s', 'our-team-by-woothemes' ), '<a href="' . esc_url( get_permalink( $post_ID ) ) . '">', '</a>' ),
 	    7 => __('Team Member saved.'),
-	    8 => sprintf( __( 'Team Member submitted. %sPreview team member%s', 'woothemes-our-team' ), '<a target="_blank" href="' . esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) . '">', '</a>' ),
-	    9 => sprintf( __( 'Team Member scheduled for: %1$s. %2$sPreview team member%3$s', 'woothemes-our-team' ),
+	    8 => sprintf( __( 'Team Member submitted. %sPreview team member%s', 'our-team-by-woothemes' ), '<a target="_blank" href="' . esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) . '">', '</a>' ),
+	    9 => sprintf( __( 'Team Member scheduled for: %1$s. %2$sPreview team member%3$s', 'our-team-by-woothemes' ),
 	      // translators: Publish box date format, see http://php.net/date
 	      '<strong>' . date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ) . '</strong>', '<a target="_blank" href="' . esc_url( get_permalink($post_ID) ) . '">', '</a>' ),
-	    10 => sprintf( __( 'Team Member draft updated. %sPreview team member%s', 'woothemes-our-team' ), '<a target="_blank" href="' . esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) . '">', '</a>' ),
+	    10 => sprintf( __( 'Team Member draft updated. %sPreview team member%s', 'our-team-by-woothemes' ), '<a target="_blank" href="' . esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) . '">', '</a>' ),
 	  );
 
 	  return $messages;
@@ -234,7 +234,7 @@ class Woothemes_Our_Team {
 	 * @return void
 	 */
 	public function meta_box_setup () {
-		add_meta_box( 'team-member-data', __( 'Team Member Details', 'woothemes-our-team' ), array( $this, 'meta_box_content' ), $this->token, 'normal', 'high' );
+		add_meta_box( 'team-member-data', __( 'Team Member Details', 'our-team-by-woothemes' ), array( $this, 'meta_box_content' ), $this->token, 'normal', 'high' );
 	} // End meta_box_setup()
 
 	/**
@@ -344,7 +344,7 @@ class Woothemes_Our_Team {
 	 */
 	public function enter_title_here ( $title ) {
 		if ( get_post_type() == $this->token ) {
-			$title = __( 'Enter the team member\'s name here', 'woothemes-our-team' );
+			$title = __( 'Enter the team member\'s name here', 'our-team-by-woothemes' );
 		}
 		return $title;
 	} // End enter_title_here()
@@ -381,8 +381,8 @@ class Woothemes_Our_Team {
 		$fields = array();
 
 		$fields['gravatar_email'] = array(
-		    'name' 				=> __( 'Gravatar E-mail Address', 'woothemes-our-team' ),
-		    'description' 		=> sprintf( __( 'Enter in an e-mail address, to use a %sGravatar%s, instead of using the "Featured Image".', 'woothemes-our-team' ), '<a href="' . esc_url( 'http://gravatar.com/' ) . '" target="_blank">', '</a>' ),
+		    'name' 				=> __( 'Gravatar E-mail Address', 'our-team-by-woothemes' ),
+		    'description' 		=> sprintf( __( 'Enter in an e-mail address, to use a %sGravatar%s, instead of using the "Featured Image".', 'our-team-by-woothemes' ), '<a href="' . esc_url( 'http://gravatar.com/' ) . '" target="_blank">', '</a>' ),
 		    'type' 				=> 'text',
 		    'default' 			=> '',
 		    'section' 			=> 'info'
@@ -390,8 +390,8 @@ class Woothemes_Our_Team {
 
 		if ( apply_filters( 'woothemes_our_team_member_role', true ) ) {
 			$fields['byline'] = array(
-			    'name' 			=> __( 'Role', 'woothemes-our-team' ),
-			    'description' 	=> __( 'Enter a byline for the team member (for example: "Director of Production").', 'woothemes-our-team' ),
+			    'name' 			=> __( 'Role', 'our-team-by-woothemes' ),
+			    'description' 	=> __( 'Enter a byline for the team member (for example: "Director of Production").', 'our-team-by-woothemes' ),
 			    'type' 			=> 'text',
 			    'default' 		=> '',
 			    'section' 		=> 'info'
@@ -400,8 +400,8 @@ class Woothemes_Our_Team {
 
 		if ( apply_filters( 'woothemes_our_team_member_url', true ) ) {
 			$fields['url'] = array(
-			    'name' 			=> __( 'URL', 'woothemes-our-team' ),
-			    'description' 	=> __( 'Enter this team member\'s URL (for example: http://woothemes.com/).', 'woothemes-our-team' ),
+			    'name' 			=> __( 'URL', 'our-team-by-woothemes' ),
+			    'description' 	=> __( 'Enter this team member\'s URL (for example: http://woothemes.com/).', 'our-team-by-woothemes' ),
 			    'type' 			=> 'url',
 			    'default' 		=> '',
 			    'section' 		=> 'info'
@@ -410,8 +410,8 @@ class Woothemes_Our_Team {
 
 		if ( apply_filters( 'woothemes_our_team_member_twitter', true ) ) {
 			$fields['twitter'] = array(
-			    'name' 			=> __( 'Twitter Username', 'woothemes-our-team' ),
-			    'description' 	=> __( 'Enter this team member\'s Twitter username without the @ (for example: woothemes).', 'woothemes-our-team' ),
+			    'name' 			=> __( 'Twitter Username', 'our-team-by-woothemes' ),
+			    'description' 	=> __( 'Enter this team member\'s Twitter username without the @ (for example: woothemes).', 'our-team-by-woothemes' ),
 			    'type' 			=> 'text',
 			    'default' 		=> '',
 			    'section' 		=> 'info'
@@ -420,8 +420,8 @@ class Woothemes_Our_Team {
 
 		if ( apply_filters( 'woothemes_our_team_member_user_search', true ) ) {
 			$fields['user_search'] = array(
-			    'name' 			=> __( 'WordPress Username', 'woothemes-our-team' ),
-			    'description' 	=> __( 'Map this team member to a user on this site.', 'woothemes-our-team' ),
+			    'name' 			=> __( 'WordPress Username', 'our-team-by-woothemes' ),
+			    'description' 	=> __( 'Map this team member to a user on this site.', 'our-team-by-woothemes' ),
 			    'type' 			=> 'text',
 			    'default' 		=> '',
 			    'section' 		=> 'info'
@@ -430,8 +430,8 @@ class Woothemes_Our_Team {
 
 		if ( apply_filters( 'woothemes_our_team_member_user_id', true ) ) {
 			$fields['user_id'] = array(
-			    'name' 			=> __( 'WordPress Username', 'woothemes-our-team' ),
-			    'description' 	=> __( 'Holds the id of the selected user.', 'woothemes-our-team' ),
+			    'name' 			=> __( 'WordPress Username', 'our-team-by-woothemes' ),
+			    'description' 	=> __( 'Holds the id of the selected user.', 'our-team-by-woothemes' ),
 			    'type' 			=> 'hidden',
 			    'default' 		=> 0,
 			    'section' 		=> 'info'
@@ -613,7 +613,7 @@ class Woothemes_Our_Team {
 	 * @return void
 	 */
 	public function load_localisation () {
-		load_plugin_textdomain( 'woothemes-our-team', false, dirname( plugin_basename( $this->file ) ) . '/lang/' );
+		load_plugin_textdomain( 'our-team-by-woothemes', false, dirname( plugin_basename( $this->file ) ) . '/lang/' );
 	} // End load_localisation()
 
 	/**
@@ -622,7 +622,7 @@ class Woothemes_Our_Team {
 	 * @return  void
 	 */
 	public function load_plugin_textdomain () {
-	    $domain = 'woothemes-our-team';
+	    $domain = 'our-team-by-woothemes';
 	    // The "plugin_locale" filter is also used in load_plugin_textdomain()
 	    $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
 
