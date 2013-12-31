@@ -91,8 +91,7 @@ class Woothemes_Our_Team {
 			'not_found' 			=>  sprintf( __( 'No %s Found', 'our-team-by-woothemes' ), __( 'Team Members', 'our-team-by-woothemes' ) ),
 			'not_found_in_trash' 	=> sprintf( __( 'No %s Found In Trash', 'our-team-by-woothemes' ), __( 'Team Members', 'our-team-by-woothemes' ) ),
 			'parent_item_colon' 	=> '',
-			'menu_name' 			=> __( 'Team Members', 'our-team-by-woothemes' )
-
+			'menu_name' 			=> __( 'Team Members', 'our-team-by-woothemes' ),
 		);
 
 		$single_slug = apply_filters( 'woothemes_our_team_single_slug', _x( 'team-member', 'single post url slug', 'our-team-by-woothemes' ) );
@@ -120,7 +119,7 @@ class Woothemes_Our_Team {
 										'page-attributes'
 										),
 			'menu_position' 		=> 5,
-			'menu_icon' 			=> ''
+			'menu_icon' 			=> '',
 		);
 		register_post_type( $this->token, $args );
 	} // End register_post_type()
@@ -385,7 +384,7 @@ class Woothemes_Our_Team {
 		    'description' 		=> sprintf( __( 'Enter in an e-mail address, to use a %sGravatar%s, instead of using the "Featured Image".', 'our-team-by-woothemes' ), '<a href="' . esc_url( 'http://gravatar.com/' ) . '" target="_blank">', '</a>' ),
 		    'type' 				=> 'text',
 		    'default' 			=> '',
-		    'section' 			=> 'info'
+		    'section' 			=> 'info',
 		);
 
 		if ( apply_filters( 'woothemes_our_team_member_role', true ) ) {
@@ -394,7 +393,7 @@ class Woothemes_Our_Team {
 			    'description' 	=> __( 'Enter a byline for the team member (for example: "Director of Production").', 'our-team-by-woothemes' ),
 			    'type' 			=> 'text',
 			    'default' 		=> '',
-			    'section' 		=> 'info'
+			    'section' 		=> 'info',
 			);
 		}
 
@@ -404,7 +403,7 @@ class Woothemes_Our_Team {
 			    'description' 	=> __( 'Enter this team member\'s URL (for example: http://woothemes.com/).', 'our-team-by-woothemes' ),
 			    'type' 			=> 'url',
 			    'default' 		=> '',
-			    'section' 		=> 'info'
+			    'section' 		=> 'info',
 			);
 		}
 
@@ -414,7 +413,7 @@ class Woothemes_Our_Team {
 			    'description' 	=> __( 'Enter this team member\'s Twitter username without the @ (for example: woothemes).', 'our-team-by-woothemes' ),
 			    'type' 			=> 'text',
 			    'default' 		=> '',
-			    'section' 		=> 'info'
+			    'section' 		=> 'info',
 			);
 		}
 
@@ -424,7 +423,7 @@ class Woothemes_Our_Team {
 			    'description' 	=> __( 'Map this team member to a user on this site.', 'our-team-by-woothemes' ),
 			    'type' 			=> 'text',
 			    'default' 		=> '',
-			    'section' 		=> 'info'
+			    'section' 		=> 'info',
 			);
 		}
 
@@ -434,7 +433,7 @@ class Woothemes_Our_Team {
 			    'description' 	=> __( 'Holds the id of the selected user.', 'our-team-by-woothemes' ),
 			    'type' 			=> 'hidden',
 			    'default' 		=> 0,
-			    'section' 		=> 'info'
+			    'section' 		=> 'info',
 			);
 		}
 
@@ -457,12 +456,14 @@ class Woothemes_Our_Team {
 
 			header( 'Content-Type: application/json; charset=utf-8' );
 
-			$users_query = new WP_User_Query( array(
-				'fields'			=> 'all',
-				'orderby'			=> 'display_name',
-				'search'			=> '*' . $term . '*',
-				'search_columns'	=> array( 'ID', 'user_login', 'user_email', 'user_nicename' )
-			) );
+			$users_query = new WP_User_Query(
+				array(
+					'fields'			=> 'all',
+					'orderby'			=> 'display_name',
+					'search'			=> '*' . $term . '*',
+					'search_columns'	=> array( 'ID', 'user_login', 'user_email', 'user_nicename' ),
+				)
+			);
 
 			$users = $users_query->get_results();
 			$found_users = array();
@@ -521,7 +522,7 @@ class Woothemes_Our_Team {
 			'orderby' 		=> 'menu_order',
 			'order' 		=> 'DESC',
 			'id' 			=> 0,
-			'category' 		=> 0
+			'category' 		=> 0,
 		);
 
 		$args = wp_parse_args( $args, $defaults );
