@@ -2,16 +2,16 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 if ( ! function_exists( 'woothemes_get_our_team' ) ) {
-/**
- * Wrapper function to get the team members from the Woothemes_Our_Team class.
- * @param  string/array $args  Arguments.
- * @since  1.0.0
- * @return array/boolean       Array if true, boolean if false.
- */
-function woothemes_get_our_team ( $args = '' ) {
-	global $woothemes_our_team;
-	return $woothemes_our_team->get_our_team( $args );
-} // End woothemes_get_our_team()
+	/**
+	 * Wrapper function to get the team members from the Woothemes_Our_Team class.
+	 * @param  string/array $args  Arguments.
+	 * @since  1.0.0
+	 * @return array/boolean       Array if true, boolean if false.
+	 */
+	function woothemes_get_our_team ( $args = '' ) {
+		global $woothemes_our_team;
+		return $woothemes_our_team->get_our_team( $args );
+	} // End woothemes_get_our_team()
 }
 
 /**
@@ -53,7 +53,7 @@ function woothemes_our_team ( $args = '' ) {
 		'after' 					=> '</div>',
 		'before_title' 				=> '<h2>',
 		'after_title' 				=> '</h2>',
-		'category' 					=> 0
+		'category' 					=> 0,
 	);
 
 	$args = wp_parse_args( $args, $defaults );
@@ -263,7 +263,7 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 		'category' 					=> 0,
 		'title'						=> '',
 		'before_title' 				=> '<h2>',
-		'after_title' 				=> '</h2>'
+		'after_title' 				=> '</h2>',
 	);
 
 	$args = shortcode_atts( $defaults, $atts );
@@ -292,15 +292,14 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 add_shortcode( 'woothemes_our_team', 'woothemes_our_team_shortcode' );
 
 if ( ! function_exists( 'woothemes_our_team_content_default_filters' ) ) {
-/**
- * Adds default filters to the "woothemes_our_team_content" filter point.
- * @since  1.0.0
- * @return void
- */
-function woothemes_our_team_content_default_filters () {
-	add_filter( 'woothemes_our_team_content', 'do_shortcode' );
-} // End woothemes_our_team_content_default_filters()
+	/**
+	 * Adds default filters to the "woothemes_our_team_content" filter point.
+	 * @since  1.0.0
+	 * @return void
+	 */
+	function woothemes_our_team_content_default_filters () {
+		add_filter( 'woothemes_our_team_content', 'do_shortcode' );
+	} // End woothemes_our_team_content_default_filters()
 
-add_action( 'woothemes_our_team_before', 'woothemes_our_team_content_default_filters' );
+	add_action( 'woothemes_our_team_before', 'woothemes_our_team_content_default_filters' );
 }
-?>

@@ -87,7 +87,7 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 		if ( isset( $instance['limit'] ) && ( 0 < count( $instance['limit'] ) ) ) { $args['limit'] = intval( $instance['limit'] ); }
 		if ( isset( $instance['specific_id'] ) && ( 0 < count( $instance['specific_id'] ) ) ) { $args['id'] = intval( $instance['specific_id'] ); }
 		if ( isset( $instance['size'] ) && ( 0 < count( $instance['size'] ) ) ) { $args['size'] = intval( $instance['size'] ); }
-		if ( isset( $instance['category'] ) && is_numeric( $instance['category'] ) ) $args['category'] = intval( $instance['category'] );
+		if ( isset( $instance['category'] ) && is_numeric( $instance['category'] ) ) { $args['category'] = intval( $instance['category'] ); }
 
 		// Boolean values.
 		if ( isset( $instance['display_author'] ) && ( 1 == $instance['display_author'] ) ) { $args['display_author'] = true; } else { $args['display_author'] = false; }
@@ -165,7 +165,7 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 			'effect' 				=> 'fade', // Options: 'fade', 'none'
 			'pagination' 			=> false,
 			'size' 					=> 50,
-			'category' 				=> 0
+			'category' 				=> 0,
 		);
 
 		$instance = wp_parse_args( (array) $instance, $defaults );
@@ -252,13 +252,13 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 	 */
 	protected function get_orderby_options () {
 		return array(
-					'none' 			=> __( 'No Order', 'our-team-by-woothemes' ),
-					'ID' 			=> __( 'Entry ID', 'our-team-by-woothemes' ),
-					'title' 		=> __( 'Title', 'our-team-by-woothemes' ),
-					'date' 			=> __( 'Date Added', 'our-team-by-woothemes' ),
-					'menu_order' 	=> __( 'Specified Order Setting', 'our-team-by-woothemes' ),
-					'rand' 			=> __( 'Random Order', 'our-team-by-woothemes' )
-					);
+			'none' 			=> __( 'No Order', 'our-team-by-woothemes' ),
+			'ID' 			=> __( 'Entry ID', 'our-team-by-woothemes' ),
+			'title' 		=> __( 'Title', 'our-team-by-woothemes' ),
+			'date' 			=> __( 'Date Added', 'our-team-by-woothemes' ),
+			'menu_order' 	=> __( 'Specified Order Setting', 'our-team-by-woothemes' ),
+			'rand' 			=> __( 'Random Order', 'our-team-by-woothemes' ),
+		);
 	} // End get_orderby_options()
 
 	/**
@@ -268,12 +268,11 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 	 */
 	protected function get_order_options () {
 		return array(
-					'ASC' 			=> __( 'Ascending', 'our-team-by-woothemes' ),
-					'DESC' 			=> __( 'Descending', 'our-team-by-woothemes' )
-					);
+			'ASC' 			=> __( 'Ascending', 'our-team-by-woothemes' ),
+			'DESC' 			=> __( 'Descending', 'our-team-by-woothemes' ),
+		);
 	} // End get_order_options()
 } // End Class
 
 /* Register the widget. */
 add_action( 'widgets_init', create_function( '', 'return register_widget("Woothemes_Widget_Our_Team");' ), 1 );
-?>
