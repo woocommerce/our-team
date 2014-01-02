@@ -166,8 +166,9 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 == Changelog ==
 
 = 1.2.0 =
-* New - Team members can be sorted by meta. Kudos @helgatheviking
-* Tweak - Renamed woothemes_our_member_fields filter to woothemes_our_team_member_fields. Kudos @tlehtimaki
+* New - Team members can be sorted by meta. Kudos @helgatheviking.
+* Tweak - Renamed woothemes_our_member_fields filter to woothemes_our_team_member_fields. Kudos @tlehtimaki.
+* Tweak - Default args now filterable via woothemes_our_team_default_args.
 * Localization - Changed textdomain to match plugin slug. Kudos @cfoellmann.
 
 = 1.1.0 =

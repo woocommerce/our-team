@@ -31,7 +31,7 @@ if ( ! function_exists( 'woothemes_our_team' ) ) {
 function woothemes_our_team ( $args = '' ) {
 	global $post;
 
-	$defaults = array(
+	$defaults = apply_filters( 'woothemes_our_team_default_args', array(
 		'limit' 					=> 12,
 		'per_row' 					=> null,
 		'orderby' 					=> 'menu_order',
@@ -54,7 +54,7 @@ function woothemes_our_team ( $args = '' ) {
 		'before_title' 				=> '<h2>',
 		'after_title' 				=> '</h2>',
 		'category' 					=> 0
-	);
+	) );
 
 	$args = wp_parse_args( $args, $defaults );
 
