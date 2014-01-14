@@ -39,9 +39,9 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 	public function __construct() {
 		/* Widget variable settings. */
 		$this->woothemes_widget_cssclass = 'widget_woothemes_our_team';
-		$this->woothemes_widget_description = __( 'Team members listed on your site.', 'our-team-by-woothemes' );
+		$this->woothemes_widget_description = __( 'Team members listed on your site.', 'woothemes-our-team' );
 		$this->woothemes_widget_idbase = 'woothemes_our_team';
-		$this->woothemes_widget_title = __( 'Our Team', 'our-team-by-woothemes' );
+		$this->woothemes_widget_title = __( 'Our Team', 'woothemes-our-team' );
 
 		/* Widget settings. */
 		$widget_ops = array( 'classname' => $this->woothemes_widget_cssclass, 'description' => $this->woothemes_widget_description );
@@ -172,22 +172,22 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 ?>
 		<!-- Widget Title: Text Input -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title (optional):', 'our-team-by-woothemes' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title (optional):', 'woothemes-our-team' ); ?></label>
 			<input type="text" name="<?php echo $this->get_field_name( 'title' ); ?>"  value="<?php echo $instance['title']; ?>" class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" />
 		</p>
 		<!-- Widget Limit: Text Input -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'limit' ); ?>"><?php _e( 'Limit:', 'our-team-by-woothemes' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'limit' ); ?>"><?php _e( 'Limit:', 'woothemes-our-team' ); ?></label>
 			<input type="text" name="<?php echo $this->get_field_name( 'limit' ); ?>"  value="<?php echo $instance['limit']; ?>" class="widefat" id="<?php echo $this->get_field_id( 'limit' ); ?>" />
 		</p>
 		<!-- Widget Image Size: Text Input -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'size' ); ?>"><?php _e( 'Image Size (in pixels):', 'our-team-by-woothemes' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'size' ); ?>"><?php _e( 'Image Size (in pixels):', 'woothemes-our-team' ); ?></label>
 			<input type="text" name="<?php echo $this->get_field_name( 'size' ); ?>"  value="<?php echo $instance['size']; ?>" class="widefat" id="<?php echo $this->get_field_id( 'size' ); ?>" />
 		</p>
 		<!-- Widget Order By: Select Input -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'orderby' ); ?>"><?php _e( 'Order By:', 'our-team-by-woothemes' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'orderby' ); ?>"><?php _e( 'Order By:', 'woothemes-our-team' ); ?></label>
 			<select name="<?php echo $this->get_field_name( 'orderby' ); ?>" class="widefat" id="<?php echo $this->get_field_id( 'orderby' ); ?>">
 			<?php foreach ( $this->get_orderby_options() as $k => $v ) { ?>
 				<option value="<?php echo $k; ?>"<?php selected( $instance['orderby'], $k ); ?>><?php echo $v; ?></option>
@@ -196,7 +196,7 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 		</p>
 		<!-- Widget Order: Select Input -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'order' ); ?>"><?php _e( 'Order Direction:', 'our-team-by-woothemes' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'order' ); ?>"><?php _e( 'Order Direction:', 'woothemes-our-team' ); ?></label>
 			<select name="<?php echo $this->get_field_name( 'order' ); ?>" class="widefat" id="<?php echo $this->get_field_id( 'order' ); ?>">
 			<?php foreach ( $this->get_order_options() as $k => $v ) { ?>
 				<option value="<?php echo $k; ?>"<?php selected( $instance['order'], $k ); ?>><?php echo $v; ?></option>
@@ -206,42 +206,42 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 		<!-- Widget Display Author: Checkbox Input -->
        	<p>
         	<input id="<?php echo $this->get_field_id( 'display_author' ); ?>" name="<?php echo $this->get_field_name( 'display_author' ); ?>" type="checkbox"<?php checked( $instance['display_author'], 1 ); ?> />
-        	<label for="<?php echo $this->get_field_id( 'display_author' ); ?>"><?php _e( 'Display Name', 'our-team-by-woothemes' ); ?></label>
+        	<label for="<?php echo $this->get_field_id( 'display_author' ); ?>"><?php _e( 'Display Name', 'woothemes-our-team' ); ?></label>
 	   	</p>
 	   	<!-- Widget Display Role: Checkbox Input -->
        	<p>
         	<input id="<?php echo $this->get_field_id( 'display_role' ); ?>" name="<?php echo $this->get_field_name( 'display_role' ); ?>" type="checkbox"<?php checked( $instance['display_role'], 1 ); ?> />
-        	<label for="<?php echo $this->get_field_id( 'display_role' ); ?>"><?php _e( 'Display Role', 'our-team-by-woothemes' ); ?></label>
+        	<label for="<?php echo $this->get_field_id( 'display_role' ); ?>"><?php _e( 'Display Role', 'woothemes-our-team' ); ?></label>
 	   	</p>
 		<!-- Widget Display Avatar: Checkbox Input -->
        	<p>
         	<input id="<?php echo $this->get_field_id( 'display_avatar' ); ?>" name="<?php echo $this->get_field_name( 'display_avatar' ); ?>" type="checkbox"<?php checked( $instance['display_avatar'], 1 ); ?> />
-        	<label for="<?php echo $this->get_field_id( 'display_avatar' ); ?>"><?php _e( 'Display Avatar', 'our-team-by-woothemes' ); ?></label>
+        	<label for="<?php echo $this->get_field_id( 'display_avatar' ); ?>"><?php _e( 'Display Avatar', 'woothemes-our-team' ); ?></label>
 	   	</p>
 	   	<!-- Widget Display URL: Checkbox Input -->
        	<p>
         	<input id="<?php echo $this->get_field_id( 'display_url' ); ?>" name="<?php echo $this->get_field_name( 'display_url' ); ?>" type="checkbox"<?php checked( $instance['display_url'], 1 ); ?> />
-        	<label for="<?php echo $this->get_field_id( 'display_url' ); ?>"><?php _e( 'Display URL', 'our-team-by-woothemes' ); ?></label>
+        	<label for="<?php echo $this->get_field_id( 'display_url' ); ?>"><?php _e( 'Display URL', 'woothemes-our-team' ); ?></label>
 	   	</p>
 	   	<!-- Widget Display Additional: Checkbox Input -->
        	<p>
         	<input id="<?php echo $this->get_field_id( 'display_additional' ); ?>" name="<?php echo $this->get_field_name( 'display_additional' ); ?>" type="checkbox"<?php checked( $instance['display_additional'], 1 ); ?> />
-        	<label for="<?php echo $this->get_field_id( 'display_additional' ); ?>"><?php _e( 'Display Additional Info', 'our-team-by-woothemes' ); ?></label>
+        	<label for="<?php echo $this->get_field_id( 'display_additional' ); ?>"><?php _e( 'Display Additional Info', 'woothemes-our-team' ); ?></label>
 	   	</p>
 	   	<!-- Widget Category: Select Input -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'category' ); ?>"><?php _e( 'Category:', 'our-team-by-woothemes' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'category' ); ?>"><?php _e( 'Category:', 'woothemes-our-team' ); ?></label>
 			<?php
-				$dropdown_args = array( 'taxonomy' => 'team-member-category', 'class' => 'widefat', 'show_option_all' => __( 'All', 'our-team-by-woothemes' ), 'id' => $this->get_field_id( 'category' ), 'name' => $this->get_field_name( 'category' ), 'selected' => $instance['category'] );
+				$dropdown_args = array( 'taxonomy' => 'team-member-category', 'class' => 'widefat', 'show_option_all' => __( 'All', 'woothemes-our-team' ), 'id' => $this->get_field_id( 'category' ), 'name' => $this->get_field_name( 'category' ), 'selected' => $instance['category'] );
 				wp_dropdown_categories( $dropdown_args );
 			?>
 		</p>
 		<!-- Widget ID: Text Input -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'specific_id' ); ?>"><?php _e( 'Specific ID (optional):', 'our-team-by-woothemes' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'specific_id' ); ?>"><?php _e( 'Specific ID (optional):', 'woothemes-our-team' ); ?></label>
 			<input type="text" name="<?php echo $this->get_field_name( 'specific_id' ); ?>"  value="<?php echo $instance['specific_id']; ?>" class="widefat" id="<?php echo $this->get_field_id( 'specific_id' ); ?>" />
 		</p>
-		<p><small><?php _e( 'Display a specific team member, rather than a list.', 'our-team-by-woothemes' ); ?></small></p>
+		<p><small><?php _e( 'Display a specific team member, rather than a list.', 'woothemes-our-team' ); ?></small></p>
 <?php
 	} // End form()
 
@@ -252,12 +252,12 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 	 */
 	protected function get_orderby_options () {
 		return array(
-					'none' 			=> __( 'No Order', 'our-team-by-woothemes' ),
-					'ID' 			=> __( 'Entry ID', 'our-team-by-woothemes' ),
-					'title' 		=> __( 'Title', 'our-team-by-woothemes' ),
-					'date' 			=> __( 'Date Added', 'our-team-by-woothemes' ),
-					'menu_order' 	=> __( 'Specified Order Setting', 'our-team-by-woothemes' ),
-					'rand' 			=> __( 'Random Order', 'our-team-by-woothemes' )
+					'none' 			=> __( 'No Order', 'woothemes-our-team' ),
+					'ID' 			=> __( 'Entry ID', 'woothemes-our-team' ),
+					'title' 		=> __( 'Title', 'woothemes-our-team' ),
+					'date' 			=> __( 'Date Added', 'woothemes-our-team' ),
+					'menu_order' 	=> __( 'Specified Order Setting', 'woothemes-our-team' ),
+					'rand' 			=> __( 'Random Order', 'woothemes-our-team' )
 					);
 	} // End get_orderby_options()
 
@@ -268,8 +268,8 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 	 */
 	protected function get_order_options () {
 		return array(
-					'ASC' 			=> __( 'Ascending', 'our-team-by-woothemes' ),
-					'DESC' 			=> __( 'Descending', 'our-team-by-woothemes' )
+					'ASC' 			=> __( 'Ascending', 'woothemes-our-team' ),
+					'DESC' 			=> __( 'Descending', 'woothemes-our-team' )
 					);
 	} // End get_order_options()
 } // End Class

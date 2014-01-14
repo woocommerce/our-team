@@ -68,8 +68,8 @@ class Woothemes_Our_Team_Taxonomy {
 		$this->singular = esc_html( $singular );
 		$this->plural = esc_html( $plural );
 
-		if ( '' == $this->singular ) $this->singular = __( 'Category', 'our-team-by-woothemes' );
-		if ( '' == $this->plural ) $this->plural = __( 'Categories', 'our-team-by-woothemes' );
+		if ( '' == $this->singular ) $this->singular = __( 'Category', 'woothemes-our-team' );
+		if ( '' == $this->plural ) $this->plural = __( 'Categories', 'woothemes-our-team' );
 
 		$this->args = wp_parse_args( $args, $this->_get_default_args() );
 	} // End __construct()
@@ -92,17 +92,17 @@ class Woothemes_Our_Team_Taxonomy {
 	 */
 	private function _get_default_labels () {
 		return array(
-			    'name'                => sprintf( _x( '%s', 'taxonomy general name', 'our-team-by-woothemes' ), $this->plural ),
-			    'singular_name'       => sprintf( _x( '%s', 'taxonomy singular name', 'our-team-by-woothemes' ), $this->singular ),
-			    'search_items'        => sprintf( __( 'Search %s', 'our-team-by-woothemes' ), $this->plural ),
-			    'all_items'           => sprintf( __( 'All %s', 'our-team-by-woothemes' ), $this->plural ),
-			    'parent_item'         => sprintf( __( 'Parent %s', 'our-team-by-woothemes' ), $this->singular ),
-			    'parent_item_colon'   => sprintf( __( 'Parent %s:', 'our-team-by-woothemes' ), $this->singular ),
-			    'edit_item'           => sprintf( __( 'Edit %s', 'our-team-by-woothemes' ), $this->singular ),
-			    'update_item'         => sprintf( __( 'Update %s', 'our-team-by-woothemes' ), $this->singular ),
-			    'add_new_item'        => sprintf( __( 'Add New %s', 'our-team-by-woothemes' ), $this->singular ),
-			    'new_item_name'       => sprintf( __( 'New %s Name', 'our-team-by-woothemes' ), $this->singular ),
-			    'menu_name'           => sprintf( __( '%s', 'our-team-by-woothemes' ), $this->plural )
+			    'name'                => sprintf( _x( '%s', 'taxonomy general name', 'woothemes-our-team' ), $this->plural ),
+			    'singular_name'       => sprintf( _x( '%s', 'taxonomy singular name', 'woothemes-our-team' ), $this->singular ),
+			    'search_items'        => sprintf( __( 'Search %s', 'woothemes-our-team' ), $this->plural ),
+			    'all_items'           => sprintf( __( 'All %s', 'woothemes-our-team' ), $this->plural ),
+			    'parent_item'         => sprintf( __( 'Parent %s', 'woothemes-our-team' ), $this->singular ),
+			    'parent_item_colon'   => sprintf( __( 'Parent %s:', 'woothemes-our-team' ), $this->singular ),
+			    'edit_item'           => sprintf( __( 'Edit %s', 'woothemes-our-team' ), $this->singular ),
+			    'update_item'         => sprintf( __( 'Update %s', 'woothemes-our-team' ), $this->singular ),
+			    'add_new_item'        => sprintf( __( 'Add New %s', 'woothemes-our-team' ), $this->singular ),
+			    'new_item_name'       => sprintf( __( 'New %s Name', 'woothemes-our-team' ), $this->singular ),
+			    'menu_name'           => sprintf( __( '%s', 'woothemes-our-team' ), $this->plural )
 			  );
 	} // End _get_default_labels()
 
