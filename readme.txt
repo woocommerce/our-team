@@ -155,7 +155,7 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 
 = 1.2.0 =
 * Filter 'woothemes_our_member_fields' has been renamed to 'woothemes_our_team_member_fields'.
-* Textdomain changed from 'our-team-by-woothemes' to 'our-team-by-woothemes'.
+* Textdomain changed from 'woothemes-our-team' to 'our-team-by-woothemes'.
 
 = 1.0.2 =
 * Some filters have been prepended with woothemes_our_. If you're customising Our Team with filters please check these customisations before updating.
