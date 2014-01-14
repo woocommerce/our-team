@@ -212,8 +212,8 @@ function woothemes_our_team ( $args = '' ) {
 
 			if ( $args['pagination'] == true && count( $query ) > 1 && $args['effect'] != 'none' ) {
 				$html .= '<div class="pagination">' . "\n";
-				$html .= '<a href="#" class="btn-prev">' . apply_filters( 'woothemes_our_team_prev_btn', '&larr; ' . __( 'Previous', 'woothemes-our-team' ) ) . '</a>' . "\n";
-		        $html .= '<a href="#" class="btn-next">' . apply_filters( 'woothemes_our_team_next_btn', __( 'Next', 'woothemes-our-team' ) . ' &rarr;' ) . '</a>' . "\n";
+				$html .= '<a href="#" class="btn-prev">' . apply_filters( 'woothemes_our_team_prev_btn', '&larr; ' . __( 'Previous', 'our-team-by-woothemes' ) ) . '</a>' . "\n";
+		        $html .= '<a href="#" class="btn-next">' . apply_filters( 'woothemes_our_team_next_btn', __( 'Next', 'our-team-by-woothemes' ) . ' &rarr;' ) . '</a>' . "\n";
 		        $html .= '</div><!--/.pagination-->' . "\n";
 			}
 			$html .= '</div><!--/.team-members-->' . "\n";

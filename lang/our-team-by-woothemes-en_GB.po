@@ -323,7 +323,7 @@ msgstr ""
 msgid "Team Member updated."
 msgstr ""
 
-#. translators: %s: date and time of the revision 
+#. translators: %s: date and time of the revision
 #: classes/class-woothemes-our-team.php:216
 #, php-format
 #@ woothemes-our-team
