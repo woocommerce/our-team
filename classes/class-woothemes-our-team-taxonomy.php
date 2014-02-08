@@ -113,7 +113,7 @@ class Woothemes_Our_Team_Taxonomy {
 	 * @return  void
 	 */
 	public function register () {
-		$args = apply_filter( 'woothemes_our_team_taxonomy_args', (array)$this->args );
+		$args = apply_filters( 'woothemes_our_team_taxonomy_args', (array)$this->args );
 		register_taxonomy( esc_attr( $this->token ), esc_attr( $this->post_type ), $args );
 	} // End register()
 } // End Class
