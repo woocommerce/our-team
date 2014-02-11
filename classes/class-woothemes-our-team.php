@@ -122,8 +122,8 @@ class Woothemes_Our_Team {
 			'menu_position' 		=> 5,
 			'menu_icon' 			=> ''
 		);
-		$args = apply_filters( 'woothemes_our_team_post_type_args', (array) $args );
-		register_post_type( $this->token, $args );
+		$args = apply_filters( 'woothemes_our_team_post_type_args', $args );
+		register_post_type( $this->token, (array) $args );
 	} // End register_post_type()
 
 	/**
