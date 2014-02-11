@@ -165,7 +165,7 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 
 == Changelog ==
 
-= 1.2.0 =
+= 1.3.0 =
 * New - Filters for taxonomy args, post type args and individual team member template. Kudos @helgatheviking.
 
 = 1.2.0 =
