@@ -204,6 +204,9 @@ function woothemes_our_team ( $args = '' ) {
 
 				$template = str_replace( '%%TEXT%%', $content, $template );
 
+				// filter the individual team member html
+				$template = apply_filters( 'woothemes_our_team_member_html', $template, $post );
+
 				// Assign for output.
 				$html .= $template;
 			}
