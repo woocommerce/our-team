@@ -523,6 +523,7 @@ class Woothemes_Our_Team {
 			'orderby' 		=> 'menu_order',
 			'order' 		=> 'DESC',
 			'id' 			=> 0,
+			'slug'			=> null,
 			'category' 		=> 0,
 			'meta_key'		=> null,
 			'meta_value'	=> null
@@ -551,6 +552,10 @@ class Woothemes_Our_Team {
 				$query_args['ignore_sticky_posts'] = 1;
 				$query_args['post__in'] = $ids;
 			}
+		}
+
+		if ( $args['slug'] ) {
+			$query_args['name'] = esc_html( $args['slug'] );
 		}
 
 		// Whitelist checks.

@@ -37,6 +37,7 @@ function woothemes_our_team ( $args = '' ) {
 		'orderby' 					=> 'menu_order',
 		'order' 					=> 'DESC',
 		'id' 						=> 0,
+		'slug'						=> null,
 		'display_author' 			=> true,
 		'display_additional' 		=> true,
 		'display_avatar' 			=> true,
@@ -252,6 +253,7 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 		'orderby' 					=> 'menu_order',
 		'order' 					=> 'DESC',
 		'id' 						=> 0,
+		'slug'						=> null,
 		'display_author' 			=> true,
 		'display_additional' 		=> true,
 		'display_avatar' 			=> true,
@@ -289,6 +291,7 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 	}
 
 	return woothemes_our_team( $args );
+
 } // End woothemes_our_team_shortcode()
 }
 
