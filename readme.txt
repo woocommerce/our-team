@@ -184,6 +184,7 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 
 = 1.3.0 =
 * New - Filters for taxonomy args, post type args and individual team member template. Kudos @helgatheviking.
+* Tweak - You can now use the 'slug' parameter in the shortcode to display an individual team member by slug.
 
 = 1.2.0 =
 * New - Team members can be sorted by meta. Kudos @helgatheviking.
