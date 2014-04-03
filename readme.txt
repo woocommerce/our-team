@@ -85,7 +85,7 @@ Installing "Our Team by WooThemes" can be done either by searching for "Our Team
 
 = The plugin looks unstyled when I activate it. Why is this? =
 
-"Our Team by WooThemes" is a lean plugin that aims to keep it's purpose as clean and clear as possible. Thus, we don't load any preset CSS styling, to allow full control over the styling within your theme or child theme.
+"Our Team by WooThemes" is a lean plugin that aims to keep it's purpose as clean and clear as possible. Thus, we don't load any preset CSS styling, to allow full control over the styling within your theme or child theme. If you simply want to apply layout (as displayed in the screenshots) you can do so with [this](https://gist.github.com/jameskoster/9954311) snippet.
 
 = I don't need the 'Role' field, can I disable that? =
 
@@ -102,11 +102,11 @@ Yesiree! To add a new field to the backend add the following to your themes `fun
 `add_filter( 'woothemes_our_team_member_fields', 'my_new_fields' );
 function my_new_fields( $fields ) {
 	$fields['misc'] = array(
-	    'name' => __( 'Misc Detail', 'our-team-by-woothemes' ),
-	    'description' => __( 'Some miscellaneous detail', 'our-team-by-woothemes' ),
-	    'type' => 'text',
-	    'default' => '',
-	    'section' => 'info'
+	    'name' 			=> __( 'Misc Detail', 'our-team-by-woothemes' ),
+	    'description' 	=> __( 'Some miscellaneous detail', 'our-team-by-woothemes' ),
+	    'type' 			=> 'text',
+	    'default' 		=> '',
+	    'section' 		=> 'info'
 	);
 	return $fields;
 }`
@@ -116,13 +116,27 @@ Then to display the contents of that field on the frontend add the following:
 `add_filter( 'woothemes_our_member_fields_display', 'my_new_fields_display' );
 function my_new_fields_display( $member_fields ) {
 	global $post;
-	if ( '' != $post->misc ) {
-		$member_fields .= '<li class="misc">' . $post->misc . '</li><!--/.misc-->' . "\n";
+	$misc = esc_attr( get_post_meta( $post->ID, '_misc', true ) );
+	if ( '' != $misc ) {
+		$member_fields .= '<li class="misc">' . $misc . '</li><!--/.misc-->' . "\n";
 	}
 	return $member_fields;
 }`
 
 Done!
+
+= Can I change the template used to display team members in the shortcode and widget? =
+
+You sure can! Take the following example as a guide:
+
+`add_filter( 'woothemes_our_team_item_template', 'new_team_member_template' );
+
+function new_team_member_template( $tpl ) {
+	$tpl = '<div itemscope itemtype="http://schema.org/Person" class="%%CLASS%%">%%TITLE%% %%AVATAR%% <div id="team-member-%%ID%%"  class="team-member-text" itemprop="description">%%TEXT%% %%AUTHOR%%</div></div>';
+    return $tpl;
+}`
+
+That will move the title (name/title) above the avatar/featured image.
 
 = How can I add custom CSS classes to each team member? =
 
@@ -140,6 +154,9 @@ If you assign a team member to a user in your WordPress install a couple of thin
 
 1. A link to the team members post archive is output beneath their description. This can be disabled using the `woothemes_our_team_args` filter if you want.
 2. That user now has control of what is displayed as their description. If they add some information to their bio from their profile page, that will display instead of any content you added to the team member content. If their bio is empty the standard description will appear as normal.
+
+= Team member archives and single pages don't look good =
+To cover archives and single pages would require the inclusion of a template engine which is beyond the scope of this lightweight plugin. That isn't to say it's not possible. We have a [tutorial](http://docs.woothemes.com/document/integrate-our-team-with-your-theme-for-full-archive-single-page-support/) for creating a tighter integration with your theme.
 
 = How do I contribute? =
 
