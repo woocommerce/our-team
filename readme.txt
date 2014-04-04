@@ -12,11 +12,17 @@ Display team member profiles with descriptions and links to social media using o
 
 == Description ==
 
+= Team Member Management =
+
 "Our Team by WooThemes" is a clean and easy-to-use team profile management system for WordPress. Load in your team members and display their profiles via a shortcode, widget or template tag on your website. Assign team members to a user, allowing team members to manage their own description via the bio on the profile page as well as display a link to their author archive.
 
-Looking for a helping hand? [View plugin documentation](http://wordpress.org/plugins/our-team-by-woothemes/other_notes/).
+= Support =
 
-Looking to contribute code to this plugin? [Fork the repository over at GitHub](http://github.com/woothemes/our-team/).
+Looking for a helping hand? [View plugin documentation](http://wordpress.org/plugins/our-team-by-woothemes/other_notes/). Also be sure to check out the [FAQ](https://wordpress.org/plugins/our-team-by-woothemes/faq/).
+
+= Get Involved =
+
+Looking to contribute code to this plugin? Go ahead and [fork the repository over at GitHub](http://github.com/woothemes/our-team/).
 (submit pull requests to the latest "release-" branch)
 
 == Usage ==
@@ -32,6 +38,7 @@ To add arguments to this, please use any of the following arguments, using the s
 * 'orderby' => 'menu_order' (how to order the items - accepts all default WordPress ordering options)
 * 'order' => 'DESC' (the order direction)
 * 'id' => 0 (display a specific item)
+* 'slug' => null (Display a specific team member)
 * 'display_author' => true (whether or not to display the author information)
 * 'display_avatar' => true (whether or not to display the author avatar)
 * 'display_url' => true (whether or not to display the URL information)
