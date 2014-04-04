@@ -163,7 +163,7 @@ function woothemes_our_team ( $args = '' ) {
 						}
 
 						if ( 0 != $user ) {
-							$member_fields .= $user . '<li class="our-team-author-archive" itemprop="url"><a href="' . get_author_posts_url( $post->user_id ) . '">' . sprintf( __( 'Read posts by %1$s', 'woothemes' ), get_the_title() ) . '</a></li>' . "\n";
+							$member_fields .= '<li class="our-team-author-archive" itemprop="url"><a href="' . get_author_posts_url( $post->user_id ) . '">' . sprintf( __( 'Read posts by %1$s', 'woothemes' ), get_the_title() ) . '</a></li>' . "\n";
 						}
 
 					}
