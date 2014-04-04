@@ -185,6 +185,7 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 = 1.3.0 =
 * New - Filters for taxonomy args, post type args and individual team member template. Kudos @helgatheviking.
 * New - You can now use the 'slug' parameter in the shortcode to display an individual team member by slug.
+* Fix - WordPress users can now be unassigned from a team member.
 
 = 1.2.0 =
 * New - Team members can be sorted by meta. Kudos @helgatheviking.

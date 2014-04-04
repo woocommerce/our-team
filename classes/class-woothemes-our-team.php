@@ -731,10 +731,22 @@ class Woothemes_Our_Team {
 						},
 						select: function ( event, ui ) {
 							event.preventDefault();
-							jQuery("#user_search").val( ui.item.label );
-							jQuery("#user_id").val( ui.item.value );
+							jQuery( "#user_search" ).val( ui.item.label );
+							jQuery( "#user_id" ).val( ui.item.value );
 						}
 					});
+
+					// Unset #user_id if #user_search is emptied
+					jQuery( '#user_search' ).blur(function() {
+					    if ( jQuery(this).val().length == 0 ) {
+					        jQuery( "#user_id" ).val( 0 );
+					    }
+					});
+
+					// Unser #user_id if #user_search is empty on page load
+					if ( jQuery( '#user_search' ).val().length == 0 ) {
+				        jQuery( "#user_id" ).val( 0 );
+				    }
 				});
 			</script>
 	<?php
