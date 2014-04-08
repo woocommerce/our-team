@@ -38,16 +38,23 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 	 */
 	public function __construct() {
 		/* Widget variable settings. */
-		$this->woothemes_widget_cssclass = 'widget_woothemes_our_team';
+		$this->woothemes_widget_cssclass 	= 'widget_woothemes_our_team';
 		$this->woothemes_widget_description = __( 'Team members listed on your site.', 'our-team-by-woothemes' );
-		$this->woothemes_widget_idbase = 'woothemes_our_team';
-		$this->woothemes_widget_title = __( 'Our Team', 'our-team-by-woothemes' );
+		$this->woothemes_widget_idbase 		= 'woothemes_our_team';
+		$this->woothemes_widget_title 		= __( 'Our Team', 'our-team-by-woothemes' );
 
 		/* Widget settings. */
-		$widget_ops = array( 'classname' => $this->woothemes_widget_cssclass, 'description' => $this->woothemes_widget_description );
+		$widget_ops = array(
+			'classname' 	=> $this->woothemes_widget_cssclass,
+			'description' 	=> $this->woothemes_widget_description,
+			);
 
 		/* Widget control settings. */
-		$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => $this->woothemes_widget_idbase );
+		$control_ops = array(
+			'width' 	=> 250,
+			'height' 	=> 350,
+			'id_base' 	=> $this->woothemes_widget_idbase,
+			);
 
 		/* Create the widget. */
 		$this->WP_Widget( $this->woothemes_widget_idbase, $this->woothemes_widget_title, $widget_ops, $control_ops );
@@ -84,21 +91,59 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 		do_action( $this->woothemes_widget_cssclass . '_top' );
 
 		// Integer values.
-		if ( isset( $instance['limit'] ) && ( 0 < count( $instance['limit'] ) ) ) { $args['limit'] = intval( $instance['limit'] ); }
-		if ( isset( $instance['specific_id'] ) && ( 0 < count( $instance['specific_id'] ) ) ) { $args['id'] = intval( $instance['specific_id'] ); }
-		if ( isset( $instance['size'] ) && ( 0 < count( $instance['size'] ) ) ) { $args['size'] = intval( $instance['size'] ); }
-		if ( isset( $instance['category'] ) && is_numeric( $instance['category'] ) ) $args['category'] = intval( $instance['category'] );
+		if ( isset( $instance['limit'] ) && ( 0 < count( $instance['limit'] ) ) ) {
+			$args['limit'] = intval( $instance['limit'] );
+		}
+
+		if ( isset( $instance['specific_id'] ) && ( 0 < count( $instance['specific_id'] ) ) ) {
+			$args['id'] = intval( $instance['specific_id'] );
+		}
+
+		if ( isset( $instance['size'] ) && ( 0 < count( $instance['size'] ) ) ) {
+			$args['size'] = intval( $instance['size'] );
+		}
+
+		if ( isset( $instance['category'] ) && is_numeric( $instance['category'] ) ) {
+			$args['category'] = intval( $instance['category'] );
+		}
 
 		// Boolean values.
-		if ( isset( $instance['display_author'] ) && ( 1 == $instance['display_author'] ) ) { $args['display_author'] = true; } else { $args['display_author'] = false; }
-		if ( isset( $instance['display_avatar'] ) && ( 1 == $instance['display_avatar'] ) ) { $args['display_avatar'] = true; } else { $args['display_avatar'] = false; }
-		if ( isset( $instance['display_url'] ) && ( 1 == $instance['display_url'] ) ) { $args['display_url'] = true; } else { $args['display_url'] = false; }
-		if ( isset( $instance['display_additional'] ) && ( 1 == $instance['display_additional'] ) ) { $args['display_additional'] = true; } else { $args['display_additional'] = false; }
-		if ( isset( $instance['display_role'] ) && ( 1 == $instance['display_role'] ) ) { $args['display_role'] = true; } else { $args['display_role'] = false; }
+		if ( isset( $instance['display_author'] ) && ( 1 == $instance['display_author'] ) ) {
+			$args['display_author'] = true; } else { $args['display_author'] = false;
+		}
+
+		if ( isset( $instance['display_avatar'] ) && ( 1 == $instance['display_avatar'] ) ) {
+			$args['display_avatar'] = true;
+		} else {
+			$args['display_avatar'] = false;
+		}
+
+		if ( isset( $instance['display_url'] ) && ( 1 == $instance['display_url'] ) ) {
+			$args['display_url'] = true;
+		} else {
+			$args['display_url'] = false;
+		}
+
+		if ( isset( $instance['display_additional'] ) && ( 1 == $instance['display_additional'] ) ) {
+			$args['display_additional'] = true;
+		} else {
+			$args['display_additional'] = false;
+		}
+
+		if ( isset( $instance['display_role'] ) && ( 1 == $instance['display_role'] ) ) {
+			$args['display_role'] = true;
+		} else {
+			$args['display_role'] = false;
+		}
 
 		// Select boxes.
-		if ( isset( $instance['orderby'] ) && in_array( $instance['orderby'], array_keys( $this->get_orderby_options() ) ) ) { $args['orderby'] = $instance['orderby']; }
-		if ( isset( $instance['order'] ) && in_array( $instance['order'], array_keys( $this->get_order_options() ) ) ) { $args['order'] = $instance['order']; }
+		if ( isset( $instance['orderby'] ) && in_array( $instance['orderby'], array_keys( $this->get_orderby_options() ) ) ) {
+			$args['orderby'] = $instance['orderby'];
+		}
+
+		if ( isset( $instance['order'] ) && in_array( $instance['order'], array_keys( $this->get_order_options() ) ) ) {
+			$args['order'] = $instance['order'];
+		}
 
 		// Display the team member profiles.
 		woothemes_our_team( $args );
@@ -276,4 +321,3 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 
 /* Register the widget. */
 add_action( 'widgets_init', create_function( '', 'return register_widget("Woothemes_Widget_Our_Team");' ), 1 );
-?>

@@ -88,7 +88,7 @@ class Woothemes_Our_Team {
 			'all_items' 			=> sprintf( __( 'All %s', 'our-team-by-woothemes' ), __( 'Team Members', 'our-team-by-woothemes' ) ),
 			'view_item' 			=> sprintf( __( 'View %s', 'our-team-by-woothemes' ), __( 'Team Member', 'our-team-by-woothemes' ) ),
 			'search_items' 			=> sprintf( __( 'Search %a', 'our-team-by-woothemes' ), __( 'Team Members', 'our-team-by-woothemes' ) ),
-			'not_found' 			=>  sprintf( __( 'No %s Found', 'our-team-by-woothemes' ), __( 'Team Members', 'our-team-by-woothemes' ) ),
+			'not_found' 			=> sprintf( __( 'No %s Found', 'our-team-by-woothemes' ), __( 'Team Members', 'our-team-by-woothemes' ) ),
 			'not_found_in_trash' 	=> sprintf( __( 'No %s Found In Trash', 'our-team-by-woothemes' ), __( 'Team Members', 'our-team-by-woothemes' ) ),
 			'parent_item_colon' 	=> '',
 			'menu_name' 			=> __( 'Team Members', 'our-team-by-woothemes' )

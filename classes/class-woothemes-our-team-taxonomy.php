@@ -81,7 +81,16 @@ class Woothemes_Our_Team_Taxonomy {
 	 * @return  array Default arguments.
 	 */
 	private function _get_default_args () {
-		return array( 'labels' => $this->_get_default_labels(), 'public' => true, 'hierarchical' => true, 'show_ui' => true, 'show_admin_column' => true, 'query_var' => true, 'show_in_nav_menus' => false, 'show_tagcloud' => false );
+		return array(
+			'labels' 				=> $this->_get_default_labels(),
+			'public' 				=> true,
+			'hierarchical' 			=> true,
+			'show_ui' 				=> true,
+			'show_admin_column' 	=> true,
+			'query_var' 			=> true,
+			'show_in_nav_menus' 	=> false,
+			'show_tagcloud' 		=> false
+			);
 	} // End _get_default_args()
 
 	/**
@@ -117,4 +126,3 @@ class Woothemes_Our_Team_Taxonomy {
 		register_taxonomy( esc_attr( $this->token ), esc_attr( $this->post_type ), (array) $args );
 	} // End register()
 } // End Class
-?>
