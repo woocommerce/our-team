@@ -33,23 +33,23 @@ To display your team member profiles via a theme or a custom plugin, please use 
 
 To add arguments to this, please use any of the following arguments, using the syntax provided below:
 
-* 'limit' => 5 (the maximum number of items to display)
-* 'per_row' => 3 (when creating rows, how many items display in a single row?)
-* 'orderby' => 'menu_order' (how to order the items - accepts all default WordPress ordering options)
-* 'order' => 'DESC' (the order direction)
-* 'id' => 0 (display a specific item)
-* 'slug' => null (Display a specific team member)
-* 'display_author' => true (whether or not to display the author information)
-* 'display_avatar' => true (whether or not to display the author avatar)
-* 'display_url' => true (whether or not to display the URL information)
-* 'echo' => true (whether to display or return the data - useful with the template tag)
-* 'size' => 50 (the pixel dimensions of the image)
-* 'title' => '' (an optional title)
-* 'before' => '&lt;div class="widget widget_woothemes_our_team"&gt;' (the starting HTML, wrapping the team member profiles)
-* 'after' => '&lt;/div&gt;' (the ending HTML, wrapping the team member profiles)
-* 'before_title' => '&lt;h2&gt;' (the starting HTML, wrapping the title)
-* 'after_title' => '&lt;/h2&gt;' (the ending HTML, wrapping the title)
-* 'category' => 0 (the ID/slug of the category to filter by)
+* 'limit' 			=> 5 (the maximum number of items to display)
+* 'per_row' 		=> 3 (when creating rows, how many items display in a single row?)
+* 'orderby' 		=> 'menu_order' (how to order the items - accepts all default WordPress ordering options)
+* 'order' 			=> 'DESC' (the order direction)
+* 'id' 				=> 0 (display a specific item)
+* 'slug' 			=> null (Display a specific team member)
+* 'display_author' 	=> true (whether or not to display the author information)
+* 'display_avatar' 	=> true (whether or not to display the author avatar)
+* 'display_url' 	=> true (whether or not to display the URL information)
+* 'echo' 			=> true (whether to display or return the data - useful with the template tag)
+* 'size' 			=> 50 (the pixel dimensions of the image)
+* 'title' 			=> '' (an optional title)
+* 'before' 			=> '&lt;div class="widget widget_woothemes_our_team"&gt;' (the starting HTML, wrapping the team member profiles)
+* 'after' 			=> '&lt;/div&gt;' (the ending HTML, wrapping the team member profiles)
+* 'before_title' 	=> '&lt;h2&gt;' (the starting HTML, wrapping the title)
+* 'after_title' 	=> '&lt;/h2&gt;' (the ending HTML, wrapping the title)
+* 'category' 		=> 0 (the ID/slug of the category to filter by)
 
 The various options for the "orderby" parameter are:
 
@@ -59,7 +59,11 @@ The various options for the "orderby" parameter are:
 * 'date'
 * 'menu_order'
 
-`<?php do_action( 'woothemes_our_team', array( 'limit' => 10, 'display_author' => false ) ); ?>`
+`<?php do_action( 'woothemes_our_team', array(
+	'limit' 			=> 10,
+	'display_author' 	=> false )
+	);
+?>`
 
 The same arguments apply to the shortcode which is `[woothemes_our_team]` and the template tag, which is `<?php woothemes_our_team(); ?>`.
 
@@ -73,7 +77,11 @@ do_action() call:
 
 woothemes_our_team() template tag:
 
-`<?php woothemes_our_team( array( 'limit' => 10, 'size' => 100 ) ); ?>`
+`<?php woothemes_our_team( array(
+	'limit' 	=> 10,
+	'size' 		=> 100 ),
+	);
+?>`
 
 [woothemes_our_team] shortcode:
 
