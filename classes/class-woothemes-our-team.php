@@ -88,7 +88,7 @@ class Woothemes_Our_Team {
 			'all_items' 			=> sprintf( __( 'All %s', 'our-team-by-woothemes' ), __( 'Team Members', 'our-team-by-woothemes' ) ),
 			'view_item' 			=> sprintf( __( 'View %s', 'our-team-by-woothemes' ), __( 'Team Member', 'our-team-by-woothemes' ) ),
 			'search_items' 			=> sprintf( __( 'Search %a', 'our-team-by-woothemes' ), __( 'Team Members', 'our-team-by-woothemes' ) ),
-			'not_found' 			=>  sprintf( __( 'No %s Found', 'our-team-by-woothemes' ), __( 'Team Members', 'our-team-by-woothemes' ) ),
+			'not_found' 			=> sprintf( __( 'No %s Found', 'our-team-by-woothemes' ), __( 'Team Members', 'our-team-by-woothemes' ) ),
 			'not_found_in_trash' 	=> sprintf( __( 'No %s Found In Trash', 'our-team-by-woothemes' ), __( 'Team Members', 'our-team-by-woothemes' ) ),
 			'parent_item_colon' 	=> '',
 			'menu_name' 			=> __( 'Team Members', 'our-team-by-woothemes' )
@@ -122,7 +122,8 @@ class Woothemes_Our_Team {
 			'menu_position' 		=> 5,
 			'menu_icon' 			=> ''
 		);
-		register_post_type( $this->token, $args );
+		$args = apply_filters( 'woothemes_our_team_post_type_args', $args );
+		register_post_type( $this->token, (array) $args );
 	} // End register_post_type()
 
 	/**
@@ -522,6 +523,7 @@ class Woothemes_Our_Team {
 			'orderby' 		=> 'menu_order',
 			'order' 		=> 'DESC',
 			'id' 			=> 0,
+			'slug'			=> null,
 			'category' 		=> 0,
 			'meta_key'		=> null,
 			'meta_value'	=> null
@@ -550,6 +552,10 @@ class Woothemes_Our_Team {
 				$query_args['ignore_sticky_posts'] = 1;
 				$query_args['post__in'] = $ids;
 			}
+		}
+
+		if ( $args['slug'] ) {
+			$query_args['name'] = esc_html( $args['slug'] );
 		}
 
 		// Whitelist checks.
@@ -725,10 +731,22 @@ class Woothemes_Our_Team {
 						},
 						select: function ( event, ui ) {
 							event.preventDefault();
-							jQuery("#user_search").val( ui.item.label );
-							jQuery("#user_id").val( ui.item.value );
+							jQuery( "#user_search" ).val( ui.item.label );
+							jQuery( "#user_id" ).val( ui.item.value );
 						}
 					});
+
+					// Unset #user_id if #user_search is emptied
+					jQuery( '#user_search' ).blur(function() {
+					    if ( jQuery(this).val().length == 0 ) {
+					        jQuery( "#user_id" ).val( 0 );
+					    }
+					});
+
+					// Unser #user_id if #user_search is empty on page load
+					if ( jQuery( '#user_search' ).val().length == 0 ) {
+				        jQuery( "#user_id" ).val( 0 );
+				    }
 				});
 			</script>
 	<?php

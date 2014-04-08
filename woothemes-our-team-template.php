@@ -37,6 +37,7 @@ function woothemes_our_team ( $args = '' ) {
 		'orderby' 					=> 'menu_order',
 		'order' 					=> 'DESC',
 		'id' 						=> 0,
+		'slug'						=> null,
 		'display_author' 			=> true,
 		'display_additional' 		=> true,
 		'display_avatar' 			=> true,
@@ -90,7 +91,8 @@ function woothemes_our_team ( $args = '' ) {
 			$tpl = apply_filters( 'woothemes_our_team_item_template', $tpl, $args );
 
 			$count = 0;
-			foreach ( $query as $post ) { $count++;
+			foreach ( $query as $post ) {
+				$count++;
 				$template = $tpl;
 
 				$css_class = apply_filters( 'woothemes_our_team_member_class', $css_class = 'team-member' );
@@ -204,6 +206,9 @@ function woothemes_our_team ( $args = '' ) {
 
 				$template = str_replace( '%%TEXT%%', $content, $template );
 
+				// filter the individual team member html
+				$template = apply_filters( 'woothemes_our_team_member_html', $template, $post );
+
 				// Assign for output.
 				$html .= $template;
 			}
@@ -223,7 +228,9 @@ function woothemes_our_team ( $args = '' ) {
 		// Allow child themes/plugins to filter here.
 		$html = apply_filters( 'woothemes_our_team_html', $html, $query, $args );
 
-		if ( $args['echo'] != true ) { return $html; }
+		if ( $args['echo'] != true ) {
+			return $html;
+		}
 
 		// Should only run is "echo" is set to true.
 		echo $html;
@@ -249,6 +256,7 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 		'orderby' 					=> 'menu_order',
 		'order' 					=> 'DESC',
 		'id' 						=> 0,
+		'slug'						=> null,
 		'display_author' 			=> true,
 		'display_additional' 		=> true,
 		'display_avatar' 			=> true,
@@ -272,9 +280,17 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 	$args['echo'] = false;
 
 	// Fix integers.
-	if ( isset( $args['limit'] ) ) $args['limit'] = intval( $args['limit'] );
-	if ( isset( $args['size'] ) &&  ( 0 < intval( $args['size'] ) ) ) $args['size'] = intval( $args['size'] );
-	if ( isset( $args['category'] ) && is_numeric( $args['category'] ) ) $args['category'] = intval( $args['category'] );
+	if ( isset( $args['limit'] ) ) {
+		$args['limit'] = intval( $args['limit'] );
+	}
+
+	if ( isset( $args['size'] ) &&  ( 0 < intval( $args['size'] ) ) ) {
+		$args['size'] = intval( $args['size'] );
+	}
+
+	if ( isset( $args['category'] ) && is_numeric( $args['category'] ) ) {
+		$args['category'] = intval( $args['category'] );
+	}
 
 	// Fix booleans.
 	foreach ( array( 'display_author', 'display_additional', 'display_url', 'display_author_archive', 'display_twitter', 'display_role', 'pagination', 'display_avatar' ) as $k => $v ) {
@@ -286,6 +302,7 @@ function woothemes_our_team_shortcode ( $atts, $content = null ) {
 	}
 
 	return woothemes_our_team( $args );
+
 } // End woothemes_our_team_shortcode()
 }
 
@@ -303,4 +320,3 @@ function woothemes_our_team_content_default_filters () {
 
 add_action( 'woothemes_our_team_before', 'woothemes_our_team_content_default_filters' );
 }
-?>
