@@ -29,7 +29,7 @@ if ( ! function_exists( 'woothemes_our_team' ) ) {
  * @return string
  */
 function woothemes_our_team ( $args = '' ) {
-	global $post;
+	global $post, $more;
 
 	$defaults = apply_filters( 'woothemes_our_team_default_args', array(
 		'limit' 					=> 12,
@@ -195,7 +195,10 @@ function woothemes_our_team ( $args = '' ) {
 
 				// Remove any remaining %%AVATAR%% template tags.
 				$template 	= str_replace( '%%AVATAR%%', '', $template );
-				$content 	= apply_filters( 'woothemes_our_team_content', wpautop( get_the_content() ), $post );
+			    $real_more 	= $more;
+			    $more      	= 0;
+				$content 	= apply_filters( 'woothemes_our_team_content', wpautop( get_the_content( __( 'Read full biography...', 'our-team-by-woothemes' ) ) ), $post );
+				$more      	= $real_more;
 
 				// Display bio if Team Member is mapped to a user on this site.
 				if ( apply_filters( 'woothemes_our_team_display_bio', true ) && 0 != $user ) {
