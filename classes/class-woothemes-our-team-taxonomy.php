@@ -90,7 +90,7 @@ class Woothemes_Our_Team_Taxonomy {
 			'query_var' 			=> true,
 			'show_in_nav_menus' 	=> false,
 			'show_tagcloud' 		=> false,
-			'rewrite'               => array( 'with_front' 	=> false )
+			'rewrite'               => array( 'slug' => 'projects/category', 'with_front' 	=> false )
 			);
 	} // End _get_default_args()
 
