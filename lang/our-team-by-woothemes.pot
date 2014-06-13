@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/our-team-by-woothemes\n"
-"POT-Creation-Date: 2014-04-08 10:04:28+00:00\n"
+"POT-Creation-Date: 2014-06-13 10:18:03+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,52 +20,52 @@ msgstr ""
 msgid "Categories"
 msgstr ""
 
-#: classes/class-woothemes-our-team-taxonomy.php:104
+#: classes/class-woothemes-our-team-taxonomy.php:105
 msgctxt "taxonomy general name"
 msgid "%s"
 msgstr ""
 
-#: classes/class-woothemes-our-team-taxonomy.php:105
+#: classes/class-woothemes-our-team-taxonomy.php:106
 msgctxt "taxonomy singular name"
 msgid "%s"
 msgstr ""
 
-#: classes/class-woothemes-our-team-taxonomy.php:106
+#: classes/class-woothemes-our-team-taxonomy.php:107
 msgid "Search %s"
 msgstr ""
 
-#: classes/class-woothemes-our-team-taxonomy.php:107
+#: classes/class-woothemes-our-team-taxonomy.php:108
 #: classes/class-woothemes-our-team.php:88
 msgid "All %s"
 msgstr ""
 
-#: classes/class-woothemes-our-team-taxonomy.php:108
+#: classes/class-woothemes-our-team-taxonomy.php:109
 msgid "Parent %s"
 msgstr ""
 
-#: classes/class-woothemes-our-team-taxonomy.php:109
+#: classes/class-woothemes-our-team-taxonomy.php:110
 msgid "Parent %s:"
 msgstr ""
 
-#: classes/class-woothemes-our-team-taxonomy.php:110
+#: classes/class-woothemes-our-team-taxonomy.php:111
 #: classes/class-woothemes-our-team.php:86
 msgid "Edit %s"
 msgstr ""
 
-#: classes/class-woothemes-our-team-taxonomy.php:111
+#: classes/class-woothemes-our-team-taxonomy.php:112
 msgid "Update %s"
 msgstr ""
 
-#: classes/class-woothemes-our-team-taxonomy.php:112
+#: classes/class-woothemes-our-team-taxonomy.php:113
 #: classes/class-woothemes-our-team.php:85
 msgid "Add New %s"
 msgstr ""
 
-#: classes/class-woothemes-our-team-taxonomy.php:113
+#: classes/class-woothemes-our-team-taxonomy.php:114
 msgid "New %s Name"
 msgstr ""
 
-#: classes/class-woothemes-our-team-taxonomy.php:114
+#: classes/class-woothemes-our-team-taxonomy.php:115
 msgid "%s"
 msgstr ""
 
@@ -334,10 +334,14 @@ msgstr ""
 msgid "Read posts by %1$s"
 msgstr ""
 
-#: woothemes-our-team-template.php:220
+#: woothemes-our-team-template.php:200
+msgid "Read full biography..."
+msgstr ""
+
+#: woothemes-our-team-template.php:223
 msgid "Previous"
 msgstr ""
 
-#: woothemes-our-team-template.php:221
+#: woothemes-our-team-template.php:224
 msgid "Next"
 msgstr ""
