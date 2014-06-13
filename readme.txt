@@ -3,7 +3,7 @@ Contributors: woothemes, mattyza, jameskoster
 Donate link: http://woothemes.com/
 Tags: teams, team members, profiles, widget, shortcode, template-tag
 Requires at least: 3.8
-Tested up to: 3.8.1
+Tested up to: 3.9.1
 Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -199,6 +199,7 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 
 = 1.3.1 =
 * Tweak - More tag works as expected.
+* Tweak - Updated default slug for Team Taxonomy to 'team-members'.
 
 = 1.3.0 =
 * New - Filters for taxonomy args, post type args and individual team member template. Kudos @helgatheviking.
