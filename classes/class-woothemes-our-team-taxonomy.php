@@ -82,14 +82,15 @@ class Woothemes_Our_Team_Taxonomy {
 	 */
 	private function _get_default_args () {
 		return array(
-			'labels' 				=> $this->_get_default_labels(),
-			'public' 				=> true,
-			'hierarchical' 			=> true,
-			'show_ui' 				=> true,
+			'labels' 		=> $this->_get_default_labels(),
+			'public' 		=> true,
+			'hierarchical' 		=> true,
+			'show_ui' 		=> true,
 			'show_admin_column' 	=> true,
-			'query_var' 			=> true,
+			'query_var' 		=> true,
 			'show_in_nav_menus' 	=> false,
-			'show_tagcloud' 		=> false
+			'show_tagcloud' 	=> false,
+			'rewrite'               => array( 'slug' => 'team-members', 'with_front' => false )
 			);
 	} // End _get_default_args()
 
