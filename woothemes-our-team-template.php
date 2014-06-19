@@ -143,6 +143,8 @@ function woothemes_our_team ( $args = '' ) {
 				$author 		= '';
 				$author_text 	= '';
 
+				$user = $post->user_id;
+
 				// If we need to display the author, get the data.
 				if ( true == $args['display_additional'] ) {
 
@@ -151,8 +153,6 @@ function woothemes_our_team ( $args = '' ) {
 					$member_fields = '';
 
 					if ( true == $args['display_author_archive'] && apply_filters( 'woothemes_our_team_member_user_id', true ) ) {
-
-						$user = $post->user_id;
 
 						// User didn't select an item from the autocomplete list
 						// Let's try to get the user from the search query
