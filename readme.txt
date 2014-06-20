@@ -4,7 +4,7 @@ Donate link: http://woothemes.com/
 Tags: teams, team members, profiles, widget, shortcode, template-tag
 Requires at least: 3.8
 Tested up to: 3.9.1
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -196,6 +196,9 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 * Initial release. Woo!
 
 == Changelog ==
+
+= 1.3.2 =
+* Fix - Undefined index notice. Kudos @apenchev.
 
 = 1.3.1 =
 * Tweak - More tag works as expected.
