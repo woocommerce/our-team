@@ -46,6 +46,7 @@ function woothemes_our_team ( $args = '' ) {
 		'display_author_archive'	=> true,
 		'display_role'	 			=> true,
 		'contact_email'				=> true,
+		'tel'						=> true,
 		'effect' 					=> 'fade', // Options: 'fade', 'none'
 		'pagination' 				=> false,
 		'echo' 						=> true,
@@ -171,7 +172,12 @@ function woothemes_our_team ( $args = '' ) {
 					}
 
 					if ( true == $args['contact_email'] && '' != $post->contact_email && apply_filters( 'woothemes_our_team_member_contact_email', true ) ) {
-						$member_fields .= '<li class="our-team-contact-email" itemprop="contactPoint"><a href="mailto:' . esc_html( $post->contact_email ) . '">' . __( 'Email ', 'our-team-by-woothemes' ) . get_the_title() . '</a></li>';
+						$member_fields .= '<li class="our-team-contact-email" itemprop="email"><a href="mailto:' . esc_html( $post->contact_email ) . '">' . __( 'Email ', 'our-team-by-woothemes' ) . get_the_title() . '</a></li>';
+					}
+
+					if ( true == $args['tel'] && '' != $post->tel && apply_filters( 'woothemes_our_team_member_tel', true ) ) {
+						$call_protocol = apply_filters( 'woothemes_our_team_call_protocol', $protocol = 'tel' );
+						$member_fields .= '<li class="our-team-tel" itemprop="telephone"><span>' . __( 'Tel: ', 'our-team-by-woothemes' ) . '</span><a href="' . $call_protocol . ':' . esc_html( $post->tel ) . '">' . esc_html( $post->tel ) . '</a></li>';
 					}
 
 					if ( true == $args['display_twitter'] && '' != $post->twitter && apply_filters( 'woothemes_our_team_member_twitter', true ) ) {

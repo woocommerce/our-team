@@ -419,6 +419,16 @@ class Woothemes_Our_Team {
 			);
 		}
 
+		if ( apply_filters( 'woothemes_our_team_member_tel', true ) ) {
+			$fields['tel'] = array(
+		    	'name' 				=> __( 'Telephone Number', 'our-team-by-woothemes' ),
+		    	'description' 		=> __( 'Enter a telephone number for this team member to be displayed as a link on the frontend.', 'our-team-by-woothemes' ),
+		    	'type' 				=> 'text',
+		    	'default' 			=> '',
+		    	'section' 			=> 'info'
+			);
+		}
+
 		if ( apply_filters( 'woothemes_our_team_member_twitter', true ) ) {
 			$fields['twitter'] = array(
 			    'name' 			=> __( 'Twitter Username', 'our-team-by-woothemes' ),
