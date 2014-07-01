@@ -421,8 +421,8 @@ class Woothemes_Our_Team {
 
 		if ( apply_filters( 'woothemes_our_team_member_user_search', true ) ) {
 			$fields['user_search'] = array(
-			    'name' 			=> __( 'WordPress Username', 'our-team-by-woothemes' ),
-			    'description' 	=> __( 'Map this team member to a user on this site.', 'our-team-by-woothemes' ),
+			    'name' 			=> get_bloginfo( 'name' ) . ' ' . __( 'Username', 'our-team-by-woothemes' ),
+			    'description' 	=> sprintf( __( 'Map this team member to a user on this site. See the %sdocumentation%s for more info.', 'our-team-by-woothemes' ), '<a href="' . esc_url( 'http://docs.woothemes.com/document/our-team-plugin/' ) . '" target="_blank">', '</a>' ),
 			    'type' 			=> 'text',
 			    'default' 		=> '',
 			    'section' 		=> 'info'
@@ -431,7 +431,7 @@ class Woothemes_Our_Team {
 
 		if ( apply_filters( 'woothemes_our_team_member_user_id', true ) ) {
 			$fields['user_id'] = array(
-			    'name' 			=> __( 'WordPress Username', 'our-team-by-woothemes' ),
+			    'name' 			=> get_bloginfo( 'name' ) . ' ' . __( 'Username', 'our-team-by-woothemes' ),
 			    'description' 	=> __( 'Holds the id of the selected user.', 'our-team-by-woothemes' ),
 			    'type' 			=> 'hidden',
 			    'default' 		=> 0,

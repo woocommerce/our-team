@@ -198,6 +198,7 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 == Changelog ==
 
 = 1.3.2 =
+* Tweak - WordPress user mapping label clearer.
 * Fix - Undefined index notice. Kudos @apenchev.
 
 = 1.3.1 =
