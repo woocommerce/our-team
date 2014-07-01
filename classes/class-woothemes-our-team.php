@@ -383,7 +383,7 @@ class Woothemes_Our_Team {
 
 		$fields['gravatar_email'] = array(
 		    'name' 				=> __( 'Gravatar E-mail Address', 'our-team-by-woothemes' ),
-		    'description' 		=> sprintf( __( 'Enter in an e-mail address, to use a %sGravatar%s, instead of using the "Featured Image".', 'our-team-by-woothemes' ), '<a href="' . esc_url( 'http://gravatar.com/' ) . '" target="_blank">', '</a>' ),
+		    'description' 		=> sprintf( __( 'Enter an e-mail address, to use a %sGravatar%s, instead of using the "Featured Image".', 'our-team-by-woothemes' ), '<a href="' . esc_url( 'http://gravatar.com/' ) . '" target="_blank">', '</a>' ),
 		    'type' 				=> 'text',
 		    'default' 			=> '',
 		    'section' 			=> 'info'
@@ -406,6 +406,16 @@ class Woothemes_Our_Team {
 			    'type' 			=> 'url',
 			    'default' 		=> '',
 			    'section' 		=> 'info'
+			);
+		}
+
+		if ( apply_filters( 'woothemes_our_team_member_contact_email', true ) ) {
+			$fields['contact_email'] = array(
+		    	'name' 				=> __( 'Contact E-mail Address', 'our-team-by-woothemes' ),
+		    	'description' 		=> __( 'Enter a contact email address for this team member to be displayed as a link on the frontend.', 'our-team-by-woothemes' ),
+		    	'type' 				=> 'text',
+		    	'default' 			=> '',
+		    	'section' 			=> 'info'
 			);
 		}
 

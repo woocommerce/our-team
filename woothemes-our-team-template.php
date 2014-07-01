@@ -45,6 +45,7 @@ function woothemes_our_team ( $args = '' ) {
 		'display_twitter' 			=> true,
 		'display_author_archive'	=> true,
 		'display_role'	 			=> true,
+		'contact_email'				=> true,
 		'effect' 					=> 'fade', // Options: 'fade', 'none'
 		'pagination' 				=> false,
 		'echo' 						=> true,
@@ -164,9 +165,13 @@ function woothemes_our_team ( $args = '' ) {
 						}
 
 						if ( 0 != $user ) {
-							$member_fields .= '<li class="our-team-author-archive" itemprop="url"><a href="' . get_author_posts_url( $post->user_id ) . '">' . sprintf( __( 'Read posts by %1$s', 'woothemes' ), get_the_title() ) . '</a></li>' . "\n";
+							$member_fields .= '<li class="our-team-author-archive" itemprop="url"><a href="' . get_author_posts_url( $post->user_id ) . '">' . sprintf( __( 'Read posts by %1$s', 'our-team-by-woothemes' ), get_the_title() ) . '</a></li>' . "\n";
 						}
 
+					}
+
+					if ( true == $args['contact_email'] && '' != $post->contact_email && apply_filters( 'woothemes_our_team_member_contact_email', true ) ) {
+						$member_fields .= '<li class="our-team-contact-email" itemprop="contactPoint"><a href="mailto:' . esc_html( $post->contact_email ) . '">' . __( 'Email ', 'our-team-by-woothemes' ) . get_the_title() . '</a></li>';
 					}
 
 					if ( true == $args['display_twitter'] && '' != $post->twitter && apply_filters( 'woothemes_our_team_member_twitter', true ) ) {

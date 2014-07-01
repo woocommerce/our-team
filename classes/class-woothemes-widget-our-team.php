@@ -207,6 +207,7 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 			'display_url' 			=> true,
 			'display_additional' 	=> true,
 			'display_role'	 		=> true,
+			'contact_email'			=> true,
 			'effect' 				=> 'fade', // Options: 'fade', 'none'
 			'pagination' 			=> false,
 			'size' 					=> 50,
