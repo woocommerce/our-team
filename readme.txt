@@ -18,7 +18,7 @@ Display team member profiles with descriptions and links to social media using o
 
 = Support =
 
-Looking for a helping hand? [View plugin documentation](http://wordpress.org/plugins/our-team-by-woothemes/other_notes/). Also be sure to check out the [FAQ](https://wordpress.org/plugins/our-team-by-woothemes/faq/).
+Looking for a helping hand? [View plugin documentation](http://docs.woothemes.com/documentation/plugins/our-team/). Also be sure to check out the [FAQ](https://wordpress.org/plugins/our-team-by-woothemes/faq/).
 
 = Get Involved =
 
@@ -100,7 +100,7 @@ Installing "Our Team by WooThemes" can be done either by searching for "Our Team
 
 = The plugin looks unstyled when I activate it. Why is this? =
 
-"Our Team by WooThemes" is a lean plugin that aims to keep it's purpose as clean and clear as possible. Thus, we don't load any preset CSS styling, to allow full control over the styling within your theme or child theme. If you simply want to apply layout (as displayed in the screenshots) you can do so with [this](https://gist.github.com/jameskoster/9954311) snippet.
+"Our Team by WooThemes" is a lean plugin that aims to keep it's purpose as clean and clear as possible. Thus, we don't load any preset CSS styling, to allow full control over the styling within your theme or child theme. If you simply want to apply layout (as displayed in the screenshots) you can do so with [this](https://gist.github.com/jameskoster/9954311) snippet. Read more in the [documentation](http://docs.woothemes.com/document/apply-layout-to-our-team/).
 
 = I don't need the 'Role' field, can I disable that? =
 
