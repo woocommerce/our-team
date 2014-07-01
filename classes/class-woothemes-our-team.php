@@ -40,6 +40,8 @@ class Woothemes_Our_Team {
 		// Run this on activation.
 		register_activation_hook( $this->file, array( $this, 'activation' ) );
 
+		add_filter( 'plugin_action_links_our-team-by-woothemes/woothemes-our-team.php', array( $this, 'our_team_action_links' ) );
+
 		add_action( 'init', array( $this, 'register_post_type' ) );
 		add_action( 'init', array( $this, 'register_taxonomy' ) );
 
@@ -772,5 +774,18 @@ class Woothemes_Our_Team {
 	<?php
 		}
 	} //End get_users_javascript
+
+	/**
+	 * Add the Our Team action links
+	 * @param  array $links current action links
+	 * @return array current action links merged with new action links
+	 */
+	public function our_team_action_links( $links ) {
+		$our_team_links = array(
+			'<a href="http://docs.woothemes.com/documentation/plugins/our-team/" target="_blank">' . __( 'Documentation', 'our-team-by-woothemes' ) . '</a>',
+		);
+
+		return array_merge( $links, $our_team_links );
+	}
 
 } // End Class
