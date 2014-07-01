@@ -200,6 +200,7 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 = 1.3.2 =
 * New - Team member contact email field.
 * New - Team member telephone number field.
+* New - Team member details now output on single / archive templates.
 * Tweak - WordPress user mapping label clearer.
 * Tweak - Added a documentation link to the plugin action links.
 * Fix - Undefined index notice. Kudos @apenchev.
