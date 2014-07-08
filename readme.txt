@@ -203,6 +203,7 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 * New - Team member details now output on single / archive templates.
 * Tweak - WordPress user mapping label clearer.
 * Tweak - Added a documentation link to the plugin action links.
+* Tweak - Added a help tab to new/edit post screens.
 * Fix - Undefined index notice. Kudos @apenchev.
 
 = 1.3.1 =

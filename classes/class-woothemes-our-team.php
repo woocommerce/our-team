@@ -44,6 +44,8 @@ class Woothemes_Our_Team {
 
 		add_action( 'init', array( $this, 'register_post_type' ) );
 		add_action( 'init', array( $this, 'register_taxonomy' ) );
+    	add_action( 'load-post-new.php', array( $this, 'our_team_help_tab' ) );
+    	add_action( 'load-post.php', array( $this, 'our_team_help_tab' ) );
 
 		if ( is_admin() ) {
 			global $pagenow;
@@ -787,5 +789,54 @@ class Woothemes_Our_Team {
 
 		return array_merge( $links, $our_team_links );
 	}
+
+	/**
+	 * Our Team Help Tab
+	 * Gives users quick access to shortcode examples via the dashboard
+	 * @return array content for the help tab
+	 */
+	public function our_team_help_tab () {
+    $screen = get_current_screen();
+
+    $screen->add_help_tab( array(
+        'id'		=> 'woo_our_team_help_tab',
+        'title'		=> __( 'Our Team', 'our-team-by-woothemes' ),
+        'callback'	=> 'our_team_help_tab_content',
+    ) );
+
+    /**
+     * Our Team help tab content
+     * @return void
+     */
+    function our_team_help_tab_content() {
+    	?>
+    		<h3><?php _e( 'Displaying team members in posts and pages', 'our-team-by-woothemes' ); ?></h3>
+    		<p><?php echo sprintf( __( 'The easiest way to display team members is to use the %s[woothemes_our_team]%s shortcode.', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></p>
+    		<p>
+    			<?php _e( 'The shortcode accepts various arguments as described below:', 'our-team-by-woothemes' ); ?>
+    		</p>
+    		<ul>
+	    		<li><?php echo sprintf( __( '%slimit%s - The maximum number of team members to display.', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li><?php echo sprintf( __( '%sorderby%s - How to order the team members. (Accepts all default WordPress ordering options).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li><?php echo sprintf( __( '%sorder%s - The order direction. (eg. ASC or DESC).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li><?php echo sprintf( __( '%sid%s - Display a specific team member by ID.', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li><?php echo sprintf( __( '%sdisplay_avatar%s - Display the team members gravatar. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li><?php echo sprintf( __( '%ssize%s - The size to display the team members gravatar.', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li><?php echo sprintf( __( '%sdisplay_additional%s - Global toggle for displaying all additional information such as twitter, email and telephone number. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li><?php echo sprintf( __( '%sdisplay_url%s - Display the team members URL. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li><?php echo sprintf( __( '%sdisplay_role%s - Display the team members role. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li><?php echo sprintf( __( '%sdisplay_twitter%s - Display the team members twitter follow button. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li><?php echo sprintf( __( '%sdisplay_author_archive%s - Display the team members author archive link if specified. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li><?php echo sprintf( __( '%scontact_email%s - Display the team members contact email. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li><?php echo sprintf( __( '%stel%s - Display the team members telephone number. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li><?php echo sprintf( __( '%sslug%s - Display a specific team member by post slug.', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li><?php echo sprintf( __( '%scategory%s - Display team members from within a specified category. Use the category slug.', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+    		</ul>
+    		<p>
+    			<p><?php echo sprintf( __( 'Read more about how to use Our Team in the %sdocumentation%s.', 'our-team-by-woothemes' ), '<a href="http://docs.woothemes.com/document/our-team-plugin/">', '</a>' ); ?></p>
+    		</p>
+    	<?php
+    }
+}
 
 } // End Class
