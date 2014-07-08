@@ -809,29 +809,36 @@ class Woothemes_Our_Team {
      * @return void
      */
     function our_team_help_tab_content() {
+    	$odd 	= 'width: 46%; float: left; clear: both;';
+    	$even 	= 'width: 46%; float: right;';
     	?>
     		<h3><?php _e( 'Displaying team members in posts and pages', 'our-team-by-woothemes' ); ?></h3>
-    		<p><?php echo sprintf( __( 'The easiest way to display team members is to use the %s[woothemes_our_team]%s shortcode.', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></p>
+    		<p>
+    			<?php echo sprintf( __( 'The easiest way to display team members is to use the %s[woothemes_our_team]%s shortcode.', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?>
+    		</p>
     		<p>
     			<?php _e( 'The shortcode accepts various arguments as described below:', 'our-team-by-woothemes' ); ?>
     		</p>
-    		<ul>
-	    		<li><?php echo sprintf( __( '%slimit%s - The maximum number of team members to display.', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
-	    		<li><?php echo sprintf( __( '%sorderby%s - How to order the team members. (Accepts all default WordPress ordering options).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
-	    		<li><?php echo sprintf( __( '%sorder%s - The order direction. (eg. ASC or DESC).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
-	    		<li><?php echo sprintf( __( '%sid%s - Display a specific team member by ID.', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
-	    		<li><?php echo sprintf( __( '%sdisplay_avatar%s - Display the team members gravatar. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
-	    		<li><?php echo sprintf( __( '%ssize%s - The size to display the team members gravatar.', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
-	    		<li><?php echo sprintf( __( '%sdisplay_additional%s - Global toggle for displaying all additional information such as twitter, email and telephone number. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
-	    		<li><?php echo sprintf( __( '%sdisplay_url%s - Display the team members URL. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
-	    		<li><?php echo sprintf( __( '%sdisplay_role%s - Display the team members role. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
-	    		<li><?php echo sprintf( __( '%sdisplay_twitter%s - Display the team members twitter follow button. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
-	    		<li><?php echo sprintf( __( '%sdisplay_author_archive%s - Display the team members author archive link if specified. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
-	    		<li><?php echo sprintf( __( '%scontact_email%s - Display the team members contact email. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
-	    		<li><?php echo sprintf( __( '%stel%s - Display the team members telephone number. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
-	    		<li><?php echo sprintf( __( '%sslug%s - Display a specific team member by post slug.', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
-	    		<li><?php echo sprintf( __( '%scategory%s - Display team members from within a specified category. Use the category slug.', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+    		<ul style="overflow: hidden;">
+	    		<li style="<?php echo $odd; ?>"><?php echo sprintf( __( '%slimit%s - The maximum number of team members to display.', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li style="<?php echo $even; ?>"><?php echo sprintf( __( '%sorderby%s - How to order the team members. (Accepts all default WordPress ordering options).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li style="<?php echo $odd; ?>"><?php echo sprintf( __( '%sorder%s - The order direction. (eg. ASC or DESC).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li style="<?php echo $even; ?>"><?php echo sprintf( __( '%sid%s - Display a specific team member by ID.', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li style="<?php echo $odd; ?>"><?php echo sprintf( __( '%sdisplay_avatar%s - Display the team members gravatar. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li style="<?php echo $even; ?>"><?php echo sprintf( __( '%ssize%s - The size to display the team members gravatar.', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li style="<?php echo $odd; ?>"><?php echo sprintf( __( '%sdisplay_additional%s - Global toggle for displaying all additional information such as twitter, email and telephone number. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li style="<?php echo $even; ?>"><?php echo sprintf( __( '%sdisplay_url%s - Display the team members URL. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li style="<?php echo $odd; ?>"><?php echo sprintf( __( '%sdisplay_role%s - Display the team members role. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li style="<?php echo $even; ?>"><?php echo sprintf( __( '%sdisplay_twitter%s - Display the team members twitter follow button. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li style="<?php echo $odd; ?>"><?php echo sprintf( __( '%sdisplay_author_archive%s - Display the team members author archive link if specified. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li style="<?php echo $even; ?>"><?php echo sprintf( __( '%scontact_email%s - Display the team members contact email. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li style="<?php echo $odd; ?>"><?php echo sprintf( __( '%stel%s - Display the team members telephone number. (true or false).', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li style="<?php echo $even; ?>"><?php echo sprintf( __( '%sslug%s - Display a specific team member by post slug.', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
+	    		<li style="<?php echo $odd; ?>"><?php echo sprintf( __( '%scategory%s - Display team members from within a specified category. Use the category slug.', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?></li>
     		</ul>
+    		<p>
+    			<?php echo sprintf( __( 'For example, to display 6 team members while hiding gravatars you would use this shortcode: %s[woothemes_our_team limit="6" display_avatar="false"]%s.', 'our-team-by-woothemes' ), '<code>', '</code>' ); ?>
+    		</p>
     		<p>
     			<p><?php echo sprintf( __( 'Read more about how to use Our Team in the %sdocumentation%s.', 'our-team-by-woothemes' ), '<a href="http://docs.woothemes.com/document/our-team-plugin/">', '</a>' ); ?></p>
     		</p>
