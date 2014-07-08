@@ -45,6 +45,8 @@ function woothemes_our_team ( $args = '' ) {
 		'display_twitter' 			=> true,
 		'display_author_archive'	=> true,
 		'display_role'	 			=> true,
+		'contact_email'				=> true,
+		'tel'						=> true,
 		'effect' 					=> 'fade', // Options: 'fade', 'none'
 		'pagination' 				=> false,
 		'echo' 						=> true,
@@ -143,6 +145,8 @@ function woothemes_our_team ( $args = '' ) {
 				$author 		= '';
 				$author_text 	= '';
 
+				$user = $post->user_id;
+
 				// If we need to display the author, get the data.
 				if ( true == $args['display_additional'] ) {
 
@@ -151,8 +155,6 @@ function woothemes_our_team ( $args = '' ) {
 					$member_fields = '';
 
 					if ( true == $args['display_author_archive'] && apply_filters( 'woothemes_our_team_member_user_id', true ) ) {
-
-						$user = $post->user_id;
 
 						// User didn't select an item from the autocomplete list
 						// Let's try to get the user from the search query
@@ -164,9 +166,18 @@ function woothemes_our_team ( $args = '' ) {
 						}
 
 						if ( 0 != $user ) {
-							$member_fields .= '<li class="our-team-author-archive" itemprop="url"><a href="' . get_author_posts_url( $post->user_id ) . '">' . sprintf( __( 'Read posts by %1$s', 'woothemes' ), get_the_title() ) . '</a></li>' . "\n";
+							$member_fields .= '<li class="our-team-author-archive" itemprop="url"><a href="' . get_author_posts_url( $post->user_id ) . '">' . sprintf( __( 'Read posts by %1$s', 'our-team-by-woothemes' ), get_the_title() ) . '</a></li>' . "\n";
 						}
 
+					}
+
+					if ( true == $args['contact_email'] && '' != $post->contact_email && apply_filters( 'woothemes_our_team_member_contact_email', true ) ) {
+						$member_fields .= '<li class="our-team-contact-email" itemprop="email"><a href="mailto:' . esc_html( $post->contact_email ) . '">' . __( 'Email ', 'our-team-by-woothemes' ) . get_the_title() . '</a></li>';
+					}
+
+					if ( true == $args['tel'] && '' != $post->tel && apply_filters( 'woothemes_our_team_member_tel', true ) ) {
+						$call_protocol = apply_filters( 'woothemes_our_team_call_protocol', $protocol = 'tel' );
+						$member_fields .= '<li class="our-team-tel" itemprop="telephone"><span>' . __( 'Tel: ', 'our-team-by-woothemes' ) . '</span><a href="' . $call_protocol . ':' . esc_html( $post->tel ) . '">' . esc_html( $post->tel ) . '</a></li>';
 					}
 
 					if ( true == $args['display_twitter'] && '' != $post->twitter && apply_filters( 'woothemes_our_team_member_twitter', true ) ) {
@@ -322,4 +333,75 @@ function woothemes_our_team_content_default_filters () {
 } // End woothemes_our_team_content_default_filters()
 
 add_action( 'woothemes_our_team_before', 'woothemes_our_team_content_default_filters' );
+}
+
+add_filter( 'the_content', 'woothemes_our_team_content' );
+/**
+ * Display team member data on single / archive pages
+ * @since 1.4.0
+ * @return  $content the post content
+ */
+function woothemes_our_team_content( $content ) {
+	global $post;
+
+	$team_member_email 	= esc_attr( get_post_meta( $post->ID, '_gravatar_email', true ) );
+	$user 				= esc_attr( get_post_meta( $post->ID, '_user_id', true ) );
+	$user_search 		= esc_attr( get_post_meta( $post->ID, '_user_search', true ) );
+	$twitter 			= esc_attr( get_post_meta( $post->ID, '_twitter', true ) );
+	$role 				= esc_attr( get_post_meta( $post->ID, '_byline', true ) );
+	$url 				= esc_attr( get_post_meta( $post->ID, '_url', true ) );
+	$tel 				= esc_attr( get_post_meta( $post->ID, '_tel', true ) );
+	$contact_email 		= esc_attr( get_post_meta( $post->ID, '_contact_email', true ) );
+
+	if ( 'team-member' == get_post_type() ) {
+
+		$team_member_gravatar 	= '';
+		$team_member_role 		= '';
+		$member_fields 			= '';
+		$author 				= '';
+
+		if ( isset( $team_member_email ) && ( '' != $team_member_email ) ) {
+			$team_member_gravatar = '<figure itemprop="image">' .  get_avatar( $team_member_email, 250 ) . '</figure>';
+		}
+
+		if ( isset( $role ) && '' != $role && apply_filters( 'woothemes_our_team_member_role', true ) ) {
+			$team_member_role .= ' <p class="role" itemprop="jobTitle">' . $role . '</p>' . "\n";
+		}
+
+		$author .= '<ul class="author-details">';
+
+		if ( apply_filters( 'woothemes_our_team_member_user_id', true ) ) {
+			if ( 0 == $user && '' != $user_search ) {
+				$user = get_user_by( 'slug', $user_search );
+				if ( $user ) {
+					$user = $user;
+				}
+			}
+
+			if ( 0 != $user ) {
+				$member_fields .= '<li class="our-team-author-archive" itemprop="url"><a href="' . get_author_posts_url( $user ) . '">' . sprintf( __( 'Read posts by %1$s', 'woothemes' ), get_the_title() ) . '</a></li>' . "\n";
+			}
+		}
+
+		if ( '' != $tel && apply_filters( 'woothemes_our_team_member_contact_email', true ) ) {
+			$member_fields .= '<li class="our-team-contact-email" itemprop="email"><a href="mailto:' . $contact_email . '">' . __( 'Email ', 'our-team-by-woothemes' ) . get_the_title() . '</a></li>';
+		}
+
+		if ( '' != $tel && apply_filters( 'woothemes_our_team_member_tel', true ) ) {
+			$call_protocol = apply_filters( 'woothemes_our_team_call_protocol', $protocol = 'tel' );
+			$member_fields .= '<li class="our-team-tel" itemprop="telephone"><span>' . __( 'Tel: ', 'our-team-by-woothemes' ) . '</span><a href="' . $call_protocol . ':' . $tel . '">' . $tel . '</a></li>';
+		}
+
+		if ( '' != $twitter && apply_filters( 'woothemes_our_team_member_twitter', true ) ) {
+			$member_fields .= '<li class="our-team-twitter" itemprop="contactPoint"><a href="//twitter.com/' . esc_html( $twitter ) . '" class="twitter-follow-button" data-show-count="false">Follow @' . esc_html( $twitter ) . '</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document, "script", "twitter-wjs");</script></li>'  . "\n";
+		}
+
+		$author .= apply_filters( 'woothemes_our_member_fields_display', $member_fields );
+
+		$author .= '</ul>';
+
+		return $team_member_gravatar . $team_member_role . $content . $author;
+	} else {
+		return $content;
+	}
 }

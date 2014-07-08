@@ -4,7 +4,7 @@ Donate link: http://woothemes.com/
 Tags: teams, team members, profiles, widget, shortcode, template-tag
 Requires at least: 3.8
 Tested up to: 3.9.1
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,7 +18,7 @@ Display team member profiles with descriptions and links to social media using o
 
 = Support =
 
-Looking for a helping hand? [View plugin documentation](http://wordpress.org/plugins/our-team-by-woothemes/other_notes/). Also be sure to check out the [FAQ](https://wordpress.org/plugins/our-team-by-woothemes/faq/).
+Looking for a helping hand? [View plugin documentation](http://docs.woothemes.com/documentation/plugins/our-team/). Also be sure to check out the [FAQ](https://wordpress.org/plugins/our-team-by-woothemes/faq/).
 
 = Get Involved =
 
@@ -33,23 +33,27 @@ To display your team member profiles via a theme or a custom plugin, please use 
 
 To add arguments to this, please use any of the following arguments, using the syntax provided below:
 
-* 'limit' 			=> 5 (the maximum number of items to display)
-* 'per_row' 		=> 3 (when creating rows, how many items display in a single row?)
-* 'orderby' 		=> 'menu_order' (how to order the items - accepts all default WordPress ordering options)
-* 'order' 			=> 'DESC' (the order direction)
-* 'id' 				=> 0 (display a specific item)
-* 'slug' 			=> null (Display a specific team member)
-* 'display_author' 	=> true (whether or not to display the author information)
-* 'display_avatar' 	=> true (whether or not to display the author avatar)
-* 'display_url' 	=> true (whether or not to display the URL information)
-* 'echo' 			=> true (whether to display or return the data - useful with the template tag)
-* 'size' 			=> 50 (the pixel dimensions of the image)
-* 'title' 			=> '' (an optional title)
-* 'before' 			=> '&lt;div class="widget widget_woothemes_our_team"&gt;' (the starting HTML, wrapping the team member profiles)
-* 'after' 			=> '&lt;/div&gt;' (the ending HTML, wrapping the team member profiles)
-* 'before_title' 	=> '&lt;h2&gt;' (the starting HTML, wrapping the title)
-* 'after_title' 	=> '&lt;/h2&gt;' (the ending HTML, wrapping the title)
-* 'category' 		=> 0 (the ID/slug of the category to filter by)
+* 'limit' 					=> 5 (the maximum number of items to display)
+* 'per_row' 				=> 3 (when creating rows, how many items display in a single row?)
+* 'orderby' 				=> 'menu_order' (how to order the items - accepts all default WordPress ordering options)
+* 'order' 					=> 'DESC' (the order direction)
+* 'id' 						=> 0 (display a specific item)
+* 'slug' 					=> null (Display a specific team member)
+* 'display_additional' 		=> true Global toggle for additional info such as Twitter, URL, Email and Telephone number
+* 'display_author' 			=> true (whether or not to display the author information)
+* 'display_avatar' 			=> true (whether or not to display the author avatar)
+* 'display_url' 			=> true (whether or not to display the URL information)
+* 'display_author_archive'	=> true (whether or not to display the author archive link)
+* 'contact_email'			=> true (whether or not to display the contact email)
+* 'tel'						=> true (whether or not to display the telephone number)
+* 'echo' 					=> true (whether to display or return the data - useful with the template tag)
+* 'size' 					=> 50 (the pixel dimensions of the image)
+* 'title' 					=> '' (an optional title)
+* 'before' 					=> '&lt;div class="widget widget_woothemes_our_team"&gt;' (the starting HTML, wrapping the team member profiles)
+* 'after' 					=> '&lt;/div&gt;' (the ending HTML, wrapping the team member profiles)
+* 'before_title' 			=> '&lt;h2&gt;' (the starting HTML, wrapping the title)
+* 'after_title' 			=> '&lt;/h2&gt;' (the ending HTML, wrapping the title)
+* 'category' 				=> 0 (the ID/slug of the category to filter by)
 
 The various options for the "orderby" parameter are:
 
@@ -100,7 +104,7 @@ Installing "Our Team by WooThemes" can be done either by searching for "Our Team
 
 = The plugin looks unstyled when I activate it. Why is this? =
 
-"Our Team by WooThemes" is a lean plugin that aims to keep it's purpose as clean and clear as possible. Thus, we don't load any preset CSS styling, to allow full control over the styling within your theme or child theme. If you simply want to apply layout (as displayed in the screenshots) you can do so with [this](https://gist.github.com/jameskoster/9954311) snippet.
+"Our Team by WooThemes" is a lean plugin that aims to keep it's purpose as clean and clear as possible. Thus, we don't load any preset CSS styling, to allow full control over the styling within your theme or child theme. If you simply want to apply layout (as displayed in the screenshots) you can do so with [this](https://gist.github.com/jameskoster/9954311) snippet. Read more in the [documentation](http://docs.woothemes.com/document/apply-layout-to-our-team/).
 
 = I don't need the 'Role' field, can I disable that? =
 
@@ -196,6 +200,15 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 * Initial release. Woo!
 
 == Changelog ==
+
+= 1.3.2 =
+* New - Team member contact email field.
+* New - Team member telephone number field.
+* New - Team member details now output on single / archive templates.
+* Tweak - WordPress user mapping label clearer.
+* Tweak - Added a documentation link to the plugin action links.
+* Tweak - Added a help tab to new/edit post screens.
+* Fix - Undefined index notice. Kudos @apenchev.
 
 = 1.3.1 =
 * Tweak - More tag works as expected.
