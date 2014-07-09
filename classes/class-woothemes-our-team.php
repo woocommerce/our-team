@@ -768,7 +768,7 @@ class Woothemes_Our_Team {
 					});
 
 					// Unser #user_id if #user_search is empty on page load
-					if ( jQuery( '#user_search' ).val().length == 0 ) {
+					if ( jQuery( '#user_search' ).val() && jQuery( '#user_search' ).val().length == 0 ) {
 				        jQuery( "#user_id" ).val( 0 );
 				    }
 				});
