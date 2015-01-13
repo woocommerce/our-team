@@ -201,6 +201,9 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 
 == Changelog ==
 
+= 1.4.1 =
+* Fix - Adding a telephone number no longer displays contact email if no email is set.
+
 = 1.4.0 =
 * New - Team member contact email field.
 * New - Team member telephone number field.

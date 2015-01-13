@@ -383,7 +383,7 @@ function woothemes_our_team_content( $content ) {
 			}
 		}
 
-		if ( '' != $tel && apply_filters( 'woothemes_our_team_member_contact_email', true ) ) {
+		if ( '' != $contact_email && apply_filters( 'woothemes_our_team_member_contact_email', true ) ) {
 			$member_fields .= '<li class="our-team-contact-email" itemprop="email"><a href="mailto:' . $contact_email . '">' . __( 'Email ', 'our-team-by-woothemes' ) . get_the_title() . '</a></li>';
 		}
 
