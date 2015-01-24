@@ -103,6 +103,10 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 			$args['size'] = intval( $instance['size'] );
 		}
 
+		if ( isset( $instance['per_row'] ) && ( 0 < count( $instance['per_row'] ) ) ) {
+			$args['per_row'] = intval( $instance['per_row'] );
+		}
+
 		if ( isset( $instance['category'] ) && is_numeric( $instance['category'] ) ) {
 			$args['category'] = intval( $instance['category'] );
 		}
@@ -169,6 +173,7 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 		$instance['limit'] 					= intval( $new_instance['limit'] );
 		$instance['specific_id'] 			= intval( $new_instance['specific_id'] );
 		$instance['size'] 					= intval( $new_instance['size'] );
+		$instance['per_row'] 				= intval( $new_instance['per_row'] );
 		$instance['category'] 				= intval( $new_instance['category'] );
 
 		/* The select box is returning a text value, so we escape it. */
@@ -211,6 +216,7 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 			'effect' 				=> 'fade', // Options: 'fade', 'none'
 			'pagination' 			=> false,
 			'size' 					=> 50,
+			'per_row'				=> 3,
 			'category' 				=> 0
 		);
 
@@ -221,15 +227,20 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title (optional):', 'our-team-by-woothemes' ); ?></label>
 			<input type="text" name="<?php echo $this->get_field_name( 'title' ); ?>"  value="<?php echo $instance['title']; ?>" class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" />
 		</p>
-		<!-- Widget Limit: Text Input -->
+		<!-- Widget Limit: Number Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'limit' ); ?>"><?php _e( 'Limit:', 'our-team-by-woothemes' ); ?></label>
-			<input type="text" name="<?php echo $this->get_field_name( 'limit' ); ?>"  value="<?php echo $instance['limit']; ?>" class="widefat" id="<?php echo $this->get_field_id( 'limit' ); ?>" />
+			<input type="number" name="<?php echo $this->get_field_name( 'limit' ); ?>"  value="<?php echo $instance['limit']; ?>" class="widefat" id="<?php echo $this->get_field_id( 'limit' ); ?>" />
 		</p>
-		<!-- Widget Image Size: Text Input -->
+		<!-- Widget Columns: Number Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'per_row' ); ?>"><?php _e( 'Numer of columns:', 'our-team-by-woothemes' ); ?></label>
+			<input type="number" name="<?php echo $this->get_field_name( 'per_row' ); ?>"  value="<?php echo $instance['per_row']; ?>" class="widefat" id="<?php echo $this->get_field_id( 'per_row' ); ?>" />
+		</p>
+		<!-- Widget Image Size: Number Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'size' ); ?>"><?php _e( 'Image Size (in pixels):', 'our-team-by-woothemes' ); ?></label>
-			<input type="text" name="<?php echo $this->get_field_name( 'size' ); ?>"  value="<?php echo $instance['size']; ?>" class="widefat" id="<?php echo $this->get_field_id( 'size' ); ?>" />
+			<input type="number" name="<?php echo $this->get_field_name( 'size' ); ?>"  value="<?php echo $instance['size']; ?>" class="widefat" id="<?php echo $this->get_field_id( 'size' ); ?>" />
 		</p>
 		<!-- Widget Order By: Select Input -->
 		<p>
