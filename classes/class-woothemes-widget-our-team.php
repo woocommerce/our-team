@@ -227,12 +227,11 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title (optional):', 'our-team-by-woothemes' ); ?></label>
 			<input type="text" name="<?php echo $this->get_field_name( 'title' ); ?>"  value="<?php echo $instance['title']; ?>" class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" />
 		</p>
-		<!-- Widget Limit: Text Input -->
+		<!-- Widget Limit: Number Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'limit' ); ?>"><?php _e( 'Limit:', 'our-team-by-woothemes' ); ?></label>
-			<input type="text" name="<?php echo $this->get_field_name( 'limit' ); ?>"  value="<?php echo $instance['limit']; ?>" class="widefat" id="<?php echo $this->get_field_id( 'limit' ); ?>" />
+			<input type="number" name="<?php echo $this->get_field_name( 'limit' ); ?>"  value="<?php echo $instance['limit']; ?>" class="widefat" id="<?php echo $this->get_field_id( 'limit' ); ?>" />
 		</p>
-		<!-- Widget Image Size: Text Input -->
 		<!-- Widget Columns: Number Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'per_row' ); ?>"><?php _e( 'Numer of columns:', 'our-team-by-woothemes' ); ?></label>
@@ -241,7 +240,7 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 		<!-- Widget Image Size: Number Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'size' ); ?>"><?php _e( 'Image Size (in pixels):', 'our-team-by-woothemes' ); ?></label>
-			<input type="text" name="<?php echo $this->get_field_name( 'size' ); ?>"  value="<?php echo $instance['size']; ?>" class="widefat" id="<?php echo $this->get_field_id( 'size' ); ?>" />
+			<input type="number" name="<?php echo $this->get_field_name( 'size' ); ?>"  value="<?php echo $instance['size']; ?>" class="widefat" id="<?php echo $this->get_field_id( 'size' ); ?>" />
 		</p>
 		<!-- Widget Order By: Select Input -->
 		<p>
