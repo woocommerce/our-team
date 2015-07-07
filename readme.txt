@@ -4,7 +4,7 @@ Donate link: http://woothemes.com/
 Tags: teams, team members, profiles, widget, shortcode, template-tag
 Requires at least: 3.8
 Tested up to: 3.9.1
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -189,6 +189,9 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 
 == Upgrade Notice =
 
+= 1.4.1 =
+* Removes deprecated constructor call for WP_Widget
+
 = 1.2.0 =
 * Filter 'woothemes_our_member_fields' has been renamed to 'woothemes_our_team_member_fields'.
 * Textdomain changed from 'woothemes-our-team' to 'our-team-by-woothemes'.
@@ -200,6 +203,10 @@ We encourage everyone to contribute their ideas, thoughts and code snippets. Thi
 * Initial release. Woo!
 
 == Changelog ==
+
+= 1.4.1 =
+* 2015-07-07
+* Removes deprecated constructor call for WP_Widget
 
 = 1.4.0 =
 * New - Team member contact email field.
