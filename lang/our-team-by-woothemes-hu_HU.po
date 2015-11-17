@@ -1,0 +1,458 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Our Team v1.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2014-10-23 15:19+0100\n"
+"Last-Translator: Marton, Károly <m.karoly@martondesign.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ../\n"
+"X-Textdomain-Support: yes\n"
+"Language: en_GB\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-SearchPath-0: .\n"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team-taxonomy.php:103
+#: classes/class-woothemes-our-team.php:85
+#, php-format
+msgid "Add New %s"
+msgstr "Új %s hozzáadása"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team-taxonomy.php:101
+#: classes/class-woothemes-our-team.php:86
+#, php-format
+msgid "Edit %s"
+msgstr "%s szerkesztése"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:87
+#, php-format
+msgid "New %s"
+msgstr "Új %s"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team-taxonomy.php:98
+#: classes/class-woothemes-our-team.php:88
+#, php-format
+msgid "All %s"
+msgstr "%s (összes)"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:44
+msgid "Our Team"
+msgstr "Csapatunk"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:89
+#, php-format
+msgid "View %s"
+msgstr "%s megjelenítése"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:90
+#, php-format
+msgid "Search %a"
+msgstr "Keresés %a"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:91
+#, php-format
+msgid "No %s Found"
+msgstr "Nincs találat: %s"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:92
+#, php-format
+msgid "No %s Found In Trash"
+msgstr "Nincs találat a lomtárban: %s"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:178
+msgid "Image"
+msgstr "Kép"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:212
+msgid "Custom field updated."
+msgstr "Egyedi mező frissítve."
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:213
+msgid "Custom field deleted."
+msgstr "Egyedi mező törölve."
+
+# @ default
+#: classes/class-woothemes-our-team.php:222
+msgid "M j, Y @ G:i"
+msgstr "Y.m.d @ H:i"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:384
+msgid "Gravatar E-mail Address"
+msgstr "Gravatar e-mail cím"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:385
+#, php-format
+msgid ""
+"Enter in an e-mail address, to use a %sGravatar%s, instead of using the "
+"\"Featured Image\"."
+msgstr "E-mail cím megadása %sGravatar%s, \"Kiemelt Kép\" helyett"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:403
+msgid "URL"
+msgstr "URL"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:175
+msgid "Title (optional):"
+msgstr "Cím (opcionális)"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:180
+msgid "Limit:"
+msgstr "Korlát"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:185
+msgid "Image Size (in pixels):"
+msgstr "Kép méret (pixelben)"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:190
+msgid "Order By:"
+msgstr "Rendezés szerint:"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:199
+msgid "Order Direction:"
+msgstr "Rendezés iránya:"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:224
+msgid "Display URL"
+msgstr "Megjelenítendő URL"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:241
+msgid "Specific ID (optional):"
+msgstr "Azonosító (opcionális):"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:255
+msgid "No Order"
+msgstr "Nincs rendezés"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:256
+msgid "Entry ID"
+msgstr "Bejegyzés azonosító"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:257
+msgid "Title"
+msgstr "Cím"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:258
+msgid "Date Added"
+msgstr "Hozzáadva"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:259
+msgid "Specified Order Setting"
+msgstr "Meghatározott sorrend"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:271
+msgid "Ascending"
+msgstr "Növekvő"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:272
+msgid "Descending"
+msgstr "Csökkenő"
+
+#: woothemes-our-team-template.php:211
+msgid "Read full biography..."
+msgstr "Tovább a bemutatkozáshoz..."
+
+# @ woothemes-our-team
+#: woothemes-our-team-template.php:215
+msgid "Previous"
+msgstr "Előző"
+
+# @ woothemes-our-team
+#: woothemes-our-team-template.php:216
+msgid "Next"
+msgstr "Következő"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:219
+msgid "Display Avatar"
+msgstr "Avatár megjelenítése"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:260
+msgid "Random Order"
+msgstr "Véletlenszerű sorrend"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team-taxonomy.php:71
+msgid "Category"
+msgstr "Kategória"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team-taxonomy.php:72
+msgid "Categories"
+msgstr "Kategóriák"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team-taxonomy.php:95
+#, php-format
+msgctxt "taxonomy general name"
+msgid "%s"
+msgstr "%s"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team-taxonomy.php:96
+#, php-format
+msgctxt "taxonomy singular name"
+msgid "%s"
+msgstr "%s"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team-taxonomy.php:97
+#, php-format
+msgid "Search %s"
+msgstr "Keresés: %s"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team-taxonomy.php:99
+#, php-format
+msgid "Parent %s"
+msgstr "Szülő %s"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team-taxonomy.php:100
+#, php-format
+msgid "Parent %s:"
+msgstr "Szülő %s:"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team-taxonomy.php:102
+#, php-format
+msgid "Update %s"
+msgstr "Frissítés %s"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team-taxonomy.php:104
+#, php-format
+msgid "New %s Name"
+msgstr "Új %s név"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team-taxonomy.php:105
+#, php-format
+msgid "%s"
+msgstr "%s"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:233
+msgid "Category:"
+msgstr "Kategória:"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:235
+msgid "All"
+msgstr "Összes"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:82
+msgctxt "post type general name"
+msgid "Team Members"
+msgstr "Csapattagok"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:83
+msgctxt "post type singular name"
+msgid "Team Member"
+msgstr "Csapattag"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:84
+msgctxt "team member"
+msgid "Add New"
+msgstr "Új hozzáadása"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:85
+#: classes/class-woothemes-our-team.php:86
+#: classes/class-woothemes-our-team.php:87
+#: classes/class-woothemes-our-team.php:89
+msgid "Team Member"
+msgstr "Csapattag"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:88
+#: classes/class-woothemes-our-team.php:90
+#: classes/class-woothemes-our-team.php:91
+#: classes/class-woothemes-our-team.php:92
+#: classes/class-woothemes-our-team.php:94
+msgid "Team Members"
+msgstr "Csapattagok"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:98
+msgctxt "single post url slug"
+msgid "team-member"
+msgstr "team-member"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:211
+#, php-format
+msgid "Team Member updated. %sView team member%s"
+msgstr "Csapattag frissítve. %sMegjelenítés%s"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:214
+msgid "Team Member updated."
+msgstr "Csapattag frissítve."
+
+# @ woothemes-our-team
+#. translators: %s: date and time of the revision
+#: classes/class-woothemes-our-team.php:216
+#, php-format
+msgid "Team Member restored to revision from %s"
+msgstr "Csapattag visszaállítva a következő verzióra: %s"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:217
+#, php-format
+msgid "Team Member published. %sView team member%s"
+msgstr "Csapattag publikálva. %sMegjelenítés%s"
+
+# @ default
+#: classes/class-woothemes-our-team.php:218
+msgid "Team Member saved."
+msgstr "Csapattag elmentve."
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:219
+#, php-format
+msgid "Team Member submitted. %sPreview team member%s"
+msgstr "Csapattag elküldve. %sElőnézet%s"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:220
+#, php-format
+msgid "Team Member scheduled for: %1$s. %2$sPreview team member%3$s"
+msgstr "Csapattag ütemezve: %1$s %2$sElőnézet%3$s"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:223
+#, php-format
+msgid "Team Member draft updated. %sPreview team member%s"
+msgstr "Csapattag vázlat frissítve. %sElőnézet%s"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:237
+msgid "Team Member Details"
+msgstr "Csapattag részletek"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:347
+msgid "Enter the team member's name here"
+msgstr "Add meg a csapattag nevét"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:393
+msgid "Role"
+msgstr "Beosztás"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:394
+msgid ""
+"Enter a byline for the team member (for example: \"Director of Production\")."
+msgstr "Add meg a csapattag szerzőjét (pl.: \"Termelési igazgató\")"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:404
+msgid "Enter this team member's URL (for example: http://woothemes.com/)."
+msgstr "Add meg a csapattag weboldal címét (pl.: http://woothemes.com)."
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:413
+msgid "Twitter Username"
+msgstr "Twitter felhasználónév"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:414
+msgid ""
+"Enter this team member's Twitter username without the @ (for example: "
+"woothemes)."
+msgstr ""
+"Add meg a csapattag Twitter felhasználónevét @ nélkül (pl.: woothemes)."
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:42
+msgid "Team members listed on your site."
+msgstr "Csapattag listázva az oldalon."
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:209
+msgid "Display Name"
+msgstr "Megjelenítendő név"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:229
+msgid "Display Additional Info"
+msgstr "További info megjelenítése"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:244
+msgid "Display a specific team member, rather than a list."
+msgstr "Csapattag megjelenítése lista helyett."
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:99
+msgctxt "post archive url slug"
+msgid "team-members"
+msgstr "csapattagok"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:423
+#: classes/class-woothemes-our-team.php:433
+msgid "WordPress Username"
+msgstr "WP felhasználónév"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:424
+msgid "Map this team member to a user on this site."
+msgstr "Csapattag wp felhasználóhoz rendelése."
+
+# @ woothemes-our-team
+#: classes/class-woothemes-our-team.php:434
+msgid "Holds the id of the selected user."
+msgstr "A kiválasztott felhasználó azonosítója"
+
+# @ woothemes-our-team
+#: classes/class-woothemes-widget-our-team.php:214
+msgid "Display Role"
+msgstr "Beosztás megjelenítése"
+
+# @ woothemes
+#: woothemes-our-team-template.php:165
+#, php-format
+msgid "Read posts by %1$s"
+msgstr "Bejegyzések tőle: %1$s"
