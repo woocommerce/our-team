@@ -67,7 +67,17 @@ class Woothemes_Widget_Our_Team extends WP_Widget {
 	 * @param  array $instance Widget settings for this instance.
 	 * @return void
 	 */
-	public function widget( $args, $instance ) {
+	public function widget( $args, $instance ) { 
+		
+		$defaults = array( 'title' => '',
+		                   'before' => '',
+		                   'after' => '',
+		                   'before_title' => '',
+		                   'after_title' => '' );
+		                   
+		                 
+		$instance = wp_parse_args( $instance,  $defaults );
+		
 		extract( $args, EXTR_SKIP );
 
 		/* Our variables from the widget settings. */

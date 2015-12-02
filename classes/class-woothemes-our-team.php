@@ -274,6 +274,32 @@ class Woothemes_Our_Team {
 						$html .= '<tr valign="top">' . $field . "\n";
 						$html .= '<tr/>' . "\n";
 						break;
+					case 'select':
+						$field = '<select name="' . esc_attr( $k ) . '" id="' . esc_attr( $k ) . '" class="regular-select" />';
+						if( ! empty( $v['options'] ) && is_array( $v['options'] ) ){
+							foreach ( $v['options'] as $key => $value ) {
+								$field .= '<option value="' . esc_attr( $key ) . '" ' . selected( $data, esc_attr( $key ), false ) . '>' . esc_html( $value ) . '</option>';
+							}
+						}
+						$field .= '</select>';
+						$html .= '<tr valign="top"><th scope="row"><label for="' . esc_attr( $k ) . '">' . $v['name'] . '</label></th><td>' . $field . "\n";
+						$html .= '<p class="description">' . $v['description'] . '</p>' . "\n";
+						$html .= '</td><tr/>' . "\n";
+						break;
+					case 'radio':
+						$field = '';
+						if( ! empty( $v['options'] ) && is_array( $v['options'] ) ){
+							foreach ( $v['options'] as $key => $value ) {
+								$field .= '<input type="radio" name="' . esc_attr( $k ) . '" id="' . esc_attr( $k ) . '_' . sanitize_title_with_dashes( $key ) .'" class="radio" value="' . esc_attr( $key ) . '" ' . checked( $data, esc_attr( $key ), false ) . '/>' . $value .'<br/>';
+							}
+						}
+						$html .= '<tr valign="top"><th scope="row"><label for="' . esc_attr( $k ) . '">' . $v['name'] . '</label></th><td>' . $field . "\n";
+						$html .= '<p class="description">' . $v['description'] . '</p>' . "\n";
+						$html .= '</td><tr/>' . "\n";
+						break;
+					case has_action( 'woothemes_our_team_field_type_' . $v['type'] ):
+						do_action( 'woothemes_our_team_field_type_' . $v['type'], $v );
+						break;
 					default:
 						$field = '<input name="' . esc_attr( $k ) . '" type="text" id="' . esc_attr( $k ) . '" class="regular-text" value="' . esc_attr( $data ) . '" />';
 						$html .= '<tr valign="top"><th scope="row"><label for="' . esc_attr( $k ) . '">' . $v['name'] . '</label></th><td>' . $field . "\n";
